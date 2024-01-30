@@ -27,6 +27,7 @@ const (
 	PlatformIQWiki                         // IQWiki
 	PlatformLido                           // Lido
 	PlatformCrossbell                      // Crossbell
+	PlatformENS                            // ENS
 )
 
 func (p Platform) ID() string {
