@@ -31,6 +31,7 @@ const (
 	IQWiki                 // iqwiki
 	Lido                   // lido
 	Crossbell              // crossbell
+	ENS                    // ens
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
