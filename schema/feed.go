@@ -38,6 +38,26 @@ func WithFeedPlatform(platform filter.Platform) FeedOption {
 	}
 }
 
+func NewUnknownFeed(feed *Feed) *Feed {
+	unknownFeed := &Feed{
+		Type:         filter.TypeUnknown,
+		Tag:          filter.TagUnknown,
+		ID:           feed.ID,
+		Owner:        feed.Owner,
+		Index:        feed.Index,
+		From:         feed.From,
+		To:           feed.To,
+		Platform:     feed.Platform,
+		Fee:          feed.Fee,
+		TotalActions: feed.TotalActions,
+		Direction:    feed.Direction,
+		Status:       feed.Status,
+		Timestamp:    feed.Timestamp,
+	}
+
+	return unknownFeed
+}
+
 type Feeds []*Feed
 
 var _ json.Unmarshaler = (*Feeds)(nil)
