@@ -41,6 +41,7 @@ func WithFeedPlatform(platform filter.Platform) FeedOption {
 func NewUnknownFeed(feed *Feed) *Feed {
 	unknownFeed := &Feed{
 		Type:         filter.TypeUnknown,
+		Tag:          filter.TagUnknown,
 		ID:           feed.ID,
 		Owner:        feed.Owner,
 		Index:        feed.Index,
@@ -49,7 +50,6 @@ func NewUnknownFeed(feed *Feed) *Feed {
 		Platform:     feed.Platform,
 		Fee:          feed.Fee,
 		TotalActions: feed.TotalActions,
-		Actions:      feed.Actions,
 		Direction:    feed.Direction,
 		Status:       feed.Status,
 		Timestamp:    feed.Timestamp,
