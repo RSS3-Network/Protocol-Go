@@ -32,6 +32,7 @@ const (
 	Lido                   // lido
 	Crossbell              // crossbell
 	ENS                    // ens
+	KiwiStand              // kiwistand
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
