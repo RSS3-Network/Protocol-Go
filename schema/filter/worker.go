@@ -33,6 +33,7 @@ const (
 	Crossbell              // crossbell
 	ENS                    // ens
 	KiwiStand              // kiwistand
+	Oneinch                // 1inch
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {

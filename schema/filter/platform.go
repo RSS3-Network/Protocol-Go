@@ -1,9 +1,8 @@
 package filter
 
 import (
-	"strings"
-
 	"github.com/labstack/echo/v4"
+	"strings"
 )
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Platform --linecomment --output platform_string.go --json --sql
@@ -29,6 +28,7 @@ const (
 	PlatformCrossbell                      // Crossbell
 	PlatformENS                            // ENS
 	PlatformKiwiStand                      // KiwiStand
+	PlatformOneinch                        // 1inch
 )
 
 func (p Platform) ID() string {
