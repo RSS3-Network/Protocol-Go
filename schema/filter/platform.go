@@ -29,6 +29,7 @@ const (
 	PlatformCrossbell                      // Crossbell
 	PlatformENS                            // ENS
 	PlatformKiwiStand                      // KiwiStand
+	Platform1inch                          // 1inch
 )
 
 func (p Platform) ID() string {
