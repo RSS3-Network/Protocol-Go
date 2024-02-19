@@ -50,10 +50,10 @@ func _PlatformNoOp() {
 	_ = x[PlatformCrossbell-(17)]
 	_ = x[PlatformENS-(18)]
 	_ = x[PlatformKiwiStand-(19)]
-	_ = x[PlatformOneinch-(20)]
+	_ = x[Platform1inch-(20)]
 }
 
-var _PlatformValues = []Platform{PlatformRSS3, PlatformMirror, PlatformFarcaster, PlatformParagraph, PlatformOpenSea, PlatformUniswap, PlatformOptimism, PlatformAavegotchi, PlatformLens, PlatformLooksRare, PlatformMatters, PlatformMomoka, PlatformHighlight, PlatformAAVE, PlatformIQWiki, PlatformLido, PlatformCrossbell, PlatformENS, PlatformKiwiStand, PlatformOneinch}
+var _PlatformValues = []Platform{PlatformRSS3, PlatformMirror, PlatformFarcaster, PlatformParagraph, PlatformOpenSea, PlatformUniswap, PlatformOptimism, PlatformAavegotchi, PlatformLens, PlatformLooksRare, PlatformMatters, PlatformMomoka, PlatformHighlight, PlatformAAVE, PlatformIQWiki, PlatformLido, PlatformCrossbell, PlatformENS, PlatformKiwiStand, Platform1inch}
 
 var _PlatformNameToValueMap = map[string]Platform{
 	_PlatformName[0:4]:          PlatformRSS3,
@@ -94,8 +94,8 @@ var _PlatformNameToValueMap = map[string]Platform{
 	_PlatformLowerName[118:121]: PlatformENS,
 	_PlatformName[121:130]:      PlatformKiwiStand,
 	_PlatformLowerName[121:130]: PlatformKiwiStand,
-	_PlatformName[130:135]:      PlatformOneinch,
-	_PlatformLowerName[130:135]: PlatformOneinch,
+	_PlatformName[130:135]:      Platform1inch,
+	_PlatformLowerName[130:135]: Platform1inch,
 }
 
 var _PlatformNames = []string{
