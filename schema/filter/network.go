@@ -11,18 +11,19 @@ import (
 type Network uint64
 
 const (
-	NetworkUnknown   Network = iota // unknown
-	NetworkEthereum                 // ethereum
-	NetworkOptimism                 // optimism
-	NetworkBase                     // base
-	NetworkPolygon                  // polygon
-	NetworkCrossbell                // crossbell
-	NetworkArbitrum                 // arbitrum
-	NetworkFantom                   // fantom
-	NetworkRSS                      // rss
-	NetworkArweave                  // arweave
-	NetworkFarcaster                // farcaster
-	NetworkAvalanche                // avax
+	NetworkUnknown     Network = iota // unknown
+	NetworkEthereum                   // ethereum
+	NetworkOptimism                   // optimism
+	NetworkBase                       // base
+	NetworkPolygon                    // polygon
+	NetworkCrossbell                  // crossbell
+	NetworkArbitrum                   // arbitrum
+	NetworkFantom                     // fantom
+	NetworkRSS                        // rss
+	NetworkArweave                    // arweave
+	NetworkFarcaster                  // farcaster
+	NetworkAvalanche                  // avax
+	NetworkRSS3Testnet                // rss3-testnet
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -48,7 +49,7 @@ const (
 
 func (n Network) Source() NetworkSource {
 	switch n {
-	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche:
+	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkRSS3Testnet:
 		return NetworkEthereumSource
 	case NetworkArweave:
 		return NetworkArweaveSource
@@ -63,14 +64,15 @@ func (n Network) Source() NetworkSource {
 type EthereumChainID uint64
 
 const (
-	EthereumChainIDMainnet   EthereumChainID = 1     // ethereum
-	EthereumChainIDOptimism  EthereumChainID = 10    // optimism
-	EthereumChainIDPolygon   EthereumChainID = 137   // polygon
-	EthereumChainIDArbitrum  EthereumChainID = 42161 // arbitrum
-	EthereumChainIDFantom    EthereumChainID = 250   // fantom
-	EthereumChainIDBase      EthereumChainID = 8453  // base
-	EthereumChainIDCrossbell EthereumChainID = 3737  // crossbell
-	EthereumChainIDAvalanche EthereumChainID = 43114 // avax
+	EthereumChainIDMainnet     EthereumChainID = 1     // ethereum
+	EthereumChainIDOptimism    EthereumChainID = 10    // optimism
+	EthereumChainIDPolygon     EthereumChainID = 137   // polygon
+	EthereumChainIDArbitrum    EthereumChainID = 42161 // arbitrum
+	EthereumChainIDFantom      EthereumChainID = 250   // fantom
+	EthereumChainIDBase        EthereumChainID = 8453  // base
+	EthereumChainIDCrossbell   EthereumChainID = 3737  // crossbell
+	EthereumChainIDAvalanche   EthereumChainID = 43114 // avax
+	EthereumChainIDRSS3Testnet EthereumChainID = 2331  // rss3-testnet
 )
 
 func NetworkAndChainID(network string) (Network, EthereumChainID) {
@@ -91,6 +93,8 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 		return NetworkCrossbell, EthereumChainIDCrossbell
 	case NetworkAvalanche.String():
 		return NetworkAvalanche, EthereumChainIDAvalanche
+	case NetworkRSS3Testnet.String():
+		return NetworkRSS3Testnet, EthereumChainIDRSS3Testnet
 	default:
 		return NetworkUnknown, 0
 	}
@@ -99,7 +103,7 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 func IsOptimismSuperchain(chainID uint64) bool {
 	switch chainID {
 	case uint64(EthereumChainIDOptimism),
-		uint64(EthereumChainIDBase):
+		uint64(EthereumChainIDBase), uint64(EthereumChainIDRSS3Testnet):
 		return true
 	default:
 		return false
