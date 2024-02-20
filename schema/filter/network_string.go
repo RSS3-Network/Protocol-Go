@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravax"
+const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnet"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80}
+var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80, 92}
 
-const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravax"
+const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnet"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -42,9 +42,10 @@ func _NetworkNoOp() {
 	_ = x[NetworkArweave-(9)]
 	_ = x[NetworkFarcaster-(10)]
 	_ = x[NetworkAvalanche-(11)]
+	_ = x[NetworkRSS3Testnet-(12)]
 }
 
-var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche}
+var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkRSS3Testnet}
 
 var _NetworkNameToValueMap = map[string]Network{
 	_NetworkName[0:7]:        NetworkUnknown,
@@ -71,6 +72,8 @@ var _NetworkNameToValueMap = map[string]Network{
 	_NetworkLowerName[67:76]: NetworkFarcaster,
 	_NetworkName[76:80]:      NetworkAvalanche,
 	_NetworkLowerName[76:80]: NetworkAvalanche,
+	_NetworkName[80:92]:      NetworkRSS3Testnet,
+	_NetworkLowerName[80:92]: NetworkRSS3Testnet,
 }
 
 var _NetworkNames = []string{
@@ -86,6 +89,7 @@ var _NetworkNames = []string{
 	_NetworkName[60:67],
 	_NetworkName[67:76],
 	_NetworkName[76:80],
+	_NetworkName[80:92],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.
