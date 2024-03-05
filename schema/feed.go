@@ -9,24 +9,22 @@ import (
 )
 
 type Feed struct {
-	ID             string           `json:"id"`
-	Owner          string           `json:"owner,omitempty"`
-	Network        filter.Network   `json:"network"`
-	Index          uint             `json:"index"`
-	From           string           `json:"from"`
-	To             string           `json:"to"`
-	Tag            filter.Tag       `json:"tag"`
-	Type           filter.Type      `json:"type"`
-	Platform       *filter.Platform `json:"platform,omitempty"`
-	Fee            *Fee             `json:"fee,omitempty"`
-	Calldata       string           `json:"calldata,omitempty"` // don't store for now
-	FunctionHash   string           `json:"function_hash,omitempty"`
-	ParsedFunction string           `json:"parsed_function,omitempty"`
-	TotalActions   uint             `json:"total_actions"`
-	Actions        []*Action        `json:"actions"`
-	Direction      filter.Direction `json:"direction,omitempty"`
-	Status         bool             `json:"success"`
-	Timestamp      uint64           `json:"timestamp"`
+	ID           string           `json:"id"`
+	Owner        string           `json:"owner,omitempty"`
+	Network      filter.Network   `json:"network"`
+	Index        uint             `json:"index"`
+	From         string           `json:"from"`
+	To           string           `json:"to"`
+	Tag          filter.Tag       `json:"tag"`
+	Type         filter.Type      `json:"type"`
+	Platform     *filter.Platform `json:"platform,omitempty"`
+	Fee          *Fee             `json:"fee,omitempty"`
+	Calldata     *Calldata        `json:"calldata,omitempty"`
+	TotalActions uint             `json:"total_actions"`
+	Actions      []*Action        `json:"actions"`
+	Direction    filter.Direction `json:"direction,omitempty"`
+	Status       bool             `json:"success"`
+	Timestamp    uint64           `json:"timestamp"`
 }
 
 // FeedOption is a function that can be used to modify a feed,
