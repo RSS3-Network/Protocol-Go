@@ -24,6 +24,7 @@ const (
 	NetworkFarcaster                  // farcaster
 	NetworkAvalanche                  // avax
 	NetworkRSS3Testnet                // rss3-testnet
+	NetworkRSS3                       // rss3
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -49,7 +50,7 @@ const (
 
 func (n Network) Source() NetworkSource {
 	switch n {
-	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkRSS3Testnet:
+	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkRSS3Testnet, NetworkRSS3:
 		return NetworkEthereumSource
 	case NetworkArweave:
 		return NetworkArweaveSource
@@ -73,6 +74,7 @@ const (
 	EthereumChainIDCrossbell   EthereumChainID = 3737  // crossbell
 	EthereumChainIDAvalanche   EthereumChainID = 43114 // avax
 	EthereumChainIDRSS3Testnet EthereumChainID = 2331  // rss3-testnet
+	EthereumChainIDRSS3        EthereumChainID = 12553 // rss3
 )
 
 func NetworkAndChainID(network string) (Network, EthereumChainID) {
@@ -95,6 +97,8 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 		return NetworkAvalanche, EthereumChainIDAvalanche
 	case NetworkRSS3Testnet.String():
 		return NetworkRSS3Testnet, EthereumChainIDRSS3Testnet
+	case NetworkRSS3.String():
+		return NetworkRSS3, EthereumChainIDRSS3
 	default:
 		return NetworkUnknown, 0
 	}
@@ -103,7 +107,7 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 func IsOptimismSuperchain(chainID uint64) bool {
 	switch chainID {
 	case uint64(EthereumChainIDOptimism),
-		uint64(EthereumChainIDBase), uint64(EthereumChainIDRSS3Testnet):
+		uint64(EthereumChainIDBase), uint64(EthereumChainIDRSS3Testnet), uint64(EthereumChainIDRSS3):
 		return true
 	default:
 		return false

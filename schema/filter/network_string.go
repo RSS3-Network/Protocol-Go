@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnet"
+const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetrss3"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80, 92}
+var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80, 92, 96}
 
-const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnet"
+const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetrss3"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -43,9 +43,10 @@ func _NetworkNoOp() {
 	_ = x[NetworkFarcaster-(10)]
 	_ = x[NetworkAvalanche-(11)]
 	_ = x[NetworkRSS3Testnet-(12)]
+	_ = x[NetworkRSS3-(13)]
 }
 
-var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkRSS3Testnet}
+var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkRSS3Testnet, NetworkRSS3}
 
 var _NetworkNameToValueMap = map[string]Network{
 	_NetworkName[0:7]:        NetworkUnknown,
@@ -74,6 +75,8 @@ var _NetworkNameToValueMap = map[string]Network{
 	_NetworkLowerName[76:80]: NetworkAvalanche,
 	_NetworkName[80:92]:      NetworkRSS3Testnet,
 	_NetworkLowerName[80:92]: NetworkRSS3Testnet,
+	_NetworkName[92:96]:      NetworkRSS3,
+	_NetworkLowerName[92:96]: NetworkRSS3,
 }
 
 var _NetworkNames = []string{
@@ -90,6 +93,7 @@ var _NetworkNames = []string{
 	_NetworkName[67:76],
 	_NetworkName[76:80],
 	_NetworkName[80:92],
+	_NetworkName[92:96],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.
