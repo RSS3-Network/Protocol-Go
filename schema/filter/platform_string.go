@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _PlatformName = "RSS3MirrorFarcasterParagraphOpenSeaUniswapOptimismAavegotchiLensLooksRareMattersMomokaHighlightAAVEIQWikiLidoCrossbellENSKiwiStand1inch"
+const _PlatformName = "RSS3MirrorFarcasterParagraphOpenSeaUniswapOptimismAavegotchiLensLooksRareMattersMomokaHighlightAAVEIQWikiLidoCrossbellENSKiwiStand1inchRSS3Node"
 
-var _PlatformIndex = [...]uint8{0, 4, 10, 19, 28, 35, 42, 50, 60, 64, 73, 80, 86, 95, 99, 105, 109, 118, 121, 130, 135}
+var _PlatformIndex = [...]uint8{0, 4, 10, 19, 28, 35, 42, 50, 60, 64, 73, 80, 86, 95, 99, 105, 109, 118, 121, 130, 135, 143}
 
-const _PlatformLowerName = "rss3mirrorfarcasterparagraphopenseauniswapoptimismaavegotchilenslooksraremattersmomokahighlightaaveiqwikilidocrossbellenskiwistand1inch"
+const _PlatformLowerName = "rss3mirrorfarcasterparagraphopenseauniswapoptimismaavegotchilenslooksraremattersmomokahighlightaaveiqwikilidocrossbellenskiwistand1inchrss3node"
 
 func (i Platform) String() string {
 	i -= 1
@@ -51,9 +51,10 @@ func _PlatformNoOp() {
 	_ = x[PlatformENS-(18)]
 	_ = x[PlatformKiwiStand-(19)]
 	_ = x[Platform1inch-(20)]
+	_ = x[PlatformRSS3Node-(21)]
 }
 
-var _PlatformValues = []Platform{PlatformRSS3, PlatformMirror, PlatformFarcaster, PlatformParagraph, PlatformOpenSea, PlatformUniswap, PlatformOptimism, PlatformAavegotchi, PlatformLens, PlatformLooksRare, PlatformMatters, PlatformMomoka, PlatformHighlight, PlatformAAVE, PlatformIQWiki, PlatformLido, PlatformCrossbell, PlatformENS, PlatformKiwiStand, Platform1inch}
+var _PlatformValues = []Platform{PlatformRSS3, PlatformMirror, PlatformFarcaster, PlatformParagraph, PlatformOpenSea, PlatformUniswap, PlatformOptimism, PlatformAavegotchi, PlatformLens, PlatformLooksRare, PlatformMatters, PlatformMomoka, PlatformHighlight, PlatformAAVE, PlatformIQWiki, PlatformLido, PlatformCrossbell, PlatformENS, PlatformKiwiStand, Platform1inch, PlatformRSS3Node}
 
 var _PlatformNameToValueMap = map[string]Platform{
 	_PlatformName[0:4]:          PlatformRSS3,
@@ -96,6 +97,8 @@ var _PlatformNameToValueMap = map[string]Platform{
 	_PlatformLowerName[121:130]: PlatformKiwiStand,
 	_PlatformName[130:135]:      Platform1inch,
 	_PlatformLowerName[130:135]: Platform1inch,
+	_PlatformName[135:143]:      PlatformRSS3Node,
+	_PlatformLowerName[135:143]: PlatformRSS3Node,
 }
 
 var _PlatformNames = []string{
@@ -119,6 +122,7 @@ var _PlatformNames = []string{
 	_PlatformName[118:121],
 	_PlatformName[121:130],
 	_PlatformName[130:135],
+	_PlatformName[135:143],
 }
 
 // PlatformString retrieves an enum value from the enum constants string name.

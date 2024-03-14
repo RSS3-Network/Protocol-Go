@@ -30,6 +30,7 @@ const (
 	PlatformENS                            // ENS
 	PlatformKiwiStand                      // KiwiStand
 	Platform1inch                          // 1inch
+	PlatformRSS3Node                       // RSS3Node
 )
 
 func (p Platform) ID() string {
