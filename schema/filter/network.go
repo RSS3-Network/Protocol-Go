@@ -25,6 +25,7 @@ const (
 	NetworkAvalanche                  // avax
 	NetworkRSS3Testnet                // rss3-testnet
 	NetworkVSL                        // vsl
+	NetworkSatoshiVM                  // savm
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -50,7 +51,7 @@ const (
 
 func (n Network) Source() NetworkSource {
 	switch n {
-	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkRSS3Testnet, NetworkVSL:
+	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkRSS3Testnet, NetworkVSL, NetworkSatoshiVM:
 		return NetworkEthereumSource
 	case NetworkArweave:
 		return NetworkArweaveSource
@@ -75,6 +76,7 @@ const (
 	EthereumChainIDAvalanche   EthereumChainID = 43114 // avax
 	EthereumChainIDRSS3Testnet EthereumChainID = 2331  // rss3-testnet
 	EthereumChainIDVSL         EthereumChainID = 12553 // vsl
+	EthereumChainIDSatoshiVM   EthereumChainID = 3109  // savm
 )
 
 func NetworkAndChainID(network string) (Network, EthereumChainID) {
@@ -99,6 +101,8 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 		return NetworkRSS3Testnet, EthereumChainIDRSS3Testnet
 	case NetworkVSL.String():
 		return NetworkVSL, EthereumChainIDVSL
+	case NetworkSatoshiVM.String():
+		return NetworkSatoshiVM, EthereumChainIDSatoshiVM
 	default:
 		return NetworkUnknown, 0
 	}
