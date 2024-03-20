@@ -26,6 +26,7 @@ const (
 	NetworkRSS3Testnet                // rss3-testnet
 	NetworkVSL                        // vsl
 	NetworkSatoshiVM                  // savm
+	NetworkBTC                        // btc
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)

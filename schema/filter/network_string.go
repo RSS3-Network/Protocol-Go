@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetvslsavm"
+const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetvslsavmbtc"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80, 92, 95, 99}
+var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 57, 60, 67, 76, 80, 92, 95, 99, 102}
 
-const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetvslsavm"
+const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumfantomrssarweavefarcasteravaxrss3-testnetvslsavmbtc"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -45,41 +45,44 @@ func _NetworkNoOp() {
 	_ = x[NetworkRSS3Testnet-(12)]
 	_ = x[NetworkVSL-(13)]
 	_ = x[NetworkSatoshiVM-(14)]
+	_ = x[NetworkBTC-(15)]
 }
 
-var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkRSS3Testnet, NetworkVSL, NetworkSatoshiVM}
+var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkFantom, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkRSS3Testnet, NetworkVSL, NetworkSatoshiVM, NetworkBTC}
 
 var _NetworkNameToValueMap = map[string]Network{
-	_NetworkName[0:7]:        NetworkUnknown,
-	_NetworkLowerName[0:7]:   NetworkUnknown,
-	_NetworkName[7:15]:       NetworkEthereum,
-	_NetworkLowerName[7:15]:  NetworkEthereum,
-	_NetworkName[15:23]:      NetworkOptimism,
-	_NetworkLowerName[15:23]: NetworkOptimism,
-	_NetworkName[23:27]:      NetworkBase,
-	_NetworkLowerName[23:27]: NetworkBase,
-	_NetworkName[27:34]:      NetworkPolygon,
-	_NetworkLowerName[27:34]: NetworkPolygon,
-	_NetworkName[34:43]:      NetworkCrossbell,
-	_NetworkLowerName[34:43]: NetworkCrossbell,
-	_NetworkName[43:51]:      NetworkArbitrum,
-	_NetworkLowerName[43:51]: NetworkArbitrum,
-	_NetworkName[51:57]:      NetworkFantom,
-	_NetworkLowerName[51:57]: NetworkFantom,
-	_NetworkName[57:60]:      NetworkRSS,
-	_NetworkLowerName[57:60]: NetworkRSS,
-	_NetworkName[60:67]:      NetworkArweave,
-	_NetworkLowerName[60:67]: NetworkArweave,
-	_NetworkName[67:76]:      NetworkFarcaster,
-	_NetworkLowerName[67:76]: NetworkFarcaster,
-	_NetworkName[76:80]:      NetworkAvalanche,
-	_NetworkLowerName[76:80]: NetworkAvalanche,
-	_NetworkName[80:92]:      NetworkRSS3Testnet,
-	_NetworkLowerName[80:92]: NetworkRSS3Testnet,
-	_NetworkName[92:95]:      NetworkVSL,
-	_NetworkLowerName[92:95]: NetworkVSL,
-	_NetworkName[95:99]:      NetworkSatoshiVM,
-	_NetworkLowerName[95:99]: NetworkSatoshiVM,
+	_NetworkName[0:7]:         NetworkUnknown,
+	_NetworkLowerName[0:7]:    NetworkUnknown,
+	_NetworkName[7:15]:        NetworkEthereum,
+	_NetworkLowerName[7:15]:   NetworkEthereum,
+	_NetworkName[15:23]:       NetworkOptimism,
+	_NetworkLowerName[15:23]:  NetworkOptimism,
+	_NetworkName[23:27]:       NetworkBase,
+	_NetworkLowerName[23:27]:  NetworkBase,
+	_NetworkName[27:34]:       NetworkPolygon,
+	_NetworkLowerName[27:34]:  NetworkPolygon,
+	_NetworkName[34:43]:       NetworkCrossbell,
+	_NetworkLowerName[34:43]:  NetworkCrossbell,
+	_NetworkName[43:51]:       NetworkArbitrum,
+	_NetworkLowerName[43:51]:  NetworkArbitrum,
+	_NetworkName[51:57]:       NetworkFantom,
+	_NetworkLowerName[51:57]:  NetworkFantom,
+	_NetworkName[57:60]:       NetworkRSS,
+	_NetworkLowerName[57:60]:  NetworkRSS,
+	_NetworkName[60:67]:       NetworkArweave,
+	_NetworkLowerName[60:67]:  NetworkArweave,
+	_NetworkName[67:76]:       NetworkFarcaster,
+	_NetworkLowerName[67:76]:  NetworkFarcaster,
+	_NetworkName[76:80]:       NetworkAvalanche,
+	_NetworkLowerName[76:80]:  NetworkAvalanche,
+	_NetworkName[80:92]:       NetworkRSS3Testnet,
+	_NetworkLowerName[80:92]:  NetworkRSS3Testnet,
+	_NetworkName[92:95]:       NetworkVSL,
+	_NetworkLowerName[92:95]:  NetworkVSL,
+	_NetworkName[95:99]:       NetworkSatoshiVM,
+	_NetworkLowerName[95:99]:  NetworkSatoshiVM,
+	_NetworkName[99:102]:      NetworkBTC,
+	_NetworkLowerName[99:102]: NetworkBTC,
 }
 
 var _NetworkNames = []string{
@@ -98,6 +101,7 @@ var _NetworkNames = []string{
 	_NetworkName[80:92],
 	_NetworkName[92:95],
 	_NetworkName[95:99],
+	_NetworkName[99:102],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.
