@@ -36,6 +36,7 @@ const (
 	Oneinch                // 1inch
 	Snapshot               // snapshot
 	VSL                    // vsl
+	SAVM                   // savm
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
