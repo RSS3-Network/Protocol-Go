@@ -32,6 +32,7 @@ const (
 	Platform1inch                          // 1inch
 	PlatformSnapshot                       // Snapshot
 	PlatformVSL                            // VSL
+	PlatformSAVM                           // SAVM
 )
 
 func (p Platform) ID() string {
