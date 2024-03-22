@@ -18,7 +18,6 @@ const (
 	NetworkPolygon                          // polygon
 	NetworkCrossbell                        // crossbell
 	NetworkArbitrum                         // arbitrum
-	NetworkFantom                           // fantom
 	NetworkRSS                              // rss
 	NetworkArweave                          // arweave
 	NetworkFarcaster                        // farcaster
@@ -28,12 +27,6 @@ const (
 	NetworkBTC                              // btc
 	NetworkBinanceSmartChain                // binance_smart_chain
 	NetworkGnosis                           // gnosis
-	NetworkX1Testnet                        // x1_testnet
-	NetworkZkSyncEra                        // zksync_era
-	NetworkMetis                            // metis
-	NetworkKava                             // kava
-	NetworkCelo                             // celo
-	NetworkScroll                           // scroll
 	NetworkLinea                            // linea
 )
 
@@ -60,7 +53,7 @@ const (
 
 func (n Network) Source() NetworkSource {
 	switch n {
-	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkFantom, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkVSL, NetworkSatoshiVM, NetworkBinanceSmartChain, NetworkGnosis, NetworkX1Testnet, NetworkZkSyncEra, NetworkMetis, NetworkKava, NetworkCelo, NetworkScroll, NetworkLinea:
+	case NetworkEthereum, NetworkPolygon, NetworkOptimism, NetworkArbitrum, NetworkBase, NetworkCrossbell, NetworkAvalanche, NetworkVSL, NetworkSatoshiVM, NetworkBinanceSmartChain, NetworkGnosis, NetworkLinea:
 		return NetworkEthereumSource
 	case NetworkArweave:
 		return NetworkArweaveSource
@@ -87,12 +80,6 @@ const (
 	EthereumChainIDSatoshiVM         EthereumChainID = 3109  // savm
 	EthereumChainIDBinanceSmartChain EthereumChainID = 56    // binance_smart_chain
 	EthereumChainIDGnosis            EthereumChainID = 100   // gnosis
-	EthereumChainIDX1Testnet         EthereumChainID = 195   // x1_testnet
-	EthereumChainIDZkSyncEra         EthereumChainID = 324   // zksync_era
-	EthereumChainIDMetis             EthereumChainID = 1088  // metis
-	EthereumChainIDKava              EthereumChainID = 2222  // kava
-	EthereumChainIDCelo              EthereumChainID = 42220 // celo
-	EthereumChainIDScroll            EthereumChainID = 534352
 	EthereumChainIDLinea             EthereumChainID = 59144
 )
 
@@ -106,8 +93,6 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 		return NetworkPolygon, EthereumChainIDPolygon
 	case NetworkArbitrum.String():
 		return NetworkArbitrum, EthereumChainIDArbitrum
-	case NetworkFantom.String():
-		return NetworkFantom, EthereumChainIDFantom
 	case NetworkBase.String():
 		return NetworkBase, EthereumChainIDBase
 	case NetworkCrossbell.String():
@@ -122,18 +107,6 @@ func NetworkAndChainID(network string) (Network, EthereumChainID) {
 		return NetworkBinanceSmartChain, EthereumChainIDBinanceSmartChain
 	case NetworkGnosis.String():
 		return NetworkGnosis, EthereumChainIDGnosis
-	case NetworkX1Testnet.String():
-		return NetworkX1Testnet, EthereumChainIDX1Testnet
-	case NetworkZkSyncEra.String():
-		return NetworkZkSyncEra, EthereumChainIDZkSyncEra
-	case NetworkMetis.String():
-		return NetworkMetis, EthereumChainIDMetis
-	case NetworkKava.String():
-		return NetworkKava, EthereumChainIDKava
-	case NetworkCelo.String():
-		return NetworkCelo, EthereumChainIDCelo
-	case NetworkScroll.String():
-		return NetworkScroll, EthereumChainIDScroll
 	case NetworkLinea.String():
 		return NetworkLinea, EthereumChainIDLinea
 	default:
