@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbtcbinance_smart_chaingnosislinea"
+const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbtcbinance-smart-chaingnosislinea"
 
 var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 54, 61, 70, 74, 77, 81, 84, 103, 109, 114}
 
-const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbtcbinance_smart_chaingnosislinea"
+const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbtcbinance-smart-chaingnosislinea"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {

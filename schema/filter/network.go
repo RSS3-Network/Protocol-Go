@@ -25,7 +25,7 @@ const (
 	NetworkVSL                              // vsl
 	NetworkSatoshiVM                        // savm
 	NetworkBTC                              // btc
-	NetworkBinanceSmartChain                // binance_smart_chain
+	NetworkBinanceSmartChain                // binance-smart-chain
 	NetworkGnosis                           // gnosis
 	NetworkLinea                            // linea
 )
