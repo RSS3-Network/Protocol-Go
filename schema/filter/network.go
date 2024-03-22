@@ -72,7 +72,6 @@ const (
 	EthereumChainIDOptimism          EthereumChainID = 10    // optimism
 	EthereumChainIDPolygon           EthereumChainID = 137   // polygon
 	EthereumChainIDArbitrum          EthereumChainID = 42161 // arbitrum
-	EthereumChainIDFantom            EthereumChainID = 250   // fantom
 	EthereumChainIDBase              EthereumChainID = 8453  // base
 	EthereumChainIDCrossbell         EthereumChainID = 3737  // crossbell
 	EthereumChainIDAvalanche         EthereumChainID = 43114 // avax
