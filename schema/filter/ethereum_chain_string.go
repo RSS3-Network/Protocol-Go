@@ -9,8 +9,8 @@ import (
 	"strings"
 )
 
-const _EthereumChainIDName = "ethereumoptimismbinance_smart_chaingnosispolygonsavmcrossbellbasevslarbitrumavaxEthereumChainIDLinea"
-const _EthereumChainIDLowerName = "ethereumoptimismbinance_smart_chaingnosispolygonsavmcrossbellbasevslarbitrumavaxethereumchainidlinea"
+const _EthereumChainIDName = "ethereumoptimismbinance-smart-chaingnosispolygonsavmcrossbellbasevslarbitrumavaxlinea"
+const _EthereumChainIDLowerName = "ethereumoptimismbinance-smart-chaingnosispolygonsavmcrossbellbasevslarbitrumavaxlinea"
 
 var _EthereumChainIDMap = map[EthereumChainID]string{
 	1:     _EthereumChainIDName[0:8],
@@ -24,7 +24,7 @@ var _EthereumChainIDMap = map[EthereumChainID]string{
 	12553: _EthereumChainIDName[65:68],
 	42161: _EthereumChainIDName[68:76],
 	43114: _EthereumChainIDName[76:80],
-	59144: _EthereumChainIDName[80:100],
+	59144: _EthereumChainIDName[80:85],
 }
 
 func (i EthereumChainID) String() string {
@@ -59,30 +59,30 @@ func _EthereumChainIDNoOp() {
 var _EthereumChainIDValues = []EthereumChainID{EthereumChainIDMainnet, EthereumChainIDOptimism, EthereumChainIDBinanceSmartChain, EthereumChainIDGnosis, EthereumChainIDPolygon, EthereumChainIDSatoshiVM, EthereumChainIDCrossbell, EthereumChainIDBase, EthereumChainIDVSL, EthereumChainIDArbitrum, EthereumChainIDAvalanche, EthereumChainIDLinea}
 
 var _EthereumChainIDNameToValueMap = map[string]EthereumChainID{
-	_EthereumChainIDName[0:8]:         EthereumChainIDMainnet,
-	_EthereumChainIDLowerName[0:8]:    EthereumChainIDMainnet,
-	_EthereumChainIDName[8:16]:        EthereumChainIDOptimism,
-	_EthereumChainIDLowerName[8:16]:   EthereumChainIDOptimism,
-	_EthereumChainIDName[16:35]:       EthereumChainIDBinanceSmartChain,
-	_EthereumChainIDLowerName[16:35]:  EthereumChainIDBinanceSmartChain,
-	_EthereumChainIDName[35:41]:       EthereumChainIDGnosis,
-	_EthereumChainIDLowerName[35:41]:  EthereumChainIDGnosis,
-	_EthereumChainIDName[41:48]:       EthereumChainIDPolygon,
-	_EthereumChainIDLowerName[41:48]:  EthereumChainIDPolygon,
-	_EthereumChainIDName[48:52]:       EthereumChainIDSatoshiVM,
-	_EthereumChainIDLowerName[48:52]:  EthereumChainIDSatoshiVM,
-	_EthereumChainIDName[52:61]:       EthereumChainIDCrossbell,
-	_EthereumChainIDLowerName[52:61]:  EthereumChainIDCrossbell,
-	_EthereumChainIDName[61:65]:       EthereumChainIDBase,
-	_EthereumChainIDLowerName[61:65]:  EthereumChainIDBase,
-	_EthereumChainIDName[65:68]:       EthereumChainIDVSL,
-	_EthereumChainIDLowerName[65:68]:  EthereumChainIDVSL,
-	_EthereumChainIDName[68:76]:       EthereumChainIDArbitrum,
-	_EthereumChainIDLowerName[68:76]:  EthereumChainIDArbitrum,
-	_EthereumChainIDName[76:80]:       EthereumChainIDAvalanche,
-	_EthereumChainIDLowerName[76:80]:  EthereumChainIDAvalanche,
-	_EthereumChainIDName[80:100]:      EthereumChainIDLinea,
-	_EthereumChainIDLowerName[80:100]: EthereumChainIDLinea,
+	_EthereumChainIDName[0:8]:        EthereumChainIDMainnet,
+	_EthereumChainIDLowerName[0:8]:   EthereumChainIDMainnet,
+	_EthereumChainIDName[8:16]:       EthereumChainIDOptimism,
+	_EthereumChainIDLowerName[8:16]:  EthereumChainIDOptimism,
+	_EthereumChainIDName[16:35]:      EthereumChainIDBinanceSmartChain,
+	_EthereumChainIDLowerName[16:35]: EthereumChainIDBinanceSmartChain,
+	_EthereumChainIDName[35:41]:      EthereumChainIDGnosis,
+	_EthereumChainIDLowerName[35:41]: EthereumChainIDGnosis,
+	_EthereumChainIDName[41:48]:      EthereumChainIDPolygon,
+	_EthereumChainIDLowerName[41:48]: EthereumChainIDPolygon,
+	_EthereumChainIDName[48:52]:      EthereumChainIDSatoshiVM,
+	_EthereumChainIDLowerName[48:52]: EthereumChainIDSatoshiVM,
+	_EthereumChainIDName[52:61]:      EthereumChainIDCrossbell,
+	_EthereumChainIDLowerName[52:61]: EthereumChainIDCrossbell,
+	_EthereumChainIDName[61:65]:      EthereumChainIDBase,
+	_EthereumChainIDLowerName[61:65]: EthereumChainIDBase,
+	_EthereumChainIDName[65:68]:      EthereumChainIDVSL,
+	_EthereumChainIDLowerName[65:68]: EthereumChainIDVSL,
+	_EthereumChainIDName[68:76]:      EthereumChainIDArbitrum,
+	_EthereumChainIDLowerName[68:76]: EthereumChainIDArbitrum,
+	_EthereumChainIDName[76:80]:      EthereumChainIDAvalanche,
+	_EthereumChainIDLowerName[76:80]: EthereumChainIDAvalanche,
+	_EthereumChainIDName[80:85]:      EthereumChainIDLinea,
+	_EthereumChainIDLowerName[80:85]: EthereumChainIDLinea,
 }
 
 var _EthereumChainIDNames = []string{
@@ -97,7 +97,7 @@ var _EthereumChainIDNames = []string{
 	_EthereumChainIDName[65:68],
 	_EthereumChainIDName[68:76],
 	_EthereumChainIDName[76:80],
-	_EthereumChainIDName[80:100],
+	_EthereumChainIDName[80:85],
 }
 
 // EthereumChainIDString retrieves an enum value from the enum constants string name.

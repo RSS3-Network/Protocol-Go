@@ -77,9 +77,9 @@ const (
 	EthereumChainIDAvalanche         EthereumChainID = 43114 // avax
 	EthereumChainIDVSL               EthereumChainID = 12553 // vsl
 	EthereumChainIDSatoshiVM         EthereumChainID = 3109  // savm
-	EthereumChainIDBinanceSmartChain EthereumChainID = 56    // binance_smart_chain
+	EthereumChainIDBinanceSmartChain EthereumChainID = 56    // binance-smart-chain
 	EthereumChainIDGnosis            EthereumChainID = 100   // gnosis
-	EthereumChainIDLinea             EthereumChainID = 59144
+	EthereumChainIDLinea             EthereumChainID = 59144 // linea
 )
 
 func NetworkAndChainID(network string) (Network, EthereumChainID) {
