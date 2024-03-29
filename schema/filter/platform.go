@@ -33,6 +33,7 @@ const (
 	PlatformSnapshot                       // Snapshot
 	PlatformVSL                            // VSL
 	PlatformSAVM                           // SAVM
+	PlatformStargate                       // Stargate
 )
 
 func (p Platform) ID() string {

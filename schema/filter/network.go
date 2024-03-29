@@ -24,7 +24,7 @@ const (
 	NetworkAvalanche                        // avax
 	NetworkVSL                              // vsl
 	NetworkSatoshiVM                        // savm
-	NetworkBTC                              // btc
+	NetworkBitcoin                          // bitcoin
 	NetworkBinanceSmartChain                // binance-smart-chain
 	NetworkGnosis                           // gnosis
 	NetworkLinea                            // linea

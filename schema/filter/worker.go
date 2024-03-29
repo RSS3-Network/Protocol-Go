@@ -37,6 +37,7 @@ const (
 	Snapshot               // snapshot
 	VSL                    // vsl
 	SAVM                   // savm
+	Stargate               // stargate
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
