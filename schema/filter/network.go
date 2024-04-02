@@ -28,6 +28,7 @@ const (
 	NetworkBinanceSmartChain                // binance-smart-chain
 	NetworkGnosis                           // gnosis
 	NetworkLinea                            // linea
+	NetworkSnapshot                         // snapshot
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -49,6 +50,7 @@ const (
 	NetworkEthereumSource  NetworkSource = "ethereum"
 	NetworkArweaveSource   NetworkSource = "arweave"
 	NetworkFarcasterSource NetworkSource = "farcaster"
+	NetworkSnapshotSource  NetworkSource = "snapshot"
 )
 
 func (n Network) Source() NetworkSource {
@@ -59,6 +61,8 @@ func (n Network) Source() NetworkSource {
 		return NetworkArweaveSource
 	case NetworkFarcaster:
 		return NetworkFarcasterSource
+	case NetworkSnapshot:
+		return NetworkSnapshotSource
 	default:
 		return ""
 	}
