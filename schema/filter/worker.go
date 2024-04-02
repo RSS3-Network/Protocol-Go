@@ -38,6 +38,7 @@ const (
 	VSL                    // vsl
 	SAVM                   // savm
 	Stargate               // stargate
+	Curve                  // curve
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
