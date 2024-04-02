@@ -34,6 +34,7 @@ const (
 	PlatformVSL                            // VSL
 	PlatformSAVM                           // SAVM
 	PlatformStargate                       // Stargate
+	PlatformCurve                          // Curve
 )
 
 func (p Platform) ID() string {
