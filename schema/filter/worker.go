@@ -34,7 +34,6 @@ const (
 	ENS                    // ens
 	KiwiStand              // kiwistand
 	Oneinch                // 1inch
-	Snapshot               // snapshot
 	VSL                    // vsl
 	SAVM                   // savm
 	Stargate               // stargate
