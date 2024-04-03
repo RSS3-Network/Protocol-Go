@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbitcoinbinance-smart-chaingnosislineasnapshot"
+const _NetworkName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbitcoinbinance-smart-chaingnosislinea"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 54, 61, 70, 74, 77, 81, 88, 107, 113, 118, 126}
+var _NetworkIndex = [...]uint8{0, 7, 15, 23, 27, 34, 43, 51, 54, 61, 70, 74, 77, 81, 88, 107, 113, 118}
 
-const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbitcoinbinance-smart-chaingnosislineasnapshot"
+const _NetworkLowerName = "unknownethereumoptimismbasepolygoncrossbellarbitrumrssarweavefarcasteravaxvslsavmbitcoinbinance-smart-chaingnosislinea"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -47,10 +47,9 @@ func _NetworkNoOp() {
 	_ = x[NetworkBinanceSmartChain-(14)]
 	_ = x[NetworkGnosis-(15)]
 	_ = x[NetworkLinea-(16)]
-	_ = x[NetworkSnapshot-(17)]
 }
 
-var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkVSL, NetworkSatoshiVM, NetworkBitcoin, NetworkBinanceSmartChain, NetworkGnosis, NetworkLinea, NetworkSnapshot}
+var _NetworkValues = []Network{NetworkUnknown, NetworkEthereum, NetworkOptimism, NetworkBase, NetworkPolygon, NetworkCrossbell, NetworkArbitrum, NetworkRSS, NetworkArweave, NetworkFarcaster, NetworkAvalanche, NetworkVSL, NetworkSatoshiVM, NetworkBitcoin, NetworkBinanceSmartChain, NetworkGnosis, NetworkLinea}
 
 var _NetworkNameToValueMap = map[string]Network{
 	_NetworkName[0:7]:          NetworkUnknown,
@@ -87,8 +86,6 @@ var _NetworkNameToValueMap = map[string]Network{
 	_NetworkLowerName[107:113]: NetworkGnosis,
 	_NetworkName[113:118]:      NetworkLinea,
 	_NetworkLowerName[113:118]: NetworkLinea,
-	_NetworkName[118:126]:      NetworkSnapshot,
-	_NetworkLowerName[118:126]: NetworkSnapshot,
 }
 
 var _NetworkNames = []string{
@@ -109,7 +106,6 @@ var _NetworkNames = []string{
 	_NetworkName[88:107],
 	_NetworkName[107:113],
 	_NetworkName[113:118],
-	_NetworkName[118:126],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.

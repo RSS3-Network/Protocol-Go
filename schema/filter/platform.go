@@ -30,7 +30,6 @@ const (
 	PlatformENS                            // ENS
 	PlatformKiwiStand                      // KiwiStand
 	Platform1inch                          // 1inch
-	PlatformSnapshot                       // Snapshot
 	PlatformVSL                            // VSL
 	PlatformSAVM                           // SAVM
 	PlatformStargate                       // Stargate
