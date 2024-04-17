@@ -1,4 +1,4 @@
-package feed
+package activity
 
 type Calldata struct {
 	Raw            string `json:"raw,omitempty"`

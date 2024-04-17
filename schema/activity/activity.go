@@ -1,4 +1,4 @@
-package feed
+package activity
 
 import (
 	"encoding/json"
@@ -8,9 +8,10 @@ import (
 	"github.com/rss3-network/protocol-go/schema/network"
 	"github.com/rss3-network/protocol-go/schema/tag"
 	"github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/shopspring/decimal"
 )
 
-type Feed struct {
+type Activity struct {
 	ID           string          `json:"id"`
 	Owner        string          `json:"owner,omitempty"`
 	Network      network.Network `json:"network"`
@@ -29,56 +30,62 @@ type Feed struct {
 	Timestamp    uint64          `json:"timestamp"`
 }
 
-// Option is a function that can be used to modify a feed,
-// it is used in the feed builder.
-type Option func(feed *Feed) error
+type Fee struct {
+	Address *string         `json:"address,omitempty"`
+	Amount  decimal.Decimal `json:"amount"`
+	Decimal uint            `json:"decimal"`
+}
 
-func WithFeedPlatform(platform string) Option {
-	return func(feed *Feed) error {
-		feed.Platform = platform
+// Option is a function that can be used to modify a Activity,
+// it is used in the activity builder.
+type Option func(activity *Activity) error
+
+func WithActivityPlatform(platform string) Option {
+	return func(activity *Activity) error {
+		activity.Platform = platform
 
 		return nil
 	}
 }
 
-func NewUnknownFeed(feed *Feed) *Feed {
-	unknownFeed := &Feed{
+func NewUnknownActivity(activity *Activity) *Activity {
+	unknownActivity := &Activity{
 		Type:         typex.Unknown,
 		Tag:          tag.Unknown,
-		Network:      feed.Network,
-		ID:           feed.ID,
-		Owner:        feed.Owner,
-		Index:        feed.Index,
-		From:         feed.From,
-		To:           feed.To,
-		Platform:     feed.Platform,
-		Fee:          feed.Fee,
-		TotalActions: feed.TotalActions,
-		Direction:    feed.Direction,
-		Status:       feed.Status,
-		Timestamp:    feed.Timestamp,
+		Network:      activity.Network,
+		ID:           activity.ID,
+		Owner:        activity.Owner,
+		Index:        activity.Index,
+		From:         activity.From,
+		To:           activity.To,
+		Platform:     activity.Platform,
+		Fee:          activity.Fee,
+		TotalActions: activity.TotalActions,
+		Direction:    activity.Direction,
+		Status:       activity.Status,
+		Timestamp:    activity.Timestamp,
 	}
 
-	return unknownFeed
+	return unknownActivity
 }
 
-type Feeds []*Feed
+type Activities []*Activity
 
-var _ json.Unmarshaler = (*Feeds)(nil)
+var _ json.Unmarshaler = (*Activities)(nil)
 
-func (f *Feeds) UnmarshalJSON(bytes []byte) error {
-	type FeedAlias Feed
+func (f *Activities) UnmarshalJSON(bytes []byte) error {
+	type ActivityAlias Activity
 
-	type feed struct {
-		*FeedAlias
+	type activity struct {
+		*ActivityAlias
 		TypeX string `json:"type"`
 	}
 
-	var temp []*feed
+	var temp []*activity
 
 	err := json.Unmarshal(bytes, &temp)
 	if err != nil {
-		return fmt.Errorf("unmarshal feeds: %w", err)
+		return fmt.Errorf("unmarshal activities: %w", err)
 	}
 
 	for _, v := range temp {
@@ -89,7 +96,7 @@ func (f *Feeds) UnmarshalJSON(bytes []byte) error {
 			return fmt.Errorf("unmarshal type: %w", err)
 		}
 
-		*f = append(*f, (*Feed)(v.FeedAlias))
+		*f = append(*f, (*Activity)(v.ActivityAlias))
 	}
 
 	return nil
