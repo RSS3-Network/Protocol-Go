@@ -7,7 +7,7 @@ import (
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/network"
 	"github.com/rss3-network/protocol-go/schema/tag"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 type Feed struct {
@@ -43,7 +43,7 @@ func WithFeedPlatform(platform string) Option {
 
 func NewUnknownFeed(feed *Feed) *Feed {
 	unknownFeed := &Feed{
-		Type:         _type.Unknown,
+		Type:         typex.Unknown,
 		Tag:          tag.Unknown,
 		Network:      feed.Network,
 		ID:           feed.ID,

@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/rss3-network/protocol-go/schema"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*ExchangeSwap)(nil)
@@ -15,7 +15,7 @@ type ExchangeSwap struct {
 }
 
 func (e ExchangeSwap) Type() schema.Type {
-	return _type.ExchangeSwap
+	return typex.ExchangeSwap
 }
 
 var _ Metadata = (*ExchangeLiquidity)(nil)
@@ -26,7 +26,7 @@ type ExchangeLiquidity struct {
 }
 
 func (e ExchangeLiquidity) Type() schema.Type {
-	return _type.ExchangeSwap
+	return typex.ExchangeSwap
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output exchange_liquidity.go --json --sql
@@ -34,7 +34,7 @@ type ExchangeLiquidityAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (t ExchangeLiquidityAction) Type() schema.Type {
-	return _type.ExchangeLiquidity
+	return typex.ExchangeLiquidity
 }
 
 const (
@@ -56,7 +56,7 @@ type ExchangeStaking struct {
 }
 
 func (e ExchangeStaking) Type() schema.Type {
-	return _type.ExchangeStaking
+	return typex.ExchangeStaking
 }
 
 type ExchangeStakingPeriod struct {
@@ -69,7 +69,7 @@ type ExchangeStakingAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (t ExchangeStakingAction) Type() schema.Type {
-	return _type.ExchangeStaking
+	return typex.ExchangeStaking
 }
 
 const (

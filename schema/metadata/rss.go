@@ -2,7 +2,7 @@ package metadata
 
 import (
 	"github.com/rss3-network/protocol-go/schema"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*RSS)(nil)
@@ -19,5 +19,5 @@ type Authors struct {
 }
 
 func (r RSS) Type() schema.Type {
-	return _type.RSSFeed
+	return typex.RSSFeed
 }

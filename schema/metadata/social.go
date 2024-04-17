@@ -6,7 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/tag"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*SocialPost)(nil)
@@ -35,7 +35,7 @@ type Media struct {
 }
 
 func (p SocialPost) Type() schema.Type {
-	return _type.SocialPost
+	return typex.SocialPost
 }
 
 var _ Metadata = (*SocialProfileAction)(nil)
@@ -44,7 +44,7 @@ var _ Metadata = (*SocialProfileAction)(nil)
 type SocialProfileAction uint64
 
 func (s SocialProfileAction) Type() schema.Type {
-	return _type.SocialProfile
+	return typex.SocialProfile
 }
 
 const (
@@ -69,14 +69,14 @@ type SocialProfile struct {
 }
 
 func (f SocialProfile) Type() schema.Type {
-	return _type.SocialProfile
+	return typex.SocialProfile
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=SocialProxyAction --transform=snake --trimprefix=ActionSocialProxy --output social_proxy.go --json --sql
 type SocialProxyAction uint64
 
 func (s SocialProxyAction) Type() schema.Type {
-	return _type.SocialProfile
+	return typex.SocialProfile
 }
 
 const (
@@ -96,5 +96,5 @@ func (s SocialProxy) Tag() tag.Tag {
 }
 
 func (s SocialProxy) Type() schema.Type {
-	return _type.SocialProxy
+	return typex.SocialProxy
 }

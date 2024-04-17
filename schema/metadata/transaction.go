@@ -3,7 +3,7 @@ package metadata
 import (
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/network"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*TransactionTransfer)(nil)
@@ -11,7 +11,7 @@ var _ Metadata = (*TransactionTransfer)(nil)
 type TransactionTransfer Token
 
 func (t TransactionTransfer) Type() schema.Type {
-	return _type.TransactionTransfer
+	return typex.TransactionTransfer
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output transaction_approval.go --json --sql
@@ -31,7 +31,7 @@ type TransactionApproval struct {
 }
 
 func (t TransactionApproval) Type() schema.Type {
-	return _type.TransactionApproval
+	return typex.TransactionApproval
 }
 
 var _ Metadata = (*TransactionBridge)(nil)
@@ -44,7 +44,7 @@ type TransactionBridge struct {
 }
 
 func (t TransactionBridge) Type() schema.Type {
-	return _type.TransactionBridge
+	return typex.TransactionBridge
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output transaction_bridge.go --json --sql
@@ -52,7 +52,7 @@ type TransactionBridgeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (t TransactionBridgeAction) Type() schema.Type {
-	return _type.TransactionBridge
+	return typex.TransactionBridge
 }
 
 const (

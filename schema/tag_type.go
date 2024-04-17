@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rss3-network/protocol-go/schema/tag"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 type Type interface {
@@ -15,19 +15,19 @@ type Type interface {
 func TypeString(parentTag tag.Tag, typeValue string) (Type, error) {
 	switch parentTag {
 	case tag.Collectible:
-		return _type.CollectibleTypeString(typeValue)
+		return typex.CollectibleTypeString(typeValue)
 	case tag.Exchange:
-		return _type.ExchangeTypeString(typeValue)
+		return typex.ExchangeTypeString(typeValue)
 	case tag.Metaverse:
-		return _type.MetaverseTypeString(typeValue)
+		return typex.MetaverseTypeString(typeValue)
 	case tag.Social:
-		return _type.SocialTypeString(typeValue)
+		return typex.SocialTypeString(typeValue)
 	case tag.RSS:
-		return _type.RSSTypeString(typeValue)
+		return typex.RSSTypeString(typeValue)
 	case tag.Transaction:
-		return _type.TransactionTypeString(typeValue)
+		return typex.TransactionTypeString(typeValue)
 	case tag.Unknown:
-		return _type.UnknownTypeString(typeValue)
+		return typex.UnknownTypeString(typeValue)
 	default:
 		return nil, fmt.Errorf("unknown tag: %s", parentTag.String())
 	}

@@ -6,7 +6,7 @@ import (
 
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/tag"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 type Metadata interface {
@@ -36,11 +36,11 @@ func unmarshalCollectibleMetadata(metadataType schema.Type, data json.RawMessage
 	var result Metadata
 
 	switch metadataType {
-	case _type.CollectibleApproval:
+	case typex.CollectibleApproval:
 		result = new(CollectibleApproval)
-	case _type.CollectibleTrade:
+	case typex.CollectibleTrade:
 		result = new(CollectibleTrade)
-	case _type.CollectibleTransfer, _type.CollectibleMint, _type.CollectibleBurn:
+	case typex.CollectibleTransfer, typex.CollectibleMint, typex.CollectibleBurn:
 		result = new(CollectibleTransfer)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -57,11 +57,11 @@ func unmarshalTransactionMetadata(metadataType schema.Type, data json.RawMessage
 	var result Metadata
 
 	switch metadataType {
-	case _type.TransactionApproval:
+	case typex.TransactionApproval:
 		result = new(TransactionApproval)
-	case _type.TransactionBridge:
+	case typex.TransactionBridge:
 		result = new(TransactionBridge)
-	case _type.TransactionBurn, _type.TransactionMint, _type.TransactionTransfer:
+	case typex.TransactionBurn, typex.TransactionMint, typex.TransactionTransfer:
 		result = new(TransactionTransfer)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -78,11 +78,11 @@ func unmarshalSocialMetadata(metadataType schema.Type, data json.RawMessage) (Me
 	var result Metadata
 
 	switch metadataType {
-	case _type.SocialComment, _type.SocialDelete, _type.SocialMint, _type.SocialPost, _type.SocialRevise, _type.SocialReward, _type.SocialShare:
+	case typex.SocialComment, typex.SocialDelete, typex.SocialMint, typex.SocialPost, typex.SocialRevise, typex.SocialReward, typex.SocialShare:
 		result = new(SocialPost)
-	case _type.SocialProfile:
+	case typex.SocialProfile:
 		result = new(SocialProfile)
-	case _type.SocialProxy:
+	case typex.SocialProxy:
 		result = new(SocialProxy)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -99,11 +99,11 @@ func unmarshalExchangeMetadata(metadataType schema.Type, data json.RawMessage) (
 	var result Metadata
 
 	switch metadataType {
-	case _type.ExchangeLiquidity:
+	case typex.ExchangeLiquidity:
 		result = new(ExchangeLiquidity)
-	case _type.ExchangeStaking:
+	case typex.ExchangeStaking:
 		result = new(ExchangeStaking)
-	case _type.ExchangeSwap:
+	case typex.ExchangeSwap:
 		result = new(ExchangeSwap)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -120,9 +120,9 @@ func unmarshalMetaverseMetadata(metadataType schema.Type, data json.RawMessage) 
 	var result Metadata
 
 	switch metadataType {
-	case _type.MetaverseBurn, _type.MetaverseMint, _type.MetaverseTransfer:
+	case typex.MetaverseBurn, typex.MetaverseMint, typex.MetaverseTransfer:
 		result = new(MetaverseTransfer)
-	case _type.MetaverseTrade:
+	case typex.MetaverseTrade:
 		result = new(MetaverseTrade)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())

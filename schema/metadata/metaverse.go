@@ -3,7 +3,7 @@ package metadata
 import (
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/tag"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=MetaverseTradeAction --transform=snake --trimprefix=ActionMetaverseTrade --output metaverse_trade.go --json --sql
@@ -11,7 +11,7 @@ type MetaverseTradeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (t MetaverseTradeAction) Type() schema.Type {
-	return _type.MetaverseTrade
+	return typex.MetaverseTrade
 }
 
 const (
@@ -29,7 +29,7 @@ func (m MetaverseTransfer) Tag() tag.Tag {
 }
 
 func (m MetaverseTransfer) Type() schema.Type {
-	return _type.MetaverseTransfer
+	return typex.MetaverseTransfer
 }
 
 var _ Metadata = (*MetaverseTrade)(nil)
@@ -46,5 +46,5 @@ func (m MetaverseTrade) Tag() tag.Tag {
 }
 
 func (m MetaverseTrade) Type() schema.Type {
-	return _type.MetaverseTrade
+	return typex.MetaverseTrade
 }

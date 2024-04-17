@@ -2,7 +2,7 @@ package metadata
 
 import (
 	"github.com/rss3-network/protocol-go/schema"
-	_type "github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*CollectibleTransfer)(nil)
@@ -10,7 +10,7 @@ var _ Metadata = (*CollectibleTransfer)(nil)
 type CollectibleTransfer Token
 
 func (c CollectibleTransfer) Type() schema.Type {
-	return _type.CollectibleTransfer
+	return typex.CollectibleTransfer
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output collectible_approval.go --json --sql
@@ -18,7 +18,7 @@ type CollectibleApprovalAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (t CollectibleApprovalAction) Type() schema.Type {
-	return _type.CollectibleApproval
+	return typex.CollectibleApproval
 }
 
 const (
@@ -35,7 +35,7 @@ type CollectibleApproval struct {
 }
 
 func (c CollectibleApproval) Type() schema.Type {
-	return _type.CollectibleApproval
+	return typex.CollectibleApproval
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleTradeAction --transform=snake --trimprefix=ActionCollectibleTrade --output collectible_trade.go --json --sql
@@ -43,7 +43,7 @@ type CollectibleTradeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
 func (r CollectibleTradeAction) Type() schema.Type {
-	return _type.CollectibleTrade
+	return typex.CollectibleTrade
 }
 
 const (
@@ -60,5 +60,5 @@ type CollectibleTrade struct {
 }
 
 func (r CollectibleTrade) Type() schema.Type {
-	return _type.CollectibleTrade
+	return typex.CollectibleTrade
 }
