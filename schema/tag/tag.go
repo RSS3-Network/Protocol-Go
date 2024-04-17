@@ -1,4 +1,4 @@
-package filter
+package tag
 
 import "github.com/labstack/echo/v4"
 
@@ -6,28 +6,14 @@ import "github.com/labstack/echo/v4"
 type Tag uint64
 
 const (
-	TagUnknown Tag = iota
-	TagCollectible
-	TagExchange
-	TagMetaverse
-	TagRSS
-	TagSocial
-	TagTransaction
+	Unknown Tag = iota
+	Collectible
+	Exchange
+	Metaverse
+	RSS
+	Social
+	Transaction
 )
-
-func TagAndTypeString(tagValue string, typeValue string) (Tag, Type, error) {
-	tag, err := TagString(tagValue)
-	if err != nil {
-		return TagUnknown, nil, err
-	}
-
-	_type, err := TypeString(tag, typeValue)
-	if err != nil {
-		return TagUnknown, nil, err
-	}
-
-	return tag, _type, err
-}
 
 var _ echo.BindUnmarshaler = (*Tag)(nil)
 

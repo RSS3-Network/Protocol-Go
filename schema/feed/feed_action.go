@@ -1,16 +1,17 @@
-package schema
+package feed
 
 import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/metadata"
+	"github.com/rss3-network/protocol-go/schema/tag"
 )
 
 type Action struct {
-	Tag         filter.Tag        `json:"tag"`
-	Type        filter.Type       `json:"type"`
+	Tag         tag.Tag           `json:"tag"`
+	Type        schema.Type       `json:"type"`
 	Platform    string            `json:"platform,omitempty"`
 	From        string            `json:"from"`
 	To          string            `json:"to"`
@@ -39,7 +40,7 @@ func (a *Action) UnmarshalJSON(bytes []byte) error {
 		return fmt.Errorf("unmarshal action: %w", err)
 	}
 
-	temp.Type, err = filter.TypeString(temp.Tag, temp.TypeX)
+	temp.Type, err = schema.TypeString(temp.Tag, temp.TypeX)
 	if err != nil {
 		return fmt.Errorf("invalid action type: %w", err)
 	}

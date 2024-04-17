@@ -1,4 +1,4 @@
-package schema
+package feed
 
 import (
 	"github.com/shopspring/decimal"

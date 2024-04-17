@@ -1,4 +1,4 @@
-package schema
+package feed
 
 type Calldata struct {
 	Raw            string `json:"raw,omitempty"`

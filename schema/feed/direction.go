@@ -1,4 +1,4 @@
-package filter
+package feed
 
 import "github.com/labstack/echo/v4"
 

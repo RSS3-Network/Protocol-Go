@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _TransactionBridgeActionName = "withdrawdeposit"
+const _TransactionBridgeActionName = "depositwithdraw"
 
-var _TransactionBridgeActionIndex = [...]uint8{0, 8, 15}
+var _TransactionBridgeActionIndex = [...]uint8{0, 7, 15}
 
-const _TransactionBridgeActionLowerName = "withdrawdeposit"
+const _TransactionBridgeActionLowerName = "depositwithdraw"
 
 func (i TransactionBridgeAction) String() string {
 	i -= 1
@@ -31,22 +31,22 @@ func (TransactionBridgeAction) Values() []string {
 // Re-run the stringer command to generate them again.
 func _TransactionBridgeActionNoOp() {
 	var x [1]struct{}
-	_ = x[ActionTransactionBridgeWithdraw-(1)]
-	_ = x[ActionTransactionBridgeDeposit-(2)]
+	_ = x[ActionTransactionBridgeDeposit-(1)]
+	_ = x[ActionTransactionBridgeWithdraw-(2)]
 }
 
-var _TransactionBridgeActionValues = []TransactionBridgeAction{ActionTransactionBridgeWithdraw, ActionTransactionBridgeDeposit}
+var _TransactionBridgeActionValues = []TransactionBridgeAction{ActionTransactionBridgeDeposit, ActionTransactionBridgeWithdraw}
 
 var _TransactionBridgeActionNameToValueMap = map[string]TransactionBridgeAction{
-	_TransactionBridgeActionName[0:8]:       ActionTransactionBridgeWithdraw,
-	_TransactionBridgeActionLowerName[0:8]:  ActionTransactionBridgeWithdraw,
-	_TransactionBridgeActionName[8:15]:      ActionTransactionBridgeDeposit,
-	_TransactionBridgeActionLowerName[8:15]: ActionTransactionBridgeDeposit,
+	_TransactionBridgeActionName[0:7]:       ActionTransactionBridgeDeposit,
+	_TransactionBridgeActionLowerName[0:7]:  ActionTransactionBridgeDeposit,
+	_TransactionBridgeActionName[7:15]:      ActionTransactionBridgeWithdraw,
+	_TransactionBridgeActionLowerName[7:15]: ActionTransactionBridgeWithdraw,
 }
 
 var _TransactionBridgeActionNames = []string{
-	_TransactionBridgeActionName[0:8],
-	_TransactionBridgeActionName[8:15],
+	_TransactionBridgeActionName[0:7],
+	_TransactionBridgeActionName[7:15],
 }
 
 // TransactionBridgeActionString retrieves an enum value from the enum constants string name.
