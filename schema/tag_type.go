@@ -1,5 +1,6 @@
 package schema
 
+// this file is placed here to avoid circular import
 import (
 	"fmt"
 
@@ -31,4 +32,18 @@ func TypeString(parentTag tag.Tag, typeValue string) (Type, error) {
 	default:
 		return nil, fmt.Errorf("unknown tag: %s", parentTag.String())
 	}
+}
+
+func TagAndTypeString(tagValue string, typeValue string) (tag.Tag, Type, error) {
+	_tag, err := tag.TagString(tagValue)
+	if err != nil {
+		return tag.Unknown, nil, err
+	}
+
+	_type, err := TypeString(_tag, typeValue)
+	if err != nil {
+		return tag.Unknown, nil, err
+	}
+
+	return _tag, _type, err
 }

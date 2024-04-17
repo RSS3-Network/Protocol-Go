@@ -36,7 +36,7 @@ type Fee struct {
 	Decimal uint            `json:"decimal"`
 }
 
-// Option is a function that can be used to modify a Activity,
+// Option is a function that can be used to modify an Activity,
 // it is used in the activity builder.
 type Option func(activity *Activity) error
 
