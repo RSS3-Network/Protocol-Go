@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _MetaverseTradeActionName = "sellbuylist"
+const _MetaverseTradeActionName = "buylistsell"
 
-var _MetaverseTradeActionIndex = [...]uint8{0, 4, 7, 11}
+var _MetaverseTradeActionIndex = [...]uint8{0, 3, 7, 11}
 
-const _MetaverseTradeActionLowerName = "sellbuylist"
+const _MetaverseTradeActionLowerName = "buylistsell"
 
 func (i MetaverseTradeAction) String() string {
 	i -= 1
@@ -31,25 +31,25 @@ func (MetaverseTradeAction) Values() []string {
 // Re-run the stringer command to generate them again.
 func _MetaverseTradeActionNoOp() {
 	var x [1]struct{}
-	_ = x[ActionMetaverseTradeSell-(1)]
-	_ = x[ActionMetaverseTradeBuy-(2)]
-	_ = x[ActionMetaverseTradeList-(3)]
+	_ = x[ActionMetaverseTradeBuy-(1)]
+	_ = x[ActionMetaverseTradeList-(2)]
+	_ = x[ActionMetaverseTradeSell-(3)]
 }
 
-var _MetaverseTradeActionValues = []MetaverseTradeAction{ActionMetaverseTradeSell, ActionMetaverseTradeBuy, ActionMetaverseTradeList}
+var _MetaverseTradeActionValues = []MetaverseTradeAction{ActionMetaverseTradeBuy, ActionMetaverseTradeList, ActionMetaverseTradeSell}
 
 var _MetaverseTradeActionNameToValueMap = map[string]MetaverseTradeAction{
-	_MetaverseTradeActionName[0:4]:       ActionMetaverseTradeSell,
-	_MetaverseTradeActionLowerName[0:4]:  ActionMetaverseTradeSell,
-	_MetaverseTradeActionName[4:7]:       ActionMetaverseTradeBuy,
-	_MetaverseTradeActionLowerName[4:7]:  ActionMetaverseTradeBuy,
-	_MetaverseTradeActionName[7:11]:      ActionMetaverseTradeList,
-	_MetaverseTradeActionLowerName[7:11]: ActionMetaverseTradeList,
+	_MetaverseTradeActionName[0:3]:       ActionMetaverseTradeBuy,
+	_MetaverseTradeActionLowerName[0:3]:  ActionMetaverseTradeBuy,
+	_MetaverseTradeActionName[3:7]:       ActionMetaverseTradeList,
+	_MetaverseTradeActionLowerName[3:7]:  ActionMetaverseTradeList,
+	_MetaverseTradeActionName[7:11]:      ActionMetaverseTradeSell,
+	_MetaverseTradeActionLowerName[7:11]: ActionMetaverseTradeSell,
 }
 
 var _MetaverseTradeActionNames = []string{
-	_MetaverseTradeActionName[0:4],
-	_MetaverseTradeActionName[4:7],
+	_MetaverseTradeActionName[0:3],
+	_MetaverseTradeActionName[3:7],
 	_MetaverseTradeActionName[7:11],
 }
 

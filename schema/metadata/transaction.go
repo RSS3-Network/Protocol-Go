@@ -1,15 +1,17 @@
 package metadata
 
 import (
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
+	"github.com/rss3-network/protocol-go/schema/network"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*TransactionTransfer)(nil)
 
 type TransactionTransfer Token
 
-func (t TransactionTransfer) Type() filter.Type {
-	return filter.TypeTransactionTransfer
+func (t TransactionTransfer) Type() schema.Type {
+	return typex.TransactionTransfer
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output transaction_approval.go --json --sql
@@ -28,32 +30,32 @@ type TransactionApproval struct {
 	Token
 }
 
-func (t TransactionApproval) Type() filter.Type {
-	return filter.TypeTransactionApproval
+func (t TransactionApproval) Type() schema.Type {
+	return typex.TransactionApproval
 }
 
 var _ Metadata = (*TransactionBridge)(nil)
 
 type TransactionBridge struct {
 	Action        TransactionBridgeAction `json:"action"`
-	SourceNetwork filter.Network          `json:"source_network"`
-	TargetNetwork filter.Network          `json:"target_network"`
+	SourceNetwork network.Network         `json:"source_network"`
+	TargetNetwork network.Network         `json:"target_network"`
 	Token         Token                   `json:"token"`
 }
 
-func (t TransactionBridge) Type() filter.Type {
-	return filter.TypeTransactionBridge
+func (t TransactionBridge) Type() schema.Type {
+	return typex.TransactionBridge
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output transaction_bridge.go --json --sql
 type TransactionBridgeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
-func (t TransactionBridgeAction) Type() filter.Type {
-	return filter.TypeTransactionBridge
+func (t TransactionBridgeAction) Type() schema.Type {
+	return typex.TransactionBridge
 }
 
 const (
-	ActionTransactionBridgeWithdraw TransactionBridgeAction = iota + 1
-	ActionTransactionBridgeDeposit
+	ActionTransactionBridgeDeposit TransactionBridgeAction = iota + 1
+	ActionTransactionBridgeWithdraw
 )

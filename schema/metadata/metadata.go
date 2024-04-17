@@ -4,42 +4,44 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
+	"github.com/rss3-network/protocol-go/schema/tag"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 type Metadata interface {
-	Type() filter.Type
+	Type() schema.Type
 }
 
-func Unmarshal(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func Unmarshal(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	switch metadataType.Tag() {
-	case filter.TagCollectible:
+	case tag.Collectible:
 		return unmarshalCollectibleMetadata(metadataType, data)
-	case filter.TagTransaction:
-		return unmarshalTransactionMetadata(metadataType, data)
-	case filter.TagSocial:
-		return unmarshalSocialMetadata(metadataType, data)
-	case filter.TagExchange:
+	case tag.Exchange:
 		return unmarshalExchangeMetadata(metadataType, data)
-	case filter.TagMetaverse:
+	case tag.Metaverse:
 		return unmarshalMetaverseMetadata(metadataType, data)
-	case filter.TagRSS:
+	case tag.RSS:
 		return unmarshalRSSMetadata(metadataType, data)
+	case tag.Social:
+		return unmarshalSocialMetadata(metadataType, data)
+	case tag.Transaction:
+		return unmarshalTransactionMetadata(metadataType, data)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
 }
 
-func unmarshalCollectibleMetadata(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalCollectibleMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	var result Metadata
 
 	switch metadataType {
-	case filter.TypeCollectibleTransfer, filter.TypeCollectibleMint, filter.TypeCollectibleBurn:
-		result = new(CollectibleTransfer)
-	case filter.TypeCollectibleApproval:
+	case typex.CollectibleApproval:
 		result = new(CollectibleApproval)
-	case filter.TypeCollectibleTrade:
+	case typex.CollectibleTrade:
 		result = new(CollectibleTrade)
+	case typex.CollectibleTransfer, typex.CollectibleMint, typex.CollectibleBurn:
+		result = new(CollectibleTransfer)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
@@ -51,16 +53,16 @@ func unmarshalCollectibleMetadata(metadataType filter.Type, data json.RawMessage
 	return result, nil
 }
 
-func unmarshalTransactionMetadata(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalTransactionMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	var result Metadata
 
 	switch metadataType {
-	case filter.TypeTransactionApproval:
+	case typex.TransactionApproval:
 		result = new(TransactionApproval)
-	case filter.TypeTransactionTransfer, filter.TypeTransactionMint, filter.TypeTransactionBurn:
-		result = new(TransactionTransfer)
-	case filter.TypeTransactionBridge:
+	case typex.TransactionBridge:
 		result = new(TransactionBridge)
+	case typex.TransactionBurn, typex.TransactionMint, typex.TransactionTransfer:
+		result = new(TransactionTransfer)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
@@ -72,15 +74,15 @@ func unmarshalTransactionMetadata(metadataType filter.Type, data json.RawMessage
 	return result, nil
 }
 
-func unmarshalSocialMetadata(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalSocialMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	var result Metadata
 
 	switch metadataType {
-	case filter.TypeSocialPost, filter.TypeSocialRevise, filter.TypeSocialComment, filter.TypeSocialDelete, filter.TypeSocialShare, filter.TypeSocialReward, filter.TypeSocialMint:
+	case typex.SocialComment, typex.SocialDelete, typex.SocialMint, typex.SocialPost, typex.SocialRevise, typex.SocialReward, typex.SocialShare:
 		result = new(SocialPost)
-	case filter.TypeSocialProfile:
+	case typex.SocialProfile:
 		result = new(SocialProfile)
-	case filter.TypeSocialProxy:
+	case typex.SocialProxy:
 		result = new(SocialProxy)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -93,16 +95,16 @@ func unmarshalSocialMetadata(metadataType filter.Type, data json.RawMessage) (Me
 	return result, nil
 }
 
-func unmarshalExchangeMetadata(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalExchangeMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	var result Metadata
 
 	switch metadataType {
-	case filter.TypeExchangeSwap:
-		result = new(ExchangeSwap)
-	case filter.TypeExchangeLiquidity:
+	case typex.ExchangeLiquidity:
 		result = new(ExchangeLiquidity)
-	case filter.TypeExchangeStaking:
+	case typex.ExchangeStaking:
 		result = new(ExchangeStaking)
+	case typex.ExchangeSwap:
+		result = new(ExchangeSwap)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
@@ -114,13 +116,13 @@ func unmarshalExchangeMetadata(metadataType filter.Type, data json.RawMessage) (
 	return result, nil
 }
 
-func unmarshalMetaverseMetadata(metadataType filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalMetaverseMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
 	var result Metadata
 
 	switch metadataType {
-	case filter.TypeMetaverseMint, filter.TypeMetaverseBurn, filter.TypeMetaverseTransfer:
+	case typex.MetaverseBurn, typex.MetaverseMint, typex.MetaverseTransfer:
 		result = new(MetaverseTransfer)
-	case filter.TypeMetaverseTrade:
+	case typex.MetaverseTrade:
 		result = new(MetaverseTrade)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
@@ -133,7 +135,7 @@ func unmarshalMetaverseMetadata(metadataType filter.Type, data json.RawMessage) 
 	return result, nil
 }
 
-func unmarshalRSSMetadata(_ filter.Type, data json.RawMessage) (Metadata, error) {
+func unmarshalRSSMetadata(_ schema.Type, data json.RawMessage) (Metadata, error) {
 	result := new(RSS)
 
 	if err := json.Unmarshal(data, &result); err != nil {

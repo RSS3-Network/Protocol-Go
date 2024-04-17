@@ -3,7 +3,8 @@ package metadata
 import (
 	"time"
 
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*ExchangeSwap)(nil)
@@ -13,8 +14,8 @@ type ExchangeSwap struct {
 	To   Token `json:"to"`
 }
 
-func (e ExchangeSwap) Type() filter.Type {
-	return filter.TypeExchangeSwap
+func (e ExchangeSwap) Type() schema.Type {
+	return typex.ExchangeSwap
 }
 
 var _ Metadata = (*ExchangeLiquidity)(nil)
@@ -24,25 +25,25 @@ type ExchangeLiquidity struct {
 	Tokens []Token                 `json:"tokens"`
 }
 
-func (e ExchangeLiquidity) Type() filter.Type {
-	return filter.TypeExchangeSwap
+func (e ExchangeLiquidity) Type() schema.Type {
+	return typex.ExchangeSwap
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output exchange_liquidity.go --json --sql
 type ExchangeLiquidityAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
-func (t ExchangeLiquidityAction) Type() filter.Type {
-	return filter.TypeExchangeLiquidity
+func (t ExchangeLiquidityAction) Type() schema.Type {
+	return typex.ExchangeLiquidity
 }
 
 const (
 	ActionExchangeLiquidityAdd ExchangeLiquidityAction = iota + 1
-	ActionExchangeLiquidityRemove
-	ActionExchangeLiquidityCollect
-	ActionExchangeLiquiditySupply
 	ActionExchangeLiquidityBorrow
+	ActionExchangeLiquidityCollect
+	ActionExchangeLiquidityRemove
 	ActionExchangeLiquidityRepay
+	ActionExchangeLiquiditySupply
 	ActionExchangeLiquidityWithdraw
 )
 
@@ -54,8 +55,8 @@ type ExchangeStaking struct {
 	Period *ExchangeStakingPeriod `json:"period,omitempty"`
 }
 
-func (e ExchangeStaking) Type() filter.Type {
-	return filter.TypeExchangeStaking
+func (e ExchangeStaking) Type() schema.Type {
+	return typex.ExchangeStaking
 }
 
 type ExchangeStakingPeriod struct {
@@ -67,8 +68,8 @@ type ExchangeStakingPeriod struct {
 type ExchangeStakingAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
-func (t ExchangeStakingAction) Type() filter.Type {
-	return filter.TypeExchangeStaking
+func (t ExchangeStakingAction) Type() schema.Type {
+	return typex.ExchangeStaking
 }
 
 const (

@@ -1,23 +1,24 @@
 package metadata
 
 import (
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*CollectibleTransfer)(nil)
 
 type CollectibleTransfer Token
 
-func (c CollectibleTransfer) Type() filter.Type {
-	return filter.TypeCollectibleTransfer
+func (c CollectibleTransfer) Type() schema.Type {
+	return typex.CollectibleTransfer
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output collectible_approval.go --json --sql
 type CollectibleApprovalAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
-func (t CollectibleApprovalAction) Type() filter.Type {
-	return filter.TypeCollectibleApproval
+func (t CollectibleApprovalAction) Type() schema.Type {
+	return typex.CollectibleApproval
 }
 
 const (
@@ -33,16 +34,16 @@ type CollectibleApproval struct {
 	Token
 }
 
-func (c CollectibleApproval) Type() filter.Type {
-	return filter.TypeCollectibleApproval
+func (c CollectibleApproval) Type() schema.Type {
+	return typex.CollectibleApproval
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleTradeAction --transform=snake --trimprefix=ActionCollectibleTrade --output collectible_trade.go --json --sql
 type CollectibleTradeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes
-func (r CollectibleTradeAction) Type() filter.Type {
-	return filter.TypeCollectibleTrade
+func (r CollectibleTradeAction) Type() schema.Type {
+	return typex.CollectibleTrade
 }
 
 const (
@@ -58,6 +59,6 @@ type CollectibleTrade struct {
 	Cost *Token `json:"cost,omitempty"`
 }
 
-func (r CollectibleTrade) Type() filter.Type {
-	return filter.TypeCollectibleTrade
+func (r CollectibleTrade) Type() schema.Type {
+	return typex.CollectibleTrade
 }

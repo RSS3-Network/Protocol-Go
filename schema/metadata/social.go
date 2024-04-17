@@ -4,7 +4,9 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/rss3-network/protocol-go/schema/filter"
+	"github.com/rss3-network/protocol-go/schema"
+	"github.com/rss3-network/protocol-go/schema/tag"
+	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
 var _ Metadata = (*SocialPost)(nil)
@@ -32,8 +34,8 @@ type Media struct {
 	MimeType string `json:"mime_type"`
 }
 
-func (p SocialPost) Type() filter.Type {
-	return filter.TypeSocialPost
+func (p SocialPost) Type() schema.Type {
+	return typex.SocialPost
 }
 
 var _ Metadata = (*SocialProfileAction)(nil)
@@ -41,16 +43,16 @@ var _ Metadata = (*SocialProfileAction)(nil)
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output social_profile.go --json --sql
 type SocialProfileAction uint64
 
-func (s SocialProfileAction) Type() filter.Type {
-	return filter.TypeSocialProfile
+func (s SocialProfileAction) Type() schema.Type {
+	return typex.SocialProfile
 }
 
 const (
 	ActionSocialProfileCreate SocialProfileAction = iota + 1
-	ActionSocialProfileUpdate
 	ActionSocialProfileRenew
-	ActionSocialProfileWrap
 	ActionSocialProfileUnwrap
+	ActionSocialProfileUpdate
+	ActionSocialProfileWrap
 )
 
 type SocialProfile struct {
@@ -66,15 +68,15 @@ type SocialProfile struct {
 	Value     string              `json:"value,omitempty"`
 }
 
-func (f SocialProfile) Type() filter.Type {
-	return filter.TypeSocialProfile
+func (f SocialProfile) Type() schema.Type {
+	return typex.SocialProfile
 }
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=SocialProxyAction --transform=snake --trimprefix=ActionSocialProxy --output social_proxy.go --json --sql
 type SocialProxyAction uint64
 
-func (s SocialProxyAction) Type() filter.Type {
-	return filter.TypeSocialProfile
+func (s SocialProxyAction) Type() schema.Type {
+	return typex.SocialProfile
 }
 
 const (
@@ -89,10 +91,10 @@ type SocialProxy struct {
 	Profile SocialProfile `json:"profile,omitempty"`
 }
 
-func (s SocialProxy) Tag() filter.Tag {
-	return filter.TagSocial
+func (s SocialProxy) Tag() tag.Tag {
+	return tag.Social
 }
 
-func (s SocialProxy) Type() filter.Type {
-	return filter.TypeSocialProxy
+func (s SocialProxy) Type() schema.Type {
+	return typex.SocialProxy
 }

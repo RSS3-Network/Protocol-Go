@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _ExchangeLiquidityActionName = "addremovecollectsupplyborrowrepaywithdraw"
+const _ExchangeLiquidityActionName = "addborrowcollectremoverepaysupplywithdraw"
 
-var _ExchangeLiquidityActionIndex = [...]uint8{0, 3, 9, 16, 22, 28, 33, 41}
+var _ExchangeLiquidityActionIndex = [...]uint8{0, 3, 9, 16, 22, 27, 33, 41}
 
-const _ExchangeLiquidityActionLowerName = "addremovecollectsupplyborrowrepaywithdraw"
+const _ExchangeLiquidityActionLowerName = "addborrowcollectremoverepaysupplywithdraw"
 
 func (i ExchangeLiquidityAction) String() string {
 	i -= 1
@@ -32,29 +32,29 @@ func (ExchangeLiquidityAction) Values() []string {
 func _ExchangeLiquidityActionNoOp() {
 	var x [1]struct{}
 	_ = x[ActionExchangeLiquidityAdd-(1)]
-	_ = x[ActionExchangeLiquidityRemove-(2)]
+	_ = x[ActionExchangeLiquidityBorrow-(2)]
 	_ = x[ActionExchangeLiquidityCollect-(3)]
-	_ = x[ActionExchangeLiquiditySupply-(4)]
-	_ = x[ActionExchangeLiquidityBorrow-(5)]
-	_ = x[ActionExchangeLiquidityRepay-(6)]
+	_ = x[ActionExchangeLiquidityRemove-(4)]
+	_ = x[ActionExchangeLiquidityRepay-(5)]
+	_ = x[ActionExchangeLiquiditySupply-(6)]
 	_ = x[ActionExchangeLiquidityWithdraw-(7)]
 }
 
-var _ExchangeLiquidityActionValues = []ExchangeLiquidityAction{ActionExchangeLiquidityAdd, ActionExchangeLiquidityRemove, ActionExchangeLiquidityCollect, ActionExchangeLiquiditySupply, ActionExchangeLiquidityBorrow, ActionExchangeLiquidityRepay, ActionExchangeLiquidityWithdraw}
+var _ExchangeLiquidityActionValues = []ExchangeLiquidityAction{ActionExchangeLiquidityAdd, ActionExchangeLiquidityBorrow, ActionExchangeLiquidityCollect, ActionExchangeLiquidityRemove, ActionExchangeLiquidityRepay, ActionExchangeLiquiditySupply, ActionExchangeLiquidityWithdraw}
 
 var _ExchangeLiquidityActionNameToValueMap = map[string]ExchangeLiquidityAction{
 	_ExchangeLiquidityActionName[0:3]:        ActionExchangeLiquidityAdd,
 	_ExchangeLiquidityActionLowerName[0:3]:   ActionExchangeLiquidityAdd,
-	_ExchangeLiquidityActionName[3:9]:        ActionExchangeLiquidityRemove,
-	_ExchangeLiquidityActionLowerName[3:9]:   ActionExchangeLiquidityRemove,
+	_ExchangeLiquidityActionName[3:9]:        ActionExchangeLiquidityBorrow,
+	_ExchangeLiquidityActionLowerName[3:9]:   ActionExchangeLiquidityBorrow,
 	_ExchangeLiquidityActionName[9:16]:       ActionExchangeLiquidityCollect,
 	_ExchangeLiquidityActionLowerName[9:16]:  ActionExchangeLiquidityCollect,
-	_ExchangeLiquidityActionName[16:22]:      ActionExchangeLiquiditySupply,
-	_ExchangeLiquidityActionLowerName[16:22]: ActionExchangeLiquiditySupply,
-	_ExchangeLiquidityActionName[22:28]:      ActionExchangeLiquidityBorrow,
-	_ExchangeLiquidityActionLowerName[22:28]: ActionExchangeLiquidityBorrow,
-	_ExchangeLiquidityActionName[28:33]:      ActionExchangeLiquidityRepay,
-	_ExchangeLiquidityActionLowerName[28:33]: ActionExchangeLiquidityRepay,
+	_ExchangeLiquidityActionName[16:22]:      ActionExchangeLiquidityRemove,
+	_ExchangeLiquidityActionLowerName[16:22]: ActionExchangeLiquidityRemove,
+	_ExchangeLiquidityActionName[22:27]:      ActionExchangeLiquidityRepay,
+	_ExchangeLiquidityActionLowerName[22:27]: ActionExchangeLiquidityRepay,
+	_ExchangeLiquidityActionName[27:33]:      ActionExchangeLiquiditySupply,
+	_ExchangeLiquidityActionLowerName[27:33]: ActionExchangeLiquiditySupply,
 	_ExchangeLiquidityActionName[33:41]:      ActionExchangeLiquidityWithdraw,
 	_ExchangeLiquidityActionLowerName[33:41]: ActionExchangeLiquidityWithdraw,
 }
@@ -64,8 +64,8 @@ var _ExchangeLiquidityActionNames = []string{
 	_ExchangeLiquidityActionName[3:9],
 	_ExchangeLiquidityActionName[9:16],
 	_ExchangeLiquidityActionName[16:22],
-	_ExchangeLiquidityActionName[22:28],
-	_ExchangeLiquidityActionName[28:33],
+	_ExchangeLiquidityActionName[22:27],
+	_ExchangeLiquidityActionName[27:33],
 	_ExchangeLiquidityActionName[33:41],
 }
 
