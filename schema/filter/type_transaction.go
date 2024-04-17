@@ -14,9 +14,9 @@ func (i TransactionType) Tag() Tag {
 }
 
 const (
-	TypeTransactionTransfer TransactionType = iota + 1
-	TypeTransactionApproval
+	TypeTransactionApproval TransactionType = iota + 1
+	TypeTransactionBridge
 	TypeTransactionBurn
 	TypeTransactionMint
-	TypeTransactionBridge
+	TypeTransactionTransfer
 )

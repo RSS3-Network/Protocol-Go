@@ -14,7 +14,7 @@ func (i ExchangeType) Tag() Tag {
 }
 
 const (
-	TypeExchangeSwap ExchangeType = iota + 1
-	TypeExchangeLiquidity
+	TypeExchangeLiquidity ExchangeType = iota + 1
 	TypeExchangeStaking
+	TypeExchangeSwap
 )

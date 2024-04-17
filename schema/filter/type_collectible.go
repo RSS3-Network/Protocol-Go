@@ -14,9 +14,9 @@ func (i CollectibleType) Tag() Tag {
 }
 
 const (
-	TypeCollectibleTransfer CollectibleType = iota + 1
-	TypeCollectibleApproval
-	TypeCollectibleMint
+	TypeCollectibleApproval CollectibleType = iota + 1
 	TypeCollectibleBurn
+	TypeCollectibleMint
 	TypeCollectibleTrade
+	TypeCollectibleTransfer
 )

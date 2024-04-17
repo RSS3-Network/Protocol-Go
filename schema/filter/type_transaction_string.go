@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _TransactionTypeName = "transferapprovalburnmintbridge"
+const _TransactionTypeName = "approvalbridgeburnminttransfer"
 
-var _TransactionTypeIndex = [...]uint8{0, 8, 16, 20, 24, 30}
+var _TransactionTypeIndex = [...]uint8{0, 8, 14, 18, 22, 30}
 
-const _TransactionTypeLowerName = "transferapprovalburnmintbridge"
+const _TransactionTypeLowerName = "approvalbridgeburnminttransfer"
 
 func (i TransactionType) String() string {
 	i -= 1
@@ -31,34 +31,34 @@ func (TransactionType) Values() []string {
 // Re-run the stringer command to generate them again.
 func _TransactionTypeNoOp() {
 	var x [1]struct{}
-	_ = x[TypeTransactionTransfer-(1)]
-	_ = x[TypeTransactionApproval-(2)]
+	_ = x[TypeTransactionApproval-(1)]
+	_ = x[TypeTransactionBridge-(2)]
 	_ = x[TypeTransactionBurn-(3)]
 	_ = x[TypeTransactionMint-(4)]
-	_ = x[TypeTransactionBridge-(5)]
+	_ = x[TypeTransactionTransfer-(5)]
 }
 
-var _TransactionTypeValues = []TransactionType{TypeTransactionTransfer, TypeTransactionApproval, TypeTransactionBurn, TypeTransactionMint, TypeTransactionBridge}
+var _TransactionTypeValues = []TransactionType{TypeTransactionApproval, TypeTransactionBridge, TypeTransactionBurn, TypeTransactionMint, TypeTransactionTransfer}
 
 var _TransactionTypeNameToValueMap = map[string]TransactionType{
-	_TransactionTypeName[0:8]:        TypeTransactionTransfer,
-	_TransactionTypeLowerName[0:8]:   TypeTransactionTransfer,
-	_TransactionTypeName[8:16]:       TypeTransactionApproval,
-	_TransactionTypeLowerName[8:16]:  TypeTransactionApproval,
-	_TransactionTypeName[16:20]:      TypeTransactionBurn,
-	_TransactionTypeLowerName[16:20]: TypeTransactionBurn,
-	_TransactionTypeName[20:24]:      TypeTransactionMint,
-	_TransactionTypeLowerName[20:24]: TypeTransactionMint,
-	_TransactionTypeName[24:30]:      TypeTransactionBridge,
-	_TransactionTypeLowerName[24:30]: TypeTransactionBridge,
+	_TransactionTypeName[0:8]:        TypeTransactionApproval,
+	_TransactionTypeLowerName[0:8]:   TypeTransactionApproval,
+	_TransactionTypeName[8:14]:       TypeTransactionBridge,
+	_TransactionTypeLowerName[8:14]:  TypeTransactionBridge,
+	_TransactionTypeName[14:18]:      TypeTransactionBurn,
+	_TransactionTypeLowerName[14:18]: TypeTransactionBurn,
+	_TransactionTypeName[18:22]:      TypeTransactionMint,
+	_TransactionTypeLowerName[18:22]: TypeTransactionMint,
+	_TransactionTypeName[22:30]:      TypeTransactionTransfer,
+	_TransactionTypeLowerName[22:30]: TypeTransactionTransfer,
 }
 
 var _TransactionTypeNames = []string{
 	_TransactionTypeName[0:8],
-	_TransactionTypeName[8:16],
-	_TransactionTypeName[16:20],
-	_TransactionTypeName[20:24],
-	_TransactionTypeName[24:30],
+	_TransactionTypeName[8:14],
+	_TransactionTypeName[14:18],
+	_TransactionTypeName[18:22],
+	_TransactionTypeName[22:30],
 }
 
 // TransactionTypeString retrieves an enum value from the enum constants string name.
