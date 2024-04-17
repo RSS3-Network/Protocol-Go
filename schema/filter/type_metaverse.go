@@ -14,8 +14,8 @@ func (i MetaverseType) Tag() Tag {
 }
 
 const (
-	TypeMetaverseTransfer MetaverseType = iota + 1
+	TypeMetaverseBurn MetaverseType = iota + 1
 	TypeMetaverseMint
-	TypeMetaverseBurn
 	TypeMetaverseTrade
+	TypeMetaverseTransfer
 )

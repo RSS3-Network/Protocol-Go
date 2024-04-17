@@ -1,22 +1,22 @@
 package filter
 
-// WorkerToNetworksMap is a map of worker to networks.
+// WorkerOnNetworksMap shows the corresponding Network that a Worker is on.
 // https://github.com/RSS3-Network/Node/blob/develop/deploy/config.yaml
-var WorkerToNetworksMap = map[Name][]string{
-	Fallback: {
-		NetworkEthereum.String(),
-		NetworkOptimism.String(),
-		NetworkPolygon.String(),
-		NetworkCrossbell.String(),
+var WorkerOnNetworksMap = map[Worker][]string{
+	Foundation: {
+		NetworkArbitrum.String(),
 		NetworkAvalanche.String(),
 		NetworkBase.String(),
-		NetworkOptimism.String(),
-		NetworkArbitrum.String(),
 		NetworkBinanceSmartChain.String(),
-		NetworkVSL.String(),
-		NetworkSatoshiVM.String(),
+		NetworkCrossbell.String(),
+		NetworkEthereum.String(),
 		NetworkGnosis.String(),
 		NetworkLinea.String(),
+		NetworkOptimism.String(),
+		NetworkOptimism.String(),
+		NetworkPolygon.String(),
+		NetworkSatoshiVM.String(),
+		NetworkVSL.String(),
 	},
 	Mirror: {
 		NetworkArweave.String(),
@@ -36,8 +36,8 @@ var WorkerToNetworksMap = map[Name][]string{
 	},
 	Uniswap: {
 		NetworkEthereum.String(),
-		NetworkSatoshiVM.String(),
 		NetworkLinea.String(),
+		NetworkSatoshiVM.String(),
 	},
 	Optimism: {
 		NetworkEthereum.String(),
@@ -58,18 +58,18 @@ var WorkerToNetworksMap = map[Name][]string{
 		NetworkArweave.String(),
 	},
 	Highlight: {
-		NetworkEthereum.String(),
 		NetworkArbitrum.String(),
-		NetworkPolygon.String(),
+		NetworkEthereum.String(),
 		NetworkOptimism.String(),
+		NetworkPolygon.String(),
 	},
 	Aave: {
-		NetworkPolygon.String(),
-		NetworkEthereum.String(),
+		NetworkArbitrum.String(),
 		NetworkAvalanche.String(),
 		NetworkBase.String(),
+		NetworkEthereum.String(),
 		NetworkOptimism.String(),
-		NetworkArbitrum.String(),
+		NetworkPolygon.String(),
 	},
 	IQWiki: {
 		NetworkPolygon.String(),
@@ -97,140 +97,140 @@ var WorkerToNetworksMap = map[Name][]string{
 	},
 }
 
-// NetworkToWorkersMap is a map of network to workers.
-var NetworkToWorkersMap = map[Network][]string{
-	NetworkEthereum: {
-		Fallback.String(),
-		RSS3.String(),
-		OpenSea.String(),
-		Uniswap.String(),
-		Optimism.String(),
-		Looksrare.String(),
-		Highlight.String(),
+// NetworkHasWorkersMap shows the corresponding Worker that a Network has.
+var NetworkHasWorkersMap = map[Network][]string{
+	NetworkArbitrum: {
 		Aave.String(),
-		Lido.String(),
-		ENS.String(),
-		Oneinch.String(),
-		VSL.String(),
+		Foundation.String(),
+		Highlight.String(),
 	},
 	NetworkArweave: {
 		Mirror.String(),
-		Paragraph.String(),
 		Momoka.String(),
+		Paragraph.String(),
+	},
+	NetworkAvalanche: {
+		Aave.String(),
+		Foundation.String(),
+	},
+	NetworkBase: {
+		Aave.String(),
+		Foundation.String(),
+	},
+	NetworkBinanceSmartChain: {
+		Foundation.String(),
+	},
+	NetworkCrossbell: {
+		Crossbell.String(),
+		Foundation.String(),
+	},
+	NetworkEthereum: {
+		Aave.String(),
+		ENS.String(),
+		Foundation.String(),
+		Highlight.String(),
+		Lido.String(),
+		Looksrare.String(),
+		Oneinch.String(),
+		OpenSea.String(),
+		Optimism.String(),
+		RSS3.String(),
+		Uniswap.String(),
+		VSL.String(),
 	},
 	NetworkFarcaster: {
 		Farcaster.String(),
 	},
-	NetworkPolygon: {
-		Fallback.String(),
-		Aavegotchi.String(),
-		Lens.String(),
-		Matters.String(),
-		Aave.String(),
-		IQWiki.String(),
-		Highlight.String(),
+	NetworkGnosis: {
+		Foundation.String(),
 	},
-	NetworkCrossbell: {
-		Fallback.String(),
-		Crossbell.String(),
-	},
-	NetworkAvalanche: {
-		Fallback.String(),
-		Aave.String(),
-	},
-	NetworkBase: {
-		Fallback.String(),
-		Aave.String(),
+	NetworkLinea: {
+		Foundation.String(),
+		Uniswap.String(),
 	},
 	NetworkOptimism: {
-		Fallback.String(),
 		Aave.String(),
+		Foundation.String(),
 		Highlight.String(),
 		KiwiStand.String(),
 	},
-	NetworkArbitrum: {
-		Fallback.String(),
+	NetworkPolygon: {
 		Aave.String(),
+		Aavegotchi.String(),
+		Foundation.String(),
 		Highlight.String(),
+		IQWiki.String(),
+		Lens.String(),
+		Matters.String(),
 	},
-	NetworkGnosis: {
-		Fallback.String(),
-	},
-	NetworkLinea: {
-		Fallback.String(),
+	NetworkSatoshiVM: {
+		Foundation.String(),
+		SAVM.String(),
 		Uniswap.String(),
 	},
 	NetworkVSL: {
-		Fallback.String(),
+		Foundation.String(),
 		RSS3.String(),
-	},
-	NetworkSatoshiVM: {
-		Fallback.String(),
-		Uniswap.String(),
-		SAVM.String(),
-	},
-	NetworkBinanceSmartChain: {
-		Fallback.String(),
 	},
 }
 
-// PlatformToWorkerMap is a map of platform to worker.
-var PlatformToWorkerMap = map[Platform]string{
-	PlatformRSS3:       RSS3.String(),
-	PlatformMirror:     Mirror.String(),
-	PlatformFarcaster:  Farcaster.String(),
-	PlatformParagraph:  Paragraph.String(),
-	PlatformOpenSea:    OpenSea.String(),
-	PlatformUniswap:    Uniswap.String(),
-	PlatformOptimism:   Optimism.String(),
-	PlatformAavegotchi: Aavegotchi.String(),
-	PlatformLens:       Lens.String(),
-	PlatformLooksRare:  Looksrare.String(),
-	PlatformMatters:    Matters.String(),
-	PlatformMomoka:     Momoka.String(),
-	PlatformHighlight:  Highlight.String(),
+// PlatformHasWorkerMap is a map of platform to worker.
+var PlatformHasWorkerMap = map[Platform]string{
+	Platform1inch:      Oneinch.String(),
 	PlatformAAVE:       Aave.String(),
-	PlatformIQWiki:     IQWiki.String(),
-	PlatformLido:       Lido.String(),
+	PlatformAavegotchi: Aavegotchi.String(),
 	PlatformCrossbell:  Crossbell.String(),
 	PlatformENS:        ENS.String(),
+	PlatformFarcaster:  Farcaster.String(),
+	PlatformHighlight:  Highlight.String(),
+	PlatformIQWiki:     IQWiki.String(),
 	PlatformKiwiStand:  KiwiStand.String(),
-	Platform1inch:      Oneinch.String(),
-	PlatformVSL:        VSL.String(),
+	PlatformLens:       Lens.String(),
+	PlatformLido:       Lido.String(),
+	PlatformLooksRare:  Looksrare.String(),
+	PlatformMatters:    Matters.String(),
+	PlatformMirror:     Mirror.String(),
+	PlatformMomoka:     Momoka.String(),
+	PlatformOpenSea:    OpenSea.String(),
+	PlatformOptimism:   Optimism.String(),
+	PlatformParagraph:  Paragraph.String(),
+	PlatformRSS3:       RSS3.String(),
 	PlatformSAVM:       SAVM.String(),
+	PlatformUniswap:    Uniswap.String(),
+	PlatformVSL:        VSL.String(),
 }
 
-var TagToWorkersMap = map[Tag][]string{
-	TagTransaction: {
-		Optimism.String(),
-		VSL.String(),
-		SAVM.String(),
-	},
+var TagHasWorkersMap = map[Tag][]string{
 	TagCollectible: {
-		OpenSea.String(),
 		ENS.String(),
 		Highlight.String(),
+		KiwiStand.String(),
 		Lido.String(),
 		Looksrare.String(),
-		KiwiStand.String(),
+		OpenSea.String(),
 	},
 	TagExchange: {
-		RSS3.String(),
-		Uniswap.String(),
 		Aave.String(),
 		Lido.String(),
 		Oneinch.String(),
+		RSS3.String(),
+		Uniswap.String(),
 	},
 	TagSocial: {
-		Farcaster.String(),
-		Mirror.String(),
-		Lens.String(),
-		Paragraph.String(),
 		Crossbell.String(),
 		ENS.String(),
+		Farcaster.String(),
 		IQWiki.String(),
+		Lens.String(),
 		Matters.String(),
+		Mirror.String(),
 		Momoka.String(),
+		Paragraph.String(),
+	},
+	TagTransaction: {
+		Optimism.String(),
+		SAVM.String(),
+		VSL.String(),
 	},
 	TagMetaverse: {
 		Aavegotchi.String(),

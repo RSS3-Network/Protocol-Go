@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _MetaverseTypeName = "transfermintburntrade"
+const _MetaverseTypeName = "burnminttradetransfer"
 
-var _MetaverseTypeIndex = [...]uint8{0, 8, 12, 16, 21}
+var _MetaverseTypeIndex = [...]uint8{0, 4, 8, 13, 21}
 
-const _MetaverseTypeLowerName = "transfermintburntrade"
+const _MetaverseTypeLowerName = "burnminttradetransfer"
 
 func (i MetaverseType) String() string {
 	i -= 1
@@ -31,30 +31,30 @@ func (MetaverseType) Values() []string {
 // Re-run the stringer command to generate them again.
 func _MetaverseTypeNoOp() {
 	var x [1]struct{}
-	_ = x[TypeMetaverseTransfer-(1)]
+	_ = x[TypeMetaverseBurn-(1)]
 	_ = x[TypeMetaverseMint-(2)]
-	_ = x[TypeMetaverseBurn-(3)]
-	_ = x[TypeMetaverseTrade-(4)]
+	_ = x[TypeMetaverseTrade-(3)]
+	_ = x[TypeMetaverseTransfer-(4)]
 }
 
-var _MetaverseTypeValues = []MetaverseType{TypeMetaverseTransfer, TypeMetaverseMint, TypeMetaverseBurn, TypeMetaverseTrade}
+var _MetaverseTypeValues = []MetaverseType{TypeMetaverseBurn, TypeMetaverseMint, TypeMetaverseTrade, TypeMetaverseTransfer}
 
 var _MetaverseTypeNameToValueMap = map[string]MetaverseType{
-	_MetaverseTypeName[0:8]:        TypeMetaverseTransfer,
-	_MetaverseTypeLowerName[0:8]:   TypeMetaverseTransfer,
-	_MetaverseTypeName[8:12]:       TypeMetaverseMint,
-	_MetaverseTypeLowerName[8:12]:  TypeMetaverseMint,
-	_MetaverseTypeName[12:16]:      TypeMetaverseBurn,
-	_MetaverseTypeLowerName[12:16]: TypeMetaverseBurn,
-	_MetaverseTypeName[16:21]:      TypeMetaverseTrade,
-	_MetaverseTypeLowerName[16:21]: TypeMetaverseTrade,
+	_MetaverseTypeName[0:4]:        TypeMetaverseBurn,
+	_MetaverseTypeLowerName[0:4]:   TypeMetaverseBurn,
+	_MetaverseTypeName[4:8]:        TypeMetaverseMint,
+	_MetaverseTypeLowerName[4:8]:   TypeMetaverseMint,
+	_MetaverseTypeName[8:13]:       TypeMetaverseTrade,
+	_MetaverseTypeLowerName[8:13]:  TypeMetaverseTrade,
+	_MetaverseTypeName[13:21]:      TypeMetaverseTransfer,
+	_MetaverseTypeLowerName[13:21]: TypeMetaverseTransfer,
 }
 
 var _MetaverseTypeNames = []string{
-	_MetaverseTypeName[0:8],
-	_MetaverseTypeName[8:12],
-	_MetaverseTypeName[12:16],
-	_MetaverseTypeName[16:21],
+	_MetaverseTypeName[0:4],
+	_MetaverseTypeName[4:8],
+	_MetaverseTypeName[8:13],
+	_MetaverseTypeName[13:21],
 }
 
 // MetaverseTypeString retrieves an enum value from the enum constants string name.

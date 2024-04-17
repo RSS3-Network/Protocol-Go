@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _CollectibleTypeName = "transferapprovalmintburntrade"
+const _CollectibleTypeName = "approvalburnminttradetransfer"
 
-var _CollectibleTypeIndex = [...]uint8{0, 8, 16, 20, 24, 29}
+var _CollectibleTypeIndex = [...]uint8{0, 8, 12, 16, 21, 29}
 
-const _CollectibleTypeLowerName = "transferapprovalmintburntrade"
+const _CollectibleTypeLowerName = "approvalburnminttradetransfer"
 
 func (i CollectibleType) String() string {
 	i -= 1
@@ -31,34 +31,34 @@ func (CollectibleType) Values() []string {
 // Re-run the stringer command to generate them again.
 func _CollectibleTypeNoOp() {
 	var x [1]struct{}
-	_ = x[TypeCollectibleTransfer-(1)]
-	_ = x[TypeCollectibleApproval-(2)]
+	_ = x[TypeCollectibleApproval-(1)]
+	_ = x[TypeCollectibleBurn-(2)]
 	_ = x[TypeCollectibleMint-(3)]
-	_ = x[TypeCollectibleBurn-(4)]
-	_ = x[TypeCollectibleTrade-(5)]
+	_ = x[TypeCollectibleTrade-(4)]
+	_ = x[TypeCollectibleTransfer-(5)]
 }
 
-var _CollectibleTypeValues = []CollectibleType{TypeCollectibleTransfer, TypeCollectibleApproval, TypeCollectibleMint, TypeCollectibleBurn, TypeCollectibleTrade}
+var _CollectibleTypeValues = []CollectibleType{TypeCollectibleApproval, TypeCollectibleBurn, TypeCollectibleMint, TypeCollectibleTrade, TypeCollectibleTransfer}
 
 var _CollectibleTypeNameToValueMap = map[string]CollectibleType{
-	_CollectibleTypeName[0:8]:        TypeCollectibleTransfer,
-	_CollectibleTypeLowerName[0:8]:   TypeCollectibleTransfer,
-	_CollectibleTypeName[8:16]:       TypeCollectibleApproval,
-	_CollectibleTypeLowerName[8:16]:  TypeCollectibleApproval,
-	_CollectibleTypeName[16:20]:      TypeCollectibleMint,
-	_CollectibleTypeLowerName[16:20]: TypeCollectibleMint,
-	_CollectibleTypeName[20:24]:      TypeCollectibleBurn,
-	_CollectibleTypeLowerName[20:24]: TypeCollectibleBurn,
-	_CollectibleTypeName[24:29]:      TypeCollectibleTrade,
-	_CollectibleTypeLowerName[24:29]: TypeCollectibleTrade,
+	_CollectibleTypeName[0:8]:        TypeCollectibleApproval,
+	_CollectibleTypeLowerName[0:8]:   TypeCollectibleApproval,
+	_CollectibleTypeName[8:12]:       TypeCollectibleBurn,
+	_CollectibleTypeLowerName[8:12]:  TypeCollectibleBurn,
+	_CollectibleTypeName[12:16]:      TypeCollectibleMint,
+	_CollectibleTypeLowerName[12:16]: TypeCollectibleMint,
+	_CollectibleTypeName[16:21]:      TypeCollectibleTrade,
+	_CollectibleTypeLowerName[16:21]: TypeCollectibleTrade,
+	_CollectibleTypeName[21:29]:      TypeCollectibleTransfer,
+	_CollectibleTypeLowerName[21:29]: TypeCollectibleTransfer,
 }
 
 var _CollectibleTypeNames = []string{
 	_CollectibleTypeName[0:8],
-	_CollectibleTypeName[8:16],
-	_CollectibleTypeName[16:20],
-	_CollectibleTypeName[20:24],
-	_CollectibleTypeName[24:29],
+	_CollectibleTypeName[8:12],
+	_CollectibleTypeName[12:16],
+	_CollectibleTypeName[16:21],
+	_CollectibleTypeName[21:29],
 }
 
 // CollectibleTypeString retrieves an enum value from the enum constants string name.

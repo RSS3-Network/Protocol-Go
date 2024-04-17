@@ -15,10 +15,10 @@ func TypeString(tag Tag, typeValue string) (Type, error) {
 		return ExchangeTypeString(typeValue)
 	case TagMetaverse:
 		return MetaverseTypeString(typeValue)
-	case TagRSS:
-		return RSSTypeString(typeValue)
 	case TagSocial:
 		return SocialTypeString(typeValue)
+	case TagRSS:
+		return RSSTypeString(typeValue)
 	case TagTransaction:
 		return TransactionTypeString(typeValue)
 	case TagUnknown:

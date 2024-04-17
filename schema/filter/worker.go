@@ -6,38 +6,39 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// Name represents a worker name.
+// Worker represents a worker name.
 //
-//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Name --linecomment --output worker_string.go --json --yaml --sql
-type Name int
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Worker --linecomment --output worker_string.go --json --yaml --sql
+type Worker uint64
 
 const (
-	Unknown    Name = iota // unknown
-	Fallback               // fallback
-	Mirror                 // mirror
-	Farcaster              // farcaster
-	RSS3                   // rss3
-	Paragraph              // paragraph
-	OpenSea                // opensea
-	Uniswap                // uniswap
-	Optimism               // optimism
-	Aavegotchi             // aavegotchi
-	Lens                   // lens
-	Looksrare              // looksrare
-	Matters                // matters
-	Momoka                 // momoka
-	Highlight              // highlight
-	Aave                   // aave
-	IQWiki                 // iqwiki
-	Lido                   // lido
-	Crossbell              // crossbell
-	ENS                    // ens
-	KiwiStand              // kiwistand
-	Oneinch                // 1inch
-	VSL                    // vsl
-	SAVM                   // savm
-	Stargate               // stargate
-	Curve                  // curve
+	Unknown    Worker = iota // unknown
+	Aave                     // aave
+	Aavegotchi               // aavegotchi
+	Crossbell                // crossbell
+	Curve                    // curve
+	ENS                      // ens
+	Farcaster                // farcaster
+	// Foundation serves as the catch-all worker for all Network.
+	Foundation // foundation
+	Highlight  // highlight
+	IQWiki     // iqwiki
+	KiwiStand  // kiwistand
+	Lens       // lens
+	Lido       // lido
+	Looksrare  // looksrare
+	Matters    // matters
+	Mirror     // mirror
+	Momoka     // momoka
+	Oneinch    // 1inch
+	OpenSea    // opensea
+	Optimism   // optimism
+	Paragraph  // paragraph
+	RSS3       // rss3
+	SAVM       // savm
+	Stargate   // stargate
+	Uniswap    // uniswap
+	VSL        // vsl
 )
 
 func WorkerHookFunc() mapstructure.DecodeHookFuncType {
@@ -54,6 +55,6 @@ func WorkerHookFunc() mapstructure.DecodeHookFuncType {
 			return data, nil
 		}
 
-		return _NameNameToValueMap[data.(string)], nil
+		return _WorkerNameToValueMap[data.(string)], nil
 	}
 }

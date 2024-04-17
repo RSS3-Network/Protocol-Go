@@ -7,12 +7,12 @@ type Tag uint64
 
 const (
 	TagUnknown Tag = iota
-	TagTransaction
 	TagCollectible
 	TagExchange
-	TagSocial
 	TagMetaverse
 	TagRSS
+	TagSocial
+	TagTransaction
 )
 
 func TagAndTypeString(tagValue string, typeValue string) (Tag, Type, error) {

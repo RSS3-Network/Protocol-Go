@@ -10,30 +10,30 @@ import (
 type Platform int
 
 const (
-	PlatformRSS3       Platform = iota + 1 // RSS3
-	PlatformMirror                         // Mirror
-	PlatformFarcaster                      // Farcaster
-	PlatformParagraph                      // Paragraph
-	PlatformOpenSea                        // OpenSea
-	PlatformUniswap                        // Uniswap
-	PlatformOptimism                       // Optimism
+	Platform1inch      Platform = iota + 1 // 1inch
+	PlatformAAVE                           // AAVE
 	PlatformAavegotchi                     // Aavegotchi
+	PlatformCrossbell                      // Crossbell
+	PlatformCurve                          // Curve
+	PlatformENS                            // ENS
+	PlatformFarcaster                      // Farcaster
+	PlatformHighlight                      // Highlight
+	PlatformIQWiki                         // IQWiki
+	PlatformKiwiStand                      // KiwiStand
 	PlatformLens                           // Lens
+	PlatformLido                           // Lido
 	PlatformLooksRare                      // LooksRare
 	PlatformMatters                        // Matters
+	PlatformMirror                         // Mirror
 	PlatformMomoka                         // Momoka
-	PlatformHighlight                      // Highlight
-	PlatformAAVE                           // AAVE
-	PlatformIQWiki                         // IQWiki
-	PlatformLido                           // Lido
-	PlatformCrossbell                      // Crossbell
-	PlatformENS                            // ENS
-	PlatformKiwiStand                      // KiwiStand
-	Platform1inch                          // 1inch
-	PlatformVSL                            // VSL
+	PlatformOpenSea                        // OpenSea
+	PlatformOptimism                       // Optimism
+	PlatformParagraph                      // Paragraph
+	PlatformRSS3                           // RSS3
 	PlatformSAVM                           // SAVM
 	PlatformStargate                       // Stargate
-	PlatformCurve                          // Curve
+	PlatformUniswap                        // Uniswap
+	PlatformVSL                            // VSL
 )
 
 func (p Platform) ID() string {

@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _SocialTypeName = "postrevisecommentshareprofilemintdeleteproxyreward"
+const _SocialTypeName = "commentdeletemintpostprofileproxyreviserewardshare"
 
-var _SocialTypeIndex = [...]uint8{0, 4, 10, 17, 22, 29, 33, 39, 44, 50}
+var _SocialTypeIndex = [...]uint8{0, 7, 13, 17, 21, 28, 33, 39, 45, 50}
 
-const _SocialTypeLowerName = "postrevisecommentshareprofilemintdeleteproxyreward"
+const _SocialTypeLowerName = "commentdeletemintpostprofileproxyreviserewardshare"
 
 func (i SocialType) String() string {
 	i -= 1
@@ -31,50 +31,50 @@ func (SocialType) Values() []string {
 // Re-run the stringer command to generate them again.
 func _SocialTypeNoOp() {
 	var x [1]struct{}
-	_ = x[TypeSocialPost-(1)]
-	_ = x[TypeSocialRevise-(2)]
-	_ = x[TypeSocialComment-(3)]
-	_ = x[TypeSocialShare-(4)]
+	_ = x[TypeSocialComment-(1)]
+	_ = x[TypeSocialDelete-(2)]
+	_ = x[TypeSocialMint-(3)]
+	_ = x[TypeSocialPost-(4)]
 	_ = x[TypeSocialProfile-(5)]
-	_ = x[TypeSocialMint-(6)]
-	_ = x[TypeSocialDelete-(7)]
-	_ = x[TypeSocialProxy-(8)]
-	_ = x[TypeSocialReward-(9)]
+	_ = x[TypeSocialProxy-(6)]
+	_ = x[TypeSocialRevise-(7)]
+	_ = x[TypeSocialReward-(8)]
+	_ = x[TypeSocialShare-(9)]
 }
 
-var _SocialTypeValues = []SocialType{TypeSocialPost, TypeSocialRevise, TypeSocialComment, TypeSocialShare, TypeSocialProfile, TypeSocialMint, TypeSocialDelete, TypeSocialProxy, TypeSocialReward}
+var _SocialTypeValues = []SocialType{TypeSocialComment, TypeSocialDelete, TypeSocialMint, TypeSocialPost, TypeSocialProfile, TypeSocialProxy, TypeSocialRevise, TypeSocialReward, TypeSocialShare}
 
 var _SocialTypeNameToValueMap = map[string]SocialType{
-	_SocialTypeName[0:4]:        TypeSocialPost,
-	_SocialTypeLowerName[0:4]:   TypeSocialPost,
-	_SocialTypeName[4:10]:       TypeSocialRevise,
-	_SocialTypeLowerName[4:10]:  TypeSocialRevise,
-	_SocialTypeName[10:17]:      TypeSocialComment,
-	_SocialTypeLowerName[10:17]: TypeSocialComment,
-	_SocialTypeName[17:22]:      TypeSocialShare,
-	_SocialTypeLowerName[17:22]: TypeSocialShare,
-	_SocialTypeName[22:29]:      TypeSocialProfile,
-	_SocialTypeLowerName[22:29]: TypeSocialProfile,
-	_SocialTypeName[29:33]:      TypeSocialMint,
-	_SocialTypeLowerName[29:33]: TypeSocialMint,
-	_SocialTypeName[33:39]:      TypeSocialDelete,
-	_SocialTypeLowerName[33:39]: TypeSocialDelete,
-	_SocialTypeName[39:44]:      TypeSocialProxy,
-	_SocialTypeLowerName[39:44]: TypeSocialProxy,
-	_SocialTypeName[44:50]:      TypeSocialReward,
-	_SocialTypeLowerName[44:50]: TypeSocialReward,
+	_SocialTypeName[0:7]:        TypeSocialComment,
+	_SocialTypeLowerName[0:7]:   TypeSocialComment,
+	_SocialTypeName[7:13]:       TypeSocialDelete,
+	_SocialTypeLowerName[7:13]:  TypeSocialDelete,
+	_SocialTypeName[13:17]:      TypeSocialMint,
+	_SocialTypeLowerName[13:17]: TypeSocialMint,
+	_SocialTypeName[17:21]:      TypeSocialPost,
+	_SocialTypeLowerName[17:21]: TypeSocialPost,
+	_SocialTypeName[21:28]:      TypeSocialProfile,
+	_SocialTypeLowerName[21:28]: TypeSocialProfile,
+	_SocialTypeName[28:33]:      TypeSocialProxy,
+	_SocialTypeLowerName[28:33]: TypeSocialProxy,
+	_SocialTypeName[33:39]:      TypeSocialRevise,
+	_SocialTypeLowerName[33:39]: TypeSocialRevise,
+	_SocialTypeName[39:45]:      TypeSocialReward,
+	_SocialTypeLowerName[39:45]: TypeSocialReward,
+	_SocialTypeName[45:50]:      TypeSocialShare,
+	_SocialTypeLowerName[45:50]: TypeSocialShare,
 }
 
 var _SocialTypeNames = []string{
-	_SocialTypeName[0:4],
-	_SocialTypeName[4:10],
-	_SocialTypeName[10:17],
-	_SocialTypeName[17:22],
-	_SocialTypeName[22:29],
-	_SocialTypeName[29:33],
+	_SocialTypeName[0:7],
+	_SocialTypeName[7:13],
+	_SocialTypeName[13:17],
+	_SocialTypeName[17:21],
+	_SocialTypeName[21:28],
+	_SocialTypeName[28:33],
 	_SocialTypeName[33:39],
-	_SocialTypeName[39:44],
-	_SocialTypeName[44:50],
+	_SocialTypeName[39:45],
+	_SocialTypeName[45:50],
 }
 
 // SocialTypeString retrieves an enum value from the enum constants string name.
