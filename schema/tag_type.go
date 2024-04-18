@@ -50,3 +50,35 @@ func ParseTagAndTypeFromString(tagValue string, typeValue string) (tag.Tag, Type
 
 	return _tag, _type, err
 }
+
+// GetTypesByTag returns all Type that belong to a specific Tag.
+func GetTypesByTag(tagValue tag.Tag) []Type {
+	switch tagValue {
+	case tag.Collectible:
+		return convertToTypeSlice(typex.CollectibleTypeValues())
+	case tag.Exchange:
+		return convertToTypeSlice(typex.ExchangeTypeValues())
+	case tag.Metaverse:
+		return convertToTypeSlice(typex.MetaverseTypeValues())
+	case tag.Social:
+		return convertToTypeSlice(typex.SocialTypeValues())
+	case tag.RSS:
+		return convertToTypeSlice(typex.RSSTypeValues())
+	case tag.Transaction:
+		return convertToTypeSlice(typex.TransactionTypeValues())
+	case tag.Unknown:
+		return convertToTypeSlice(typex.UnknownTypeValues())
+	default:
+		return nil
+	}
+}
+
+// Helper function to convert slices of specific types that implement Type into []Type.
+func convertToTypeSlice[T Type](input []T) []Type {
+	result := make([]Type, len(input))
+	for i, v := range input {
+		result[i] = v
+	}
+
+	return result
+}
