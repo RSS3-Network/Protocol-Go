@@ -18,35 +18,19 @@ const (
 	EthereumChainIDVSL               EthereumChainID = 12553 // vsl
 )
 
-func NameAndChainID(network string) (Network, EthereumChainID) {
-	switch network {
-	case Arbitrum.String():
-		return Arbitrum, EthereumChainIDArbitrum
-	case Avalanche.String():
-		return Avalanche, EthereumChainIDAvalanche
-	case Base.String():
-		return Base, EthereumChainIDBase
-	case BinanceSmartChain.String():
-		return BinanceSmartChain, EthereumChainIDBinanceSmartChain
-	case Crossbell.String():
-		return Crossbell, EthereumChainIDCrossbell
-	case Ethereum.String():
-		return Ethereum, EthereumChainIDMainnet
-	case Gnosis.String():
-		return Gnosis, EthereumChainIDGnosis
-	case Linea.String():
-		return Linea, EthereumChainIDLinea
-	case Optimism.String():
-		return Optimism, EthereumChainIDOptimism
-	case Polygon.String():
-		return Polygon, EthereumChainIDPolygon
-	case SatoshiVM.String():
-		return SatoshiVM, EthereumChainIDSatoshiVM
-	case VSL.String():
-		return VSL, EthereumChainIDVSL
-	default:
+// ParseNetworkAndChainIDFromString returns the Network and its corresponding EthereumChainID based on a string network name.
+func ParseNetworkAndChainIDFromString(networkString string) (Network, EthereumChainID) {
+	network, err := NetworkString(networkString)
+	if err != nil {
 		return Unknown, 0
 	}
+
+	chainID, err := EthereumChainIDString(networkString)
+	if err != nil {
+		return network, chainID
+	}
+
+	return Unknown, 0
 }
 
 func IsOptimismSuperchain(chainID uint64) bool {
