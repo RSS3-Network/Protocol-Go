@@ -8,12 +8,14 @@ import (
 	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
+// Type has a name and a tag
 type Type interface {
 	Name() string
 	Tag() tag.Tag
 }
 
-func TypeString(parentTag tag.Tag, typeValue string) (Type, error) {
+// ParseTypeFromString returns a Type based on its string value and its parent Tag
+func ParseTypeFromString(parentTag tag.Tag, typeValue string) (Type, error) {
 	switch parentTag {
 	case tag.Collectible:
 		return typex.CollectibleTypeString(typeValue)
@@ -34,13 +36,14 @@ func TypeString(parentTag tag.Tag, typeValue string) (Type, error) {
 	}
 }
 
-func TagAndTypeString(tagValue string, typeValue string) (tag.Tag, Type, error) {
+// ParseTagAndTypeFromString returns a Tag and Type based on their string values
+func ParseTagAndTypeFromString(tagValue string, typeValue string) (tag.Tag, Type, error) {
 	_tag, err := tag.TagString(tagValue)
 	if err != nil {
 		return tag.Unknown, nil, err
 	}
 
-	_type, err := TypeString(_tag, typeValue)
+	_type, err := ParseTypeFromString(_tag, typeValue)
 	if err != nil {
 		return tag.Unknown, nil, err
 	}

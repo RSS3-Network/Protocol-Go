@@ -40,7 +40,7 @@ func (a *Action) UnmarshalJSON(bytes []byte) error {
 		return fmt.Errorf("unmarshal action: %w", err)
 	}
 
-	temp.Type, err = schema.TypeString(temp.Tag, temp.TypeX)
+	temp.Type, err = schema.ParseTypeFromString(temp.Tag, temp.TypeX)
 	if err != nil {
 		return fmt.Errorf("invalid action type: %w", err)
 	}
