@@ -26,7 +26,7 @@ func ParseNetworkAndChainIDFromString(networkString string) (Network, EthereumCh
 	}
 
 	chainID, err := EthereumChainIDString(networkString)
-	if err != nil {
+	if err == nil {
 		return network, chainID
 	}
 
