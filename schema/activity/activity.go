@@ -91,7 +91,7 @@ func (f *Activities) UnmarshalJSON(bytes []byte) error {
 	for _, v := range temp {
 		v.TotalActions = uint(len(v.Actions))
 
-		v.Type, err = schema.TypeString(v.Tag, v.TypeX)
+		v.Type, err = schema.ParseTypeFromString(v.Tag, v.TypeX)
 		if err != nil {
 			return fmt.Errorf("unmarshal type: %w", err)
 		}
