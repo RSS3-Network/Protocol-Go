@@ -49,6 +49,7 @@ const (
 	ArweaveSource   Source = "arweave"
 	EthereumSource  Source = "ethereum"
 	FarcasterSource Source = "farcaster"
+	RSSSource       Source = "rss"
 )
 
 func (n Network) Source() Source {
@@ -59,6 +60,8 @@ func (n Network) Source() Source {
 		return EthereumSource
 	case Farcaster:
 		return FarcasterSource
+	case RSS:
+		return RSSSource
 	default:
 		return ""
 	}
