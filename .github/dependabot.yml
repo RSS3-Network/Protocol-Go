@@ -5,3 +5,5 @@ updates:
     schedule:
       interval: "daily"
     target-branch: "main"
+    ignore:
+      - dependency-name: "github.com/ethereum/go-ethereum"
