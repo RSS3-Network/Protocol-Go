@@ -3,7 +3,7 @@ module github.com/rss3-network/protocol-go
 go 1.21.4
 
 require (
-	github.com/ethereum/go-ethereum v1.14.4
+	github.com/ethereum/go-ethereum v1.13.15
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/shopspring/decimal v1.4.0

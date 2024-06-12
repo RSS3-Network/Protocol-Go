@@ -3,5 +3,7 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     target-branch: "main"
+    ignore:
+      - dependency-name: "github.com/ethereum/go-ethereum"
