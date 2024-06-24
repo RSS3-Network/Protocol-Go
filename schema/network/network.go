@@ -21,6 +21,7 @@ const (
 	Crossbell                        // crossbell
 	Ethereum                         // ethereum
 	Farcaster                        // farcaster
+	Mastodon                         // mastodon
 	Gnosis                           // gnosis
 	Linea                            // linea
 	Optimism                         // optimism
@@ -49,6 +50,7 @@ const (
 	ArweaveSource   Source = "arweave"
 	EthereumSource  Source = "ethereum"
 	FarcasterSource Source = "farcaster"
+	MastodonSource  Source = "mastodon"
 	RSSSource       Source = "rss"
 )
 
@@ -60,6 +62,8 @@ func (n Network) Source() Source {
 		return EthereumSource
 	case Farcaster:
 		return FarcasterSource
+	case Mastodon:
+		return MastodonSource
 	case RSS:
 		return RSSSource
 	default:
