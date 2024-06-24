@@ -21,9 +21,9 @@ const (
 	Crossbell                        // crossbell
 	Ethereum                         // ethereum
 	Farcaster                        // farcaster
-	Mastodon                         // mastodon
 	Gnosis                           // gnosis
 	Linea                            // linea
+	Mastodon                         // mastodon
 	Optimism                         // optimism
 	Polygon                          // polygon
 	RSS                              // rss
@@ -47,11 +47,11 @@ func (n *Network) UnmarshalParam(param string) error {
 type Source string
 
 const (
-	ArweaveSource   Source = "arweave"
-	EthereumSource  Source = "ethereum"
-	FarcasterSource Source = "farcaster"
-	MastodonSource  Source = "mastodon"
-	RSSSource       Source = "rss"
+	ActivityPubSource Source = "activity-pub"
+	ArweaveSource     Source = "arweave"
+	EthereumSource    Source = "ethereum"
+	FarcasterSource   Source = "farcaster"
+	RSSSource         Source = "rss"
 )
 
 func (n Network) Source() Source {
@@ -63,7 +63,7 @@ func (n Network) Source() Source {
 	case Farcaster:
 		return FarcasterSource
 	case Mastodon:
-		return MastodonSource
+		return ActivityPubSource
 	case RSS:
 		return RSSSource
 	default:
