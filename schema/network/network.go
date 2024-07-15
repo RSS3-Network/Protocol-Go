@@ -71,24 +71,24 @@ func (n Network) Source() Source {
 	}
 }
 
-type NetworkType string
+type Type string
 
 const (
-    Decentralized NetworkType = "decentralized"
-    Federated     NetworkType = "federated"
-    RSS           NetworkType = "rss"
+	DecentralizedType Type = "decentralized"
+	FederatedType     Type = "federated"
+	RSSType           Type = "rss"
 )
 
-func (n Network) Type() NetworkType {
+func (n Network) Type() Type {
 	switch n {
-	case Arweave, Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Line, Farcaster:
-		return Decentralized
+	case Arweave, Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Linea, Farcaster:
+		return DecentralizedType
 	case Mastodon:
-		return Federated
+		return FederatedType
 	case RSS:
-		return RSS
+		return RSSType
 	default:
-		return Unknown
+		return ""
 	}
 }
 
