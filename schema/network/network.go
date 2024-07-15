@@ -71,6 +71,27 @@ func (n Network) Source() Source {
 	}
 }
 
+type NetworkType string
+
+const (
+    Decentralized NetworkType = "decentralized"
+    Federated     NetworkType = "federated"
+    RSS           NetworkType = "rss"
+)
+
+func (n Network) Type() NetworkType {
+	switch n {
+	case Arweave, Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Line, Farcaster:
+		return Decentralized
+	case Mastodon:
+		return Federated
+	case RSS:
+		return RSS
+	default:
+		return Unknown
+	}
+}
+
 func HookFunc() mapstructure.DecodeHookFuncType {
 	return func(
 		f reflect.Type, // data type
