@@ -16,6 +16,7 @@ const (
 	EthereumChainIDPolygon           EthereumChainID = 137   // polygon
 	EthereumChainIDSatoshiVM         EthereumChainID = 3109  // savm
 	EthereumChainIDVSL               EthereumChainID = 12553 // vsl
+	EthereumChainIDXLayer            EthereumChainID = 196   // x-layer
 )
 
 // ParseNetworkAndChainIDFromString returns the Network and its corresponding EthereumChainID based on a string network name.
