@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvsl"
+const _NetworkName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvslx-layer"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 22, 26, 30, 49, 56, 65, 73, 82, 88, 93, 101, 109, 116, 119, 123, 126}
+var _NetworkIndex = [...]uint8{0, 7, 15, 22, 26, 30, 49, 56, 65, 73, 82, 88, 93, 101, 109, 116, 119, 123, 126, 133}
 
-const _NetworkLowerName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvsl"
+const _NetworkLowerName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvslx-layer"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -48,9 +48,10 @@ func _NetworkNoOp() {
 	_ = x[RSS-(15)]
 	_ = x[SatoshiVM-(16)]
 	_ = x[VSL-(17)]
+	_ = x[XLayer-(18)]
 }
 
-var _NetworkValues = []Network{Unknown, Arbitrum, Arweave, Avalanche, Base, BinanceSmartChain, Bitcoin, Crossbell, Ethereum, Farcaster, Gnosis, Linea, Mastodon, Optimism, Polygon, RSS, SatoshiVM, VSL}
+var _NetworkValues = []Network{Unknown, Arbitrum, Arweave, Avalanche, Base, BinanceSmartChain, Bitcoin, Crossbell, Ethereum, Farcaster, Gnosis, Linea, Mastodon, Optimism, Polygon, RSS, SatoshiVM, VSL, XLayer}
 
 var _NetworkNameToValueMap = map[string]Network{
 	_NetworkName[0:7]:          Unknown,
@@ -89,6 +90,8 @@ var _NetworkNameToValueMap = map[string]Network{
 	_NetworkLowerName[119:123]: SatoshiVM,
 	_NetworkName[123:126]:      VSL,
 	_NetworkLowerName[123:126]: VSL,
+	_NetworkName[126:133]:      XLayer,
+	_NetworkLowerName[126:133]: XLayer,
 }
 
 var _NetworkNames = []string{
@@ -110,6 +113,7 @@ var _NetworkNames = []string{
 	_NetworkName[116:119],
 	_NetworkName[119:123],
 	_NetworkName[123:126],
+	_NetworkName[126:133],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.
