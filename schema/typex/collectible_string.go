@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _CollectibleTypeName = "approvalburnminttradetransfer"
+const _CollectibleTypeName = "approvalburnminttradetransferauction"
 
-var _CollectibleTypeIndex = [...]uint8{0, 8, 12, 16, 21, 29}
+var _CollectibleTypeIndex = [...]uint8{0, 8, 12, 16, 21, 29, 36}
 
-const _CollectibleTypeLowerName = "approvalburnminttradetransfer"
+const _CollectibleTypeLowerName = "approvalburnminttradetransferauction"
 
 func (i CollectibleType) String() string {
 	i -= 1
@@ -36,9 +36,10 @@ func _CollectibleTypeNoOp() {
 	_ = x[CollectibleMint-(3)]
 	_ = x[CollectibleTrade-(4)]
 	_ = x[CollectibleTransfer-(5)]
+	_ = x[CollectibleAuction-(6)]
 }
 
-var _CollectibleTypeValues = []CollectibleType{CollectibleApproval, CollectibleBurn, CollectibleMint, CollectibleTrade, CollectibleTransfer}
+var _CollectibleTypeValues = []CollectibleType{CollectibleApproval, CollectibleBurn, CollectibleMint, CollectibleTrade, CollectibleTransfer, CollectibleAuction}
 
 var _CollectibleTypeNameToValueMap = map[string]CollectibleType{
 	_CollectibleTypeName[0:8]:        CollectibleApproval,
@@ -51,6 +52,8 @@ var _CollectibleTypeNameToValueMap = map[string]CollectibleType{
 	_CollectibleTypeLowerName[16:21]: CollectibleTrade,
 	_CollectibleTypeName[21:29]:      CollectibleTransfer,
 	_CollectibleTypeLowerName[21:29]: CollectibleTransfer,
+	_CollectibleTypeName[29:36]:      CollectibleAuction,
+	_CollectibleTypeLowerName[29:36]: CollectibleAuction,
 }
 
 var _CollectibleTypeNames = []string{
@@ -59,6 +62,7 @@ var _CollectibleTypeNames = []string{
 	_CollectibleTypeName[12:16],
 	_CollectibleTypeName[16:21],
 	_CollectibleTypeName[21:29],
+	_CollectibleTypeName[29:36],
 }
 
 // CollectibleTypeString retrieves an enum value from the enum constants string name.
