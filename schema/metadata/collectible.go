@@ -62,3 +62,27 @@ type CollectibleTrade struct {
 func (r CollectibleTrade) Type() schema.Type {
 	return typex.CollectibleTrade
 }
+
+//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleAuctionAction --transform=snake --trimprefix=ActionCollectibleAuction --output collectible_auction.go --json --sql
+type CollectibleAuctionAction uint64
+
+var _ Metadata = (*CollectibleAuctionAction)(nil)
+
+type CollectibleAuction struct {
+	Action CollectibleAuctionAction `json:"action"`
+	Token
+	Cost *Token `json:"cost,omitempty"`
+}
+
+func (r CollectibleAuctionAction) Type() schema.Type {
+	return typex.CollectibleAuction
+}
+
+const (
+	ActionCollectibleAuctionCreate CollectibleAuctionAction = iota + 1
+	ActionCollectibleAuctionBid
+	ActionCollectibleAuctionFinalize
+	ActionCollectibleAuctionCancel
+	ActionCollectibleAuctionUpdate
+	ActionCollectibleAuctionInvalidate
+)

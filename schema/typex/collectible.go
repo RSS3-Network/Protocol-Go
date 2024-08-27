@@ -21,4 +21,5 @@ const (
 	CollectibleMint
 	CollectibleTrade
 	CollectibleTransfer
+	CollectibleAuction
 )
