@@ -93,6 +93,11 @@ func (e ExchangeLoan) Type() schema.Type {
 	return typex.ExchangeLoan
 }
 
+//goland:noinspection GoMixedReceiverTypes
+func (e ExchangeLoanAction) Type() schema.Type {
+	return typex.ExchangeLoan
+}
+
 const (
 	ActionExchangeLoanCreate ExchangeLoanAction = iota + 1
 	ActionExchangeLoanRepay
