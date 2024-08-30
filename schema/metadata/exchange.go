@@ -77,3 +77,31 @@ const (
 	ActionExchangeStakingUnstake
 	ActionExchangeStakingClaim
 )
+
+//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeLoanAction --transform=snake --trimprefix=ActionExchangeLoan --output exchange_loan.go --json --sql
+type ExchangeLoanAction uint64
+
+var _ Metadata = (*ExchangeLoan)(nil)
+
+type ExchangeLoan struct {
+	Action     ExchangeLoanAction `json:"action"`
+	Collateral Token              `json:"collateral"`
+	Amount     *Token             `json:"amount,omitempty"`
+}
+
+func (e ExchangeLoan) Type() schema.Type {
+	return typex.ExchangeLoan
+}
+
+//goland:noinspection GoMixedReceiverTypes
+func (e ExchangeLoanAction) Type() schema.Type {
+	return typex.ExchangeLoan
+}
+
+const (
+	ActionExchangeLoanCreate ExchangeLoanAction = iota + 1
+	ActionExchangeLoanRepay
+	ActionExchangeLoanRefinance
+	ActionExchangeLoanLiquidate
+	ActionExchangeLoanSeize
+)

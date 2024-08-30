@@ -29,6 +29,7 @@ const (
 	RSS                              // rss
 	SatoshiVM                        // savm
 	VSL                              // vsl
+	XLayer                           // x-layer
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -58,7 +59,7 @@ func (n Network) Source() Source {
 	switch n {
 	case Arweave:
 		return ArweaveSource
-	case Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Linea:
+	case Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Linea, XLayer:
 		return EthereumSource
 	case Farcaster:
 		return FarcasterSource

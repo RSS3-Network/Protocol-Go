@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _ExchangeTypeName = "liquiditystakingswap"
+const _ExchangeTypeName = "liquiditystakingswaploan"
 
-var _ExchangeTypeIndex = [...]uint8{0, 9, 16, 20}
+var _ExchangeTypeIndex = [...]uint8{0, 9, 16, 20, 24}
 
-const _ExchangeTypeLowerName = "liquiditystakingswap"
+const _ExchangeTypeLowerName = "liquiditystakingswaploan"
 
 func (i ExchangeType) String() string {
 	i -= 1
@@ -34,9 +34,10 @@ func _ExchangeTypeNoOp() {
 	_ = x[ExchangeLiquidity-(1)]
 	_ = x[ExchangeStaking-(2)]
 	_ = x[ExchangeSwap-(3)]
+	_ = x[ExchangeLoan-(4)]
 }
 
-var _ExchangeTypeValues = []ExchangeType{ExchangeLiquidity, ExchangeStaking, ExchangeSwap}
+var _ExchangeTypeValues = []ExchangeType{ExchangeLiquidity, ExchangeStaking, ExchangeSwap, ExchangeLoan}
 
 var _ExchangeTypeNameToValueMap = map[string]ExchangeType{
 	_ExchangeTypeName[0:9]:        ExchangeLiquidity,
@@ -45,12 +46,15 @@ var _ExchangeTypeNameToValueMap = map[string]ExchangeType{
 	_ExchangeTypeLowerName[9:16]:  ExchangeStaking,
 	_ExchangeTypeName[16:20]:      ExchangeSwap,
 	_ExchangeTypeLowerName[16:20]: ExchangeSwap,
+	_ExchangeTypeName[20:24]:      ExchangeLoan,
+	_ExchangeTypeLowerName[20:24]: ExchangeLoan,
 }
 
 var _ExchangeTypeNames = []string{
 	_ExchangeTypeName[0:9],
 	_ExchangeTypeName[9:16],
 	_ExchangeTypeName[16:20],
+	_ExchangeTypeName[20:24],
 }
 
 // ExchangeTypeString retrieves an enum value from the enum constants string name.

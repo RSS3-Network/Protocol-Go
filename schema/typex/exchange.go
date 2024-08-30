@@ -19,4 +19,5 @@ const (
 	ExchangeLiquidity ExchangeType = iota + 1
 	ExchangeStaking
 	ExchangeSwap
+	ExchangeLoan
 )
