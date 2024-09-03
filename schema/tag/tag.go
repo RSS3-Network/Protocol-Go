@@ -13,6 +13,7 @@ const (
 	Unknown Tag = iota
 	Collectible
 	Exchange
+	Governance
 	Metaverse
 	RSS
 	Social
