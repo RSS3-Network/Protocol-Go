@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _NetworkName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvslx-layer"
+const _NetworkName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonnearoptimismpolygonrsssavmvslx-layer"
 
-var _NetworkIndex = [...]uint8{0, 7, 15, 22, 26, 30, 49, 56, 65, 73, 82, 88, 93, 101, 109, 116, 119, 123, 126, 133}
+var _NetworkIndex = [...]uint8{0, 7, 15, 22, 26, 30, 49, 56, 65, 73, 82, 88, 93, 101, 105, 113, 120, 123, 127, 130, 137}
 
-const _NetworkLowerName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonoptimismpolygonrsssavmvslx-layer"
+const _NetworkLowerName = "unknownarbitrumarweaveavaxbasebinance-smart-chainbitcoincrossbellethereumfarcastergnosislineamastodonnearoptimismpolygonrsssavmvslx-layer"
 
 func (i Network) String() string {
 	if i >= Network(len(_NetworkIndex)-1) {
@@ -43,15 +43,16 @@ func _NetworkNoOp() {
 	_ = x[Gnosis-(10)]
 	_ = x[Linea-(11)]
 	_ = x[Mastodon-(12)]
-	_ = x[Optimism-(13)]
-	_ = x[Polygon-(14)]
-	_ = x[RSS-(15)]
-	_ = x[SatoshiVM-(16)]
-	_ = x[VSL-(17)]
-	_ = x[XLayer-(18)]
+	_ = x[Near-(13)]
+	_ = x[Optimism-(14)]
+	_ = x[Polygon-(15)]
+	_ = x[RSS-(16)]
+	_ = x[SatoshiVM-(17)]
+	_ = x[VSL-(18)]
+	_ = x[XLayer-(19)]
 }
 
-var _NetworkValues = []Network{Unknown, Arbitrum, Arweave, Avalanche, Base, BinanceSmartChain, Bitcoin, Crossbell, Ethereum, Farcaster, Gnosis, Linea, Mastodon, Optimism, Polygon, RSS, SatoshiVM, VSL, XLayer}
+var _NetworkValues = []Network{Unknown, Arbitrum, Arweave, Avalanche, Base, BinanceSmartChain, Bitcoin, Crossbell, Ethereum, Farcaster, Gnosis, Linea, Mastodon, Near, Optimism, Polygon, RSS, SatoshiVM, VSL, XLayer}
 
 var _NetworkNameToValueMap = map[string]Network{
 	_NetworkName[0:7]:          Unknown,
@@ -80,18 +81,20 @@ var _NetworkNameToValueMap = map[string]Network{
 	_NetworkLowerName[88:93]:   Linea,
 	_NetworkName[93:101]:       Mastodon,
 	_NetworkLowerName[93:101]:  Mastodon,
-	_NetworkName[101:109]:      Optimism,
-	_NetworkLowerName[101:109]: Optimism,
-	_NetworkName[109:116]:      Polygon,
-	_NetworkLowerName[109:116]: Polygon,
-	_NetworkName[116:119]:      RSS,
-	_NetworkLowerName[116:119]: RSS,
-	_NetworkName[119:123]:      SatoshiVM,
-	_NetworkLowerName[119:123]: SatoshiVM,
-	_NetworkName[123:126]:      VSL,
-	_NetworkLowerName[123:126]: VSL,
-	_NetworkName[126:133]:      XLayer,
-	_NetworkLowerName[126:133]: XLayer,
+	_NetworkName[101:105]:      Near,
+	_NetworkLowerName[101:105]: Near,
+	_NetworkName[105:113]:      Optimism,
+	_NetworkLowerName[105:113]: Optimism,
+	_NetworkName[113:120]:      Polygon,
+	_NetworkLowerName[113:120]: Polygon,
+	_NetworkName[120:123]:      RSS,
+	_NetworkLowerName[120:123]: RSS,
+	_NetworkName[123:127]:      SatoshiVM,
+	_NetworkLowerName[123:127]: SatoshiVM,
+	_NetworkName[127:130]:      VSL,
+	_NetworkLowerName[127:130]: VSL,
+	_NetworkName[130:137]:      XLayer,
+	_NetworkLowerName[130:137]: XLayer,
 }
 
 var _NetworkNames = []string{
@@ -108,12 +111,13 @@ var _NetworkNames = []string{
 	_NetworkName[82:88],
 	_NetworkName[88:93],
 	_NetworkName[93:101],
-	_NetworkName[101:109],
-	_NetworkName[109:116],
-	_NetworkName[116:119],
-	_NetworkName[119:123],
-	_NetworkName[123:126],
-	_NetworkName[126:133],
+	_NetworkName[101:105],
+	_NetworkName[105:113],
+	_NetworkName[113:120],
+	_NetworkName[120:123],
+	_NetworkName[123:127],
+	_NetworkName[127:130],
+	_NetworkName[130:137],
 }
 
 // NetworkString retrieves an enum value from the enum constants string name.
