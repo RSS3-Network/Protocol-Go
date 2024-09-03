@@ -24,6 +24,7 @@ const (
 	Gnosis                           // gnosis
 	Linea                            // linea
 	Mastodon                         // mastodon
+	Near                             // near
 	Optimism                         // optimism
 	Polygon                          // polygon
 	RSS                              // rss
@@ -52,6 +53,7 @@ const (
 	ArweaveSource     Source = "arweave"
 	EthereumSource    Source = "ethereum"
 	FarcasterSource   Source = "farcaster"
+	NearSource        Source = "near"
 	RSSSource         Source = "rss"
 )
 
@@ -65,6 +67,8 @@ func (n Network) Source() Source {
 		return FarcasterSource
 	case Mastodon:
 		return ActivityPubSource
+	case Near:
+		return NearSource
 	case RSS:
 		return RSSSource
 	default:
