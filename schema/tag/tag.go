@@ -17,6 +17,7 @@ const (
 	RSS
 	Social
 	Transaction
+	Governance
 )
 
 var _ echo.BindUnmarshaler = (*Tag)(nil)

@@ -19,6 +19,8 @@ func Unmarshal(metadataType schema.Type, data json.RawMessage) (Metadata, error)
 		return unmarshalCollectibleMetadata(metadataType, data)
 	case tag.Exchange:
 		return unmarshalExchangeMetadata(metadataType, data)
+	case tag.Governance:
+		return unmarshalGovernanceMetadata(metadataType, data)
 	case tag.Metaverse:
 		return unmarshalMetaverseMetadata(metadataType, data)
 	case tag.RSS:
@@ -42,6 +44,25 @@ func unmarshalCollectibleMetadata(metadataType schema.Type, data json.RawMessage
 		result = new(CollectibleTrade)
 	case typex.CollectibleTransfer, typex.CollectibleMint, typex.CollectibleBurn:
 		result = new(CollectibleTransfer)
+	default:
+		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
+	}
+
+	if err := json.Unmarshal(data, &result); err != nil {
+		return nil, fmt.Errorf("invalid metadata: %w", err)
+	}
+
+	return result, nil
+}
+
+func unmarshalGovernanceMetadata(metadataType schema.Type, data json.RawMessage) (Metadata, error) {
+	var result Metadata
+
+	switch metadataType {
+	case typex.GovernanceProposal:
+		result = new(GovernanceProposal)
+	case typex.GovernanceVote:
+		result = new(GovernanceVote)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}

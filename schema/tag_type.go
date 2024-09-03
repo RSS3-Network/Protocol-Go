@@ -21,6 +21,8 @@ func ParseTypeFromString(parentTag tag.Tag, typeValue string) (Type, error) {
 		return typex.CollectibleTypeString(typeValue)
 	case tag.Exchange:
 		return typex.ExchangeTypeString(typeValue)
+	case tag.Governance:
+		return typex.GovernanceTypeString(typeValue)
 	case tag.Metaverse:
 		return typex.MetaverseTypeString(typeValue)
 	case tag.Social:
@@ -58,6 +60,8 @@ func GetTypesByTag(tagValue tag.Tag) []Type {
 		return convertToTypeSlice(typex.CollectibleTypeValues())
 	case tag.Exchange:
 		return convertToTypeSlice(typex.ExchangeTypeValues())
+	case tag.Governance:
+		return convertToTypeSlice(typex.GovernanceTypeValues())
 	case tag.Metaverse:
 		return convertToTypeSlice(typex.MetaverseTypeValues())
 	case tag.Social:
