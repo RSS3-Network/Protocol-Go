@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _TagName = "unknowncollectibleexchangemetaversersssocialtransactiongovernance"
+const _TagName = "unknowncollectibleexchangegovernancemetaversersssocialtransaction"
 
-var _TagIndex = [...]uint8{0, 7, 18, 26, 35, 38, 44, 55, 65}
+var _TagIndex = [...]uint8{0, 7, 18, 26, 36, 45, 48, 54, 65}
 
-const _TagLowerName = "unknowncollectibleexchangemetaversersssocialtransactiongovernance"
+const _TagLowerName = "unknowncollectibleexchangegovernancemetaversersssocialtransaction"
 
 func (i Tag) String() string {
 	if i >= Tag(len(_TagIndex)-1) {
@@ -33,14 +33,14 @@ func _TagNoOp() {
 	_ = x[Unknown-(0)]
 	_ = x[Collectible-(1)]
 	_ = x[Exchange-(2)]
-	_ = x[Metaverse-(3)]
-	_ = x[RSS-(4)]
-	_ = x[Social-(5)]
-	_ = x[Transaction-(6)]
-	_ = x[Governance-(7)]
+	_ = x[Governance-(3)]
+	_ = x[Metaverse-(4)]
+	_ = x[RSS-(5)]
+	_ = x[Social-(6)]
+	_ = x[Transaction-(7)]
 }
 
-var _TagValues = []Tag{Unknown, Collectible, Exchange, Metaverse, RSS, Social, Transaction, Governance}
+var _TagValues = []Tag{Unknown, Collectible, Exchange, Governance, Metaverse, RSS, Social, Transaction}
 
 var _TagNameToValueMap = map[string]Tag{
 	_TagName[0:7]:        Unknown,
@@ -49,27 +49,27 @@ var _TagNameToValueMap = map[string]Tag{
 	_TagLowerName[7:18]:  Collectible,
 	_TagName[18:26]:      Exchange,
 	_TagLowerName[18:26]: Exchange,
-	_TagName[26:35]:      Metaverse,
-	_TagLowerName[26:35]: Metaverse,
-	_TagName[35:38]:      RSS,
-	_TagLowerName[35:38]: RSS,
-	_TagName[38:44]:      Social,
-	_TagLowerName[38:44]: Social,
-	_TagName[44:55]:      Transaction,
-	_TagLowerName[44:55]: Transaction,
-	_TagName[55:65]:      Governance,
-	_TagLowerName[55:65]: Governance,
+	_TagName[26:36]:      Governance,
+	_TagLowerName[26:36]: Governance,
+	_TagName[36:45]:      Metaverse,
+	_TagLowerName[36:45]: Metaverse,
+	_TagName[45:48]:      RSS,
+	_TagLowerName[45:48]: RSS,
+	_TagName[48:54]:      Social,
+	_TagLowerName[48:54]: Social,
+	_TagName[54:65]:      Transaction,
+	_TagLowerName[54:65]: Transaction,
 }
 
 var _TagNames = []string{
 	_TagName[0:7],
 	_TagName[7:18],
 	_TagName[18:26],
-	_TagName[26:35],
-	_TagName[35:38],
-	_TagName[38:44],
-	_TagName[44:55],
-	_TagName[55:65],
+	_TagName[26:36],
+	_TagName[36:45],
+	_TagName[45:48],
+	_TagName[48:54],
+	_TagName[54:65],
 }
 
 // TagString retrieves an enum value from the enum constants string name.
