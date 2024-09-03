@@ -13,11 +13,11 @@ const (
 	Unknown Tag = iota
 	Collectible
 	Exchange
+	Governance
 	Metaverse
 	RSS
 	Social
 	Transaction
-	Governance
 )
 
 var _ echo.BindUnmarshaler = (*Tag)(nil)
