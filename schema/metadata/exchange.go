@@ -5,6 +5,7 @@ import (
 
 	"github.com/rss3-network/protocol-go/schema"
 	"github.com/rss3-network/protocol-go/schema/typex"
+	"github.com/shopspring/decimal"
 )
 
 var _ Metadata = (*ExchangeSwap)(nil)
@@ -104,4 +105,33 @@ const (
 	ActionExchangeLoanRefinance
 	ActionExchangeLoanLiquidate
 	ActionExchangeLoanSeize
+)
+
+var _ Metadata = (*ExchangeTrade)(nil)
+
+type ExchangeTrade struct {
+	Action       ExchangeTradeAction `json:"action"`
+	MarketID     string              `json:"market_id"`
+	Amount       *decimal.Decimal    `json:"amount"`
+	Price        *decimal.Decimal    `json:"price"`
+	OutcomeIndex *uint               `json:"outcome_index,omitempty"`
+	Taker        string              `json:"taker"`
+	Maker        string              `json:"maker"`
+}
+
+func (e ExchangeTrade) Type() schema.Type {
+	return typex.ExchangeTrade
+}
+
+//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeTradeAction --transform=snake --trimprefix=ActionExchangeTrade --output exchange_trade.go --json --sql
+type ExchangeTradeAction uint64
+
+//goland:noinspection GoMixedReceiverTypes
+func (t ExchangeTradeAction) Type() schema.Type {
+	return typex.ExchangeTrade
+}
+
+const (
+	ActionExchangeTradeFinalized ExchangeTradeAction = iota + 1
+	ActionExchangeTradeMatched
 )

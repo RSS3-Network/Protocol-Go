@@ -20,4 +20,5 @@ const (
 	ExchangeStaking
 	ExchangeSwap
 	ExchangeLoan
+	ExchangeTrade
 )
