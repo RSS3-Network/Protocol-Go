@@ -49,6 +49,10 @@ func (r CollectibleTradeAction) Type() schema.Type {
 const (
 	ActionCollectibleTradeBuy CollectibleTradeAction = iota + 1
 	ActionCollectibleTradeSell
+	ActionCollectibleTradeOffer
+	ActionCollectibleTradeSet
+	ActionCollectibleTradeCreate
+	ActionCollectibleTradeFinalize
 )
 
 var _ Metadata = (*CollectibleTradeAction)(nil)
