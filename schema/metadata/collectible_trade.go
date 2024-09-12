@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _CollectibleTradeActionName = "buysell"
+const _CollectibleTradeActionName = "buyselloffersetcreatefinalize"
 
-var _CollectibleTradeActionIndex = [...]uint8{0, 3, 7}
+var _CollectibleTradeActionIndex = [...]uint8{0, 3, 7, 12, 15, 21, 29}
 
-const _CollectibleTradeActionLowerName = "buysell"
+const _CollectibleTradeActionLowerName = "buyselloffersetcreatefinalize"
 
 func (i CollectibleTradeAction) String() string {
 	i -= 1
@@ -33,20 +33,36 @@ func _CollectibleTradeActionNoOp() {
 	var x [1]struct{}
 	_ = x[ActionCollectibleTradeBuy-(1)]
 	_ = x[ActionCollectibleTradeSell-(2)]
+	_ = x[ActionCollectibleTradeOffer-(3)]
+	_ = x[ActionCollectibleTradeSet-(4)]
+	_ = x[ActionCollectibleTradeCreate-(5)]
+	_ = x[ActionCollectibleTradeFinalize-(6)]
 }
 
-var _CollectibleTradeActionValues = []CollectibleTradeAction{ActionCollectibleTradeBuy, ActionCollectibleTradeSell}
+var _CollectibleTradeActionValues = []CollectibleTradeAction{ActionCollectibleTradeBuy, ActionCollectibleTradeSell, ActionCollectibleTradeOffer, ActionCollectibleTradeSet, ActionCollectibleTradeCreate, ActionCollectibleTradeFinalize}
 
 var _CollectibleTradeActionNameToValueMap = map[string]CollectibleTradeAction{
-	_CollectibleTradeActionName[0:3]:      ActionCollectibleTradeBuy,
-	_CollectibleTradeActionLowerName[0:3]: ActionCollectibleTradeBuy,
-	_CollectibleTradeActionName[3:7]:      ActionCollectibleTradeSell,
-	_CollectibleTradeActionLowerName[3:7]: ActionCollectibleTradeSell,
+	_CollectibleTradeActionName[0:3]:        ActionCollectibleTradeBuy,
+	_CollectibleTradeActionLowerName[0:3]:   ActionCollectibleTradeBuy,
+	_CollectibleTradeActionName[3:7]:        ActionCollectibleTradeSell,
+	_CollectibleTradeActionLowerName[3:7]:   ActionCollectibleTradeSell,
+	_CollectibleTradeActionName[7:12]:       ActionCollectibleTradeOffer,
+	_CollectibleTradeActionLowerName[7:12]:  ActionCollectibleTradeOffer,
+	_CollectibleTradeActionName[12:15]:      ActionCollectibleTradeSet,
+	_CollectibleTradeActionLowerName[12:15]: ActionCollectibleTradeSet,
+	_CollectibleTradeActionName[15:21]:      ActionCollectibleTradeCreate,
+	_CollectibleTradeActionLowerName[15:21]: ActionCollectibleTradeCreate,
+	_CollectibleTradeActionName[21:29]:      ActionCollectibleTradeFinalize,
+	_CollectibleTradeActionLowerName[21:29]: ActionCollectibleTradeFinalize,
 }
 
 var _CollectibleTradeActionNames = []string{
 	_CollectibleTradeActionName[0:3],
 	_CollectibleTradeActionName[3:7],
+	_CollectibleTradeActionName[7:12],
+	_CollectibleTradeActionName[12:15],
+	_CollectibleTradeActionName[15:21],
+	_CollectibleTradeActionName[21:29],
 }
 
 // CollectibleTradeActionString retrieves an enum value from the enum constants string name.
