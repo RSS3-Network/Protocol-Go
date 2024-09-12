@@ -14,14 +14,16 @@ const (
 	_StandardLowerName_0 = "unknown"
 	_StandardName_1      = "ERC-20"
 	_StandardLowerName_1 = "erc-20"
-	_StandardName_2      = "ERC-165"
-	_StandardLowerName_2 = "erc-165"
-	_StandardName_3      = "ERC-721"
-	_StandardLowerName_3 = "erc-721"
-	_StandardName_4      = "ERC-1155"
-	_StandardLowerName_4 = "erc-1155"
-	_StandardName_5      = "ERC-1967"
-	_StandardLowerName_5 = "erc-1967"
+	_StandardName_2      = "NEP-141"
+	_StandardLowerName_2 = "nep-141"
+	_StandardName_3      = "ERC-165"
+	_StandardLowerName_3 = "erc-165"
+	_StandardName_4      = "ERC-721"
+	_StandardLowerName_4 = "erc-721"
+	_StandardName_5      = "ERC-1155"
+	_StandardLowerName_5 = "erc-1155"
+	_StandardName_6      = "ERC-1967"
+	_StandardLowerName_6 = "erc-1967"
 )
 
 var (
@@ -29,8 +31,9 @@ var (
 	_StandardIndex_1 = [...]uint8{0, 6}
 	_StandardIndex_2 = [...]uint8{0, 7}
 	_StandardIndex_3 = [...]uint8{0, 7}
-	_StandardIndex_4 = [...]uint8{0, 8}
+	_StandardIndex_4 = [...]uint8{0, 7}
 	_StandardIndex_5 = [...]uint8{0, 8}
+	_StandardIndex_6 = [...]uint8{0, 8}
 )
 
 func (i Standard) String() string {
@@ -39,14 +42,16 @@ func (i Standard) String() string {
 		return _StandardName_0
 	case i == 20:
 		return _StandardName_1
-	case i == 165:
+	case i == 141:
 		return _StandardName_2
-	case i == 721:
+	case i == 165:
 		return _StandardName_3
-	case i == 1155:
+	case i == 721:
 		return _StandardName_4
-	case i == 1967:
+	case i == 1155:
 		return _StandardName_5
+	case i == 1967:
+		return _StandardName_6
 	default:
 		return fmt.Sprintf("Standard(%d)", i)
 	}
@@ -62,27 +67,30 @@ func _StandardNoOp() {
 	var x [1]struct{}
 	_ = x[StandardUnknown-(0)]
 	_ = x[StandardERC20-(20)]
+	_ = x[StandardNEP141-(141)]
 	_ = x[StandardERC165-(165)]
 	_ = x[StandardERC721-(721)]
 	_ = x[StandardERC1155-(1155)]
 	_ = x[StandardERC1967-(1967)]
 }
 
-var _StandardValues = []Standard{StandardUnknown, StandardERC20, StandardERC165, StandardERC721, StandardERC1155, StandardERC1967}
+var _StandardValues = []Standard{StandardUnknown, StandardERC20, StandardNEP141, StandardERC165, StandardERC721, StandardERC1155, StandardERC1967}
 
 var _StandardNameToValueMap = map[string]Standard{
 	_StandardName_0[0:7]:      StandardUnknown,
 	_StandardLowerName_0[0:7]: StandardUnknown,
 	_StandardName_1[0:6]:      StandardERC20,
 	_StandardLowerName_1[0:6]: StandardERC20,
-	_StandardName_2[0:7]:      StandardERC165,
-	_StandardLowerName_2[0:7]: StandardERC165,
-	_StandardName_3[0:7]:      StandardERC721,
-	_StandardLowerName_3[0:7]: StandardERC721,
-	_StandardName_4[0:8]:      StandardERC1155,
-	_StandardLowerName_4[0:8]: StandardERC1155,
-	_StandardName_5[0:8]:      StandardERC1967,
-	_StandardLowerName_5[0:8]: StandardERC1967,
+	_StandardName_2[0:7]:      StandardNEP141,
+	_StandardLowerName_2[0:7]: StandardNEP141,
+	_StandardName_3[0:7]:      StandardERC165,
+	_StandardLowerName_3[0:7]: StandardERC165,
+	_StandardName_4[0:7]:      StandardERC721,
+	_StandardLowerName_4[0:7]: StandardERC721,
+	_StandardName_5[0:8]:      StandardERC1155,
+	_StandardLowerName_5[0:8]: StandardERC1155,
+	_StandardName_6[0:8]:      StandardERC1967,
+	_StandardLowerName_6[0:8]: StandardERC1967,
 }
 
 var _StandardNames = []string{
@@ -90,8 +98,9 @@ var _StandardNames = []string{
 	_StandardName_1[0:6],
 	_StandardName_2[0:7],
 	_StandardName_3[0:7],
-	_StandardName_4[0:8],
+	_StandardName_4[0:7],
 	_StandardName_5[0:8],
+	_StandardName_6[0:8],
 }
 
 // StandardString retrieves an enum value from the enum constants string name.

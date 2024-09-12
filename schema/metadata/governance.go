@@ -43,7 +43,7 @@ func (r GovernanceVoteAction) Type() schema.Type {
 }
 
 const (
-	ActionGovernanceFor GovernanceVoteAction = iota + 1
-	ActionGovernanceAgainst
-	ActionGovernanceAbstain
+	ActionGovernanceVoteFor GovernanceVoteAction = iota + 1
+	ActionGovernanceVoteAgainst
+	ActionGovernanceVoteAbstain
 )
