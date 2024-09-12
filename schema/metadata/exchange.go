@@ -110,13 +110,15 @@ const (
 var _ Metadata = (*ExchangeTrade)(nil)
 
 type ExchangeTrade struct {
-	Action       ExchangeTradeAction `json:"action"`
-	MarketID     string              `json:"market_id"`
-	Amount       *decimal.Decimal    `json:"amount"`
-	Price        *decimal.Decimal    `json:"price"`
-	OutcomeIndex *uint               `json:"outcome_index,omitempty"`
-	Taker        string              `json:"taker"`
-	Maker        string              `json:"maker"`
+	Action            ExchangeTradeAction `json:"action"`
+	OrderHash         string              `json:"order_hash"`
+	Maker             string              `json:"maker"`
+	Taker             string              `json:"taker"`
+	MakerAssetID      uint64              `json:"maker_asset_id"`
+	TakerAssetID      uint64              `json:"taker_asset_id"`
+	MakerAmountFilled *decimal.Decimal    `json:"maker_amount_filled"`
+	TakerAmountFilled *decimal.Decimal    `json:"taker_amount_filled"`
+	Fee               *decimal.Decimal    `json:"fee,omitempty"`
 }
 
 func (e ExchangeTrade) Type() schema.Type {
