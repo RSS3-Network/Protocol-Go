@@ -10,4 +10,5 @@ const (
 	StandardERC721  Standard = 721  // ERC-721
 	StandardERC1155 Standard = 1155 // ERC-1155
 	StandardERC1967 Standard = 1967 // ERC-1967
+	StandardNEP141  Standard = 141  // NEP-141
 )
