@@ -12,6 +12,7 @@ type Network uint64
 
 const (
 	Unknown           Network = iota // unknown
+	ActivityPub                      // activitypub
 	Arbitrum                         // arbitrum
 	Arweave                          // arweave
 	Avalanche                        // avax
@@ -23,7 +24,6 @@ const (
 	Farcaster                        // farcaster
 	Gnosis                           // gnosis
 	Linea                            // linea
-	Mastodon                         // mastodon
 	Near                             // near
 	Optimism                         // optimism
 	Polygon                          // polygon
@@ -65,7 +65,7 @@ func (n Network) Source() Source {
 		return EthereumSource
 	case Farcaster:
 		return FarcasterSource
-	case Mastodon:
+	case ActivityPub:
 		return ActivityPubSource
 	case Near:
 		return NearSource
