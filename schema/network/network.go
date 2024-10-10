@@ -76,6 +76,39 @@ func (n Network) Source() Source {
 	}
 }
 
+func (s Source) Networks() []Network {
+	switch s {
+	case ActivityPubSource:
+		return []Network{Mastodon}
+	case ArweaveSource:
+		return []Network{Arweave}
+	case EthereumSource:
+		return []Network{
+			Ethereum,
+			Polygon,
+			Optimism,
+			Arbitrum,
+			Base,
+			Crossbell,
+			Avalanche,
+			VSL,
+			SatoshiVM,
+			BinanceSmartChain,
+			Gnosis,
+			Linea,
+			XLayer,
+		}
+	case FarcasterSource:
+		return []Network{Farcaster}
+	case NearSource:
+		return []Network{Near}
+	case RSSSource:
+		return []Network{RSS}
+	default:
+		return []Network{}
+	}
+}
+
 func HookFunc() mapstructure.DecodeHookFuncType {
 	return func(
 		f reflect.Type, // data type
