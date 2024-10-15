@@ -44,6 +44,8 @@ func unmarshalCollectibleMetadata(metadataType schema.Type, data json.RawMessage
 		result = new(CollectibleTrade)
 	case typex.CollectibleTransfer, typex.CollectibleMint, typex.CollectibleBurn:
 		result = new(CollectibleTransfer)
+	case typex.CollectibleAuction:
+		result = new(CollectibleAuction)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
@@ -126,6 +128,8 @@ func unmarshalExchangeMetadata(metadataType schema.Type, data json.RawMessage) (
 		result = new(ExchangeStaking)
 	case typex.ExchangeSwap:
 		result = new(ExchangeSwap)
+	case typex.ExchangeLoan:
+		result = new(ExchangeLoan)
 	default:
 		return nil, fmt.Errorf("invalid metadata type: %s.%s", metadataType.Tag(), metadataType.Name())
 	}
