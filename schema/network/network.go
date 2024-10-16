@@ -27,7 +27,7 @@ const (
 	Near                             // near
 	Optimism                         // optimism
 	Polygon                          // polygon
-	RSS                              // rss
+	RSSHub                           // rsshub
 	SatoshiVM                        // savm
 	VSL                              // vsl
 	XLayer                           // x-layer
@@ -46,43 +46,44 @@ func (n *Network) UnmarshalParam(param string) error {
 	return nil
 }
 
-type Source string
+type Protocol string
 
+// Open Data Protocols
 const (
-	ActivityPubSource Source = "activity-pub"
-	ArweaveSource     Source = "arweave"
-	EthereumSource    Source = "ethereum"
-	FarcasterSource   Source = "farcaster"
-	NearSource        Source = "near"
-	RSSSource         Source = "rss"
+	ActivityPubProtocol Protocol = "activity-pub"
+	ArweaveProtocol     Protocol = "arweave"
+	EthereumProtocol    Protocol = "ethereum"
+	FarcasterProtocol   Protocol = "farcaster"
+	NearProtocol        Protocol = "near"
+	RSSProtocol         Protocol = "rss"
 )
 
-func (n Network) Source() Source {
+func (n Network) Protocol() Protocol {
 	switch n {
 	case Arweave:
-		return ArweaveSource
+		return ActivityPubProtocol
 	case Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Linea, XLayer:
-		return EthereumSource
+		return EthereumProtocol
 	case Farcaster:
-		return FarcasterSource
+		return FarcasterProtocol
 	case Mastodon:
-		return ActivityPubSource
+		return ActivityPubProtocol
 	case Near:
-		return NearSource
-	case RSS:
-		return RSSSource
+		return NearProtocol
+	case RSSHub:
+		return RSSProtocol
 	default:
 		return ""
 	}
 }
 
-func (s Source) Networks() []Network {
+func (s Protocol) Networks() []Network {
 	switch s {
-	case ActivityPubSource:
+	case ActivityPubProtocol:
 		return []Network{Mastodon}
-	case ArweaveSource:
+	case ArweaveProtocol:
 		return []Network{Arweave}
-	case EthereumSource:
+	case EthereumProtocol:
 		return []Network{
 			Ethereum,
 			Polygon,
@@ -98,12 +99,12 @@ func (s Source) Networks() []Network {
 			Linea,
 			XLayer,
 		}
-	case FarcasterSource:
+	case FarcasterProtocol:
 		return []Network{Farcaster}
-	case NearSource:
+	case NearProtocol:
 		return []Network{Near}
-	case RSSSource:
-		return []Network{RSS}
+	case RSSProtocol:
+		return []Network{RSSHub}
 	default:
 		return []Network{}
 	}
