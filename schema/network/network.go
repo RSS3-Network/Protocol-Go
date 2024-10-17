@@ -61,7 +61,7 @@ const (
 func (n Network) Protocol() Protocol {
 	switch n {
 	case Arweave:
-		return ActivityPubProtocol
+		return ArweaveProtocol
 	case Ethereum, Polygon, Optimism, Arbitrum, Base, Crossbell, Avalanche, VSL, SatoshiVM, BinanceSmartChain, Gnosis, Linea, XLayer:
 		return EthereumProtocol
 	case Farcaster:
