@@ -13,11 +13,11 @@ func (t GovernanceProposal) Type() schema.Type {
 
 type GovernanceProposal struct {
 	ID         string   `json:"id"`
-	Body       string   `json:"body"`
-	StartBlock string   `json:"start_block"`
-	EndBlock   string   `json:"end_block"`
-	Options    []string `json:"options"`
-	Link       string   `json:"link"`
+	Body       string   `json:"body,omitempty"`
+	StartBlock string   `json:"start_block,omitempty"`
+	EndBlock   string   `json:"end_block,omitempty"`
+	Options    []string `json:"options,omitempty"`
+	Link       string   `json:"link,omitempty"`
 }
 
 var _ Metadata = (*GovernanceVote)(nil)
@@ -33,8 +33,8 @@ var _ Metadata = (*GovernanceVoteAction)(nil)
 
 type GovernanceVote struct {
 	Action   GovernanceVoteAction `json:"action"`
-	Count    uint64               `json:"count"`
-	Reason   string               `json:"reason"`
+	Count    uint64               `json:"count,omitempty"`
+	Reason   string               `json:"reason,omitempty"`
 	Proposal GovernanceProposal   `json:"token"`
 }
 
