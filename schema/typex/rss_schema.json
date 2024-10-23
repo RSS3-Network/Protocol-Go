@@ -1,7 +1,0 @@
-{
-  "enum": [
-    "feed"
-  ],
-  "example": "feed",
-  "type": "string"
-}

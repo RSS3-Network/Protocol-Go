@@ -7,7 +7,7 @@ import (
 // Tag represents a metadata tag.
 //
 //go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Tag --transform=snake --trimprefix=Tag --output tag_string.go --json --sql
-//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.3 --type=Tag --transform=snake --trimprefix=Tag --indent --example=exchange --output tag_schema.json --x-go-type=tag.Tag --x-go-type-import-path=github.com/rss3-network/protocol-go/schema/tag --x-go-type-skip-optional-pointer
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=Tag --transform=snake --trimprefix=Tag --output tag.yaml -t schema.yaml.tmpl
 type Tag uint64
 
 const (

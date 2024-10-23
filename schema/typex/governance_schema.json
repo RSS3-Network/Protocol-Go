@@ -1,8 +1,0 @@
-{
-  "enum": [
-    "proposal",
-    "vote"
-  ],
-  "example": "vote",
-  "type": "string"
-}
