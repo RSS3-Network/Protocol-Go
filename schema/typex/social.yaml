@@ -1,11 +1,11 @@
 type: string
 enum:
-  - social_comment
-  - social_delete
-  - social_mint
-  - social_post
-  - social_profile
-  - social_proxy
-  - social_revise
-  - social_reward
-  - social_share
+  - comment
+  - delete
+  - mint
+  - post
+  - profile
+  - proxy
+  - revise
+  - reward
+  - share

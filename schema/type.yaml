@@ -1,0 +1,25 @@
+type: string
+enum:
+ - approval
+ - auction
+ - bridge
+ - burn
+ - comment
+ - delete
+ - feed
+ - liquidity
+ - loan
+ - mint
+ - post
+ - profile
+ - proposal
+ - proxy
+ - revise
+ - reward
+ - share
+ - staking
+ - swap
+ - trade
+ - transfer
+ - unknown
+ - vote
