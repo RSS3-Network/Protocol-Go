@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "burn",
+    "mint",
+    "trade",
+    "transfer"
+  ],
+  "example": "trade",
+  "type": "string"
+}

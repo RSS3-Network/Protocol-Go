@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "liquidity",
+    "staking",
+    "swap",
+    "loan"
+  ],
+  "example": "swap",
+  "type": "string"
+}
