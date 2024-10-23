@@ -1,0 +1,11 @@
+{
+  "enum": [
+    "approval",
+    "bridge",
+    "burn",
+    "mint",
+    "transfer"
+  ],
+  "example": "burn",
+  "type": "string"
+}

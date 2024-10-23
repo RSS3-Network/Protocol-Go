@@ -2,7 +2,8 @@ package typex
 
 import "github.com/rss3-network/protocol-go/schema/tag"
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=MetaverseType --transform=snake --trimprefix=Metaverse --output metaverse_string.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=MetaverseType --transform=snake --trimprefix=Metaverse --output metaverse_string.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.3 --type=MetaverseType --transform=snake --trimprefix=Metaverse --indent --example=trade --output=metaverse_schema.json
 type MetaverseType uint64
 
 //goland:noinspection GoMixedReceiverTypes

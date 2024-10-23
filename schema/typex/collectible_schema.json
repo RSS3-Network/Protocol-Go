@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "approval",
+    "burn",
+    "mint",
+    "trade",
+    "transfer",
+    "auction"
+  ],
+  "example": "approval",
+  "type": "string"
+}
