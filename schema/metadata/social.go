@@ -34,8 +34,56 @@ type Media struct {
 	MimeType string `json:"mime_type"`
 }
 
-func (p SocialPost) Type() schema.Type {
+func (s SocialPost) Type() schema.Type {
 	return typex.SocialPost
+}
+
+var _ Metadata = (*SocialComment)(nil)
+
+type SocialComment SocialPost
+
+func (s SocialComment) Type() schema.Type {
+	return typex.SocialComment
+}
+
+var _ Metadata = (*SocialRevise)(nil)
+
+type SocialRevise SocialPost
+
+func (s SocialRevise) Type() schema.Type {
+	return typex.SocialRevise
+}
+
+var _ Metadata = (*SocialReward)(nil)
+
+type SocialReward SocialPost
+
+func (s SocialReward) Type() schema.Type {
+	return typex.SocialReward
+}
+
+var _ Metadata = (*SocialShare)(nil)
+
+type SocialShare SocialPost
+
+func (s SocialShare) Type() schema.Type {
+	return typex.SocialShare
+}
+
+var _ Metadata = (*SocialDelete)(nil)
+
+type SocialDelete SocialPost
+
+func (s SocialDelete) Type() schema.Type {
+	return typex.SocialDelete
+}
+
+var _ Metadata = (*SocialMint)(nil)
+
+type SocialMint SocialPost
+
+func (s SocialMint) Type() schema.Type {
+	return typex.SocialMint
 }
 
 var _ Metadata = (*SocialProfileAction)(nil)

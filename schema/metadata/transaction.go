@@ -14,6 +14,22 @@ func (t TransactionTransfer) Type() schema.Type {
 	return typex.TransactionTransfer
 }
 
+var _ Metadata = (*TransactionMint)(nil)
+
+type TransactionMint Token
+
+func (t TransactionMint) Type() schema.Type {
+	return typex.TransactionMint
+}
+
+var _ Metadata = (*TransactionBurn)(nil)
+
+type TransactionBurn Token
+
+func (t TransactionBurn) Type() schema.Type {
+	return typex.TransactionBurn
+}
+
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output transaction_approval.go --json --sql
 type TransactionApprovalAction uint64
 

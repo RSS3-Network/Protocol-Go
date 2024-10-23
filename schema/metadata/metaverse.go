@@ -2,7 +2,6 @@ package metadata
 
 import (
 	"github.com/rss3-network/protocol-go/schema"
-	"github.com/rss3-network/protocol-go/schema/tag"
 	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
@@ -24,12 +23,24 @@ var _ Metadata = (*MetaverseTransfer)(nil)
 
 type MetaverseTransfer Token
 
-func (m MetaverseTransfer) Tag() tag.Tag {
-	return tag.Metaverse
-}
-
 func (m MetaverseTransfer) Type() schema.Type {
 	return typex.MetaverseTransfer
+}
+
+var _ Metadata = (*MetaverseMint)(nil)
+
+type MetaverseMint Token
+
+func (m MetaverseMint) Type() schema.Type {
+	return typex.MetaverseMint
+}
+
+var _ Metadata = (*MetaverseBurn)(nil)
+
+type MetaverseBurn Token
+
+func (m MetaverseBurn) Type() schema.Type {
+	return typex.MetaverseBurn
 }
 
 var _ Metadata = (*MetaverseTrade)(nil)
@@ -39,10 +50,6 @@ type MetaverseTrade struct {
 
 	Token
 	Cost Token `json:"cost,omitempty"`
-}
-
-func (m MetaverseTrade) Tag() tag.Tag {
-	return tag.Metaverse
 }
 
 func (m MetaverseTrade) Type() schema.Type {
