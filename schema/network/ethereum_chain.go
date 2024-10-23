@@ -1,7 +1,7 @@
 package network
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=EthereumChainID --linecomment --output ethereum_chain_string.go --json --yaml --sql
-//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.3 --type=EthereumChainID --linecomment --indent --example=base --output=ethereum_chain_schema.json --x-go-type=network.EthereumChainID --x-go-type-import-path=github.com/rss3-network/protocol-go/schema/network
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=EthereumChainID --linecomment --output=ethereum_chain.yaml -t schema.yaml.tmpl
 type EthereumChainID uint64
 
 const (
