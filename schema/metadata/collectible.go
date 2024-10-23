@@ -13,6 +13,22 @@ func (c CollectibleTransfer) Type() schema.Type {
 	return typex.CollectibleTransfer
 }
 
+var _ Metadata = (*CollectibleMint)(nil)
+
+type CollectibleMint Token
+
+func (c CollectibleMint) Type() schema.Type {
+	return typex.CollectibleMint
+}
+
+var _ Metadata = (*CollectibleBurn)(nil)
+
+type CollectibleBurn Token
+
+func (c CollectibleBurn) Type() schema.Type {
+	return typex.CollectibleBurn
+}
+
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output collectible_approval.go --json --sql
 type CollectibleApprovalAction uint64
 

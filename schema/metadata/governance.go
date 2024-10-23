@@ -7,10 +7,6 @@ import (
 
 var _ Metadata = (*GovernanceProposal)(nil)
 
-func (t GovernanceProposal) Type() schema.Type {
-	return typex.GovernanceProposal
-}
-
 type GovernanceProposal struct {
 	ID         string   `json:"id"`
 	Body       string   `json:"body,omitempty"`
@@ -20,16 +16,11 @@ type GovernanceProposal struct {
 	Link       string   `json:"link,omitempty"`
 }
 
-var _ Metadata = (*GovernanceVote)(nil)
-
-func (t GovernanceVote) Type() schema.Type {
-	return typex.GovernanceVote
+func (t GovernanceProposal) Type() schema.Type {
+	return typex.GovernanceProposal
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=GovernanceVoteAction --transform=snake --trimprefix=ActionGovernanceVote --output governance_vote.go --json --sql
-type GovernanceVoteAction uint64
-
-var _ Metadata = (*GovernanceVoteAction)(nil)
+var _ Metadata = (*GovernanceVote)(nil)
 
 type GovernanceVote struct {
 	Action   GovernanceVoteAction `json:"action"`
@@ -38,9 +29,12 @@ type GovernanceVote struct {
 	Proposal GovernanceProposal   `json:"token"`
 }
 
-func (r GovernanceVoteAction) Type() schema.Type {
+func (t GovernanceVote) Type() schema.Type {
 	return typex.GovernanceVote
 }
+
+//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=GovernanceVoteAction --transform=snake --trimprefix=ActionGovernanceVote --output governance_vote.go --json --sql
+type GovernanceVoteAction uint64
 
 const (
 	ActionGovernanceVoteFor GovernanceVoteAction = iota + 1
