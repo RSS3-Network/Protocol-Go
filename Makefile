@@ -18,6 +18,6 @@ gen-metadata:
 
 gen-api:
 	docker run --rm -v ${PWD}:/local \
-		redocly/openapi-cli@latest \
-		bundle /local/base.yaml -o /local/api.yaml
-# or just use npx @redocly/openapi-cli@latest bundle base.yaml > api.yaml
+		redocly/cli@latest \
+		bundle -d /local/base.yaml -o /local/api.yaml
+# or just use npx @redocly/cli bundle -d  base.yaml -o api.yaml
