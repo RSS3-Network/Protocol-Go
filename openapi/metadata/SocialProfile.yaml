@@ -1,0 +1,23 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/SocialProfileAction.yaml"
+  profile_id:
+    type: string
+  address:
+    type: string
+  handle:
+    type: string
+  image_uri:
+    type: string
+  bio:
+    type: string
+  name:
+    type: string
+  expiry:
+    type: string
+    format: date-time
+  key:
+    type: string
+  value:
+    type: string

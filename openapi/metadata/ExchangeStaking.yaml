@@ -1,0 +1,21 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/ExchangeStakingAction.yaml"
+  token:
+    $ref: "../Token.yaml"
+  period:
+    type: object
+    properties:
+      start:
+        type: string
+        format: date-time
+      end:
+        type: string
+        format: date-time
+    required:
+      - start
+      - end
+required:
+  - action
+  - token

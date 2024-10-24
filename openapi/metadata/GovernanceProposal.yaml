@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+  body:
+    type: string
+  start_block:
+    type: string
+  end_block:
+    type: string
+  options:
+    type: array
+    items:
+      type: string
+  link:
+    type: string
+required:
+  - id

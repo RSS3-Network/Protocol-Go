@@ -5,7 +5,8 @@ import (
 	"github.com/rss3-network/protocol-go/schema/typex"
 )
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=MetaverseTradeAction --transform=snake --trimprefix=ActionMetaverseTrade --output metaverse_trade.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=MetaverseTradeAction --transform=snake --trimprefix=ActionMetaverseTrade --output metaverse_trade.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=MetaverseTradeAction --transform=snake --trimprefix=ActionMetaverseTrade --output ../../openapi/enum/MetaverseTradeAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type MetaverseTradeAction uint64
 
 //goland:noinspection GoMixedReceiverTypes

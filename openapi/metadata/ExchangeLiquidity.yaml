@@ -1,0 +1,11 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/ExchangeLiquidityAction.yaml"
+  tokens:
+    type: array
+    items:
+      $ref: "../Token.yaml"
+required:
+  - action
+  - tokens

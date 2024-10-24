@@ -1,13 +1,14 @@
 #!/bin/bash
-file="schema/type.yaml"
-enums=$(yq ea '.enum[]' schema/typex/*.yaml | sort -u)
 
-echo "type: string" > $file
+file=openapi/Type.yaml
 
-echo "enum:" >> $file
+# create Metadata.yaml if not exists
+if [ ! -f "$file" ]; then
+  touch "$file"
+fi
+echo "type: string" > "$file"
+echo "oneOf:" >> "$file"
 
-for enum in $enums; do
-  if [ "$enum" != "---" ]; then
-    echo " - $enum" >> $file
-  fi
+find ./openapi/type -name '*.yaml' | cut -d '/' -f 4 | while read -r type; do
+  echo "  - \$ref: \"./type/$type\"" >> "openapi/Type.yaml"
 done
