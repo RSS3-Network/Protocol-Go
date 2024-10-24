@@ -46,7 +46,7 @@ components:
         - $ref: '#/components/schemas/Exchange'
         - $ref: '#/components/schemas/Transaction'
         - $ref: '#/components/schemas/Social'
-        - $ref: '#/components/schemas/RSS-2'
+        - $ref: '#/components/schemas/RSSType'
         - $ref: '#/components/schemas/Collectible'
         - $ref: '#/components/schemas/Unknown'
         - $ref: '#/components/schemas/Metaverse'
@@ -552,7 +552,7 @@ components:
         - revise
         - reward
         - share
-    RSS-2:
+    RSSType:
       type: string
       enum:
         - feed
