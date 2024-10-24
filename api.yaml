@@ -8,437 +8,49 @@ components:
     Metadata:
       type: object
       oneOf:
-        - allOf: &ref_10
-            - type: object
-              properties: &ref_0
-                address:
-                  type: string
-                id:
-                  type: integer
-                  format: int64
-                value:
-                  type: integer
-                  format: int64
-                name:
-                  type: string
-                symbol:
-                  type: string
-                uri:
-                  type: string
-                  format: uri
-                decimals:
-                  type: integer
-                parsed_image_url:
-                  type: string
-                standard:
-                  type: string
-                  enum: &ref_8
-                    - Unknown
-                    - ERC-20
-                    - ERC-165
-                    - ERC-721
-                    - ERC-1155
-                    - ERC-1967
-                    - NEP-141
-            - type: object
-              properties:
-                action:
-                  type: string
-                  enum: &ref_9
-                    - approve
-                    - revoke
-              required:
-                - action
-        - allOf: &ref_12
-            - type: object
-              properties: *ref_0
-            - type: string
-              enum: &ref_11
-                - create
-                - bid
-                - finalize
-                - cancel
-                - update
-                - invalidate
-            - type: object
-              properties:
-                cost:
-                  type: object
-                  properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - type: string
-          enum: &ref_13
-            - buy
-            - sell
-            - offer
-            - set
-            - create
-            - finalize
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: &ref_15
-            action:
-              type: string
-              enum: &ref_14
-                - add
-                - borrow
-                - collect
-                - remove
-                - repay
-                - supply
-                - withdraw
-            tokens:
-              type: array
-              items:
-                type: object
-                properties: *ref_0
-          required: &ref_16
-            - action
-            - tokens
-        - type: object
-          properties: &ref_18
-            action:
-              type: string
-              enum: &ref_17
-                - create
-                - repay
-                - refinance
-                - liquidate
-                - seize
-            collateral:
-              type: object
-              properties: *ref_0
-            amount:
-              type: object
-              properties: *ref_0
-          required: &ref_19
-            - action
-            - collateral
-        - type: object
-          properties: &ref_21
-            action:
-              type: string
-              enum: &ref_20
-                - stake
-                - unstake
-                - claim
-            token:
-              type: object
-              properties: *ref_0
-            period:
-              type: object
-              properties:
-                start:
-                  type: string
-                  format: date-time
-                end:
-                  type: string
-                  format: date-time
-              required:
-                - start
-                - end
-          required: &ref_22
-            - action
-            - token
-        - properties: &ref_23
-            from:
-              type: object
-              properties: *ref_0
-            to:
-              type: object
-              properties: *ref_0
-          type: object
-        - type: object
-          properties: &ref_1
-            id:
-              type: string
-            body:
-              type: string
-            start_block:
-              type: string
-            end_block:
-              type: string
-            options:
-              type: array
-              items:
-                type: string
-            link:
-              type: string
-          required: &ref_2
-            - id
-        - type: object
-          properties: &ref_25
-            action:
-              type: string
-              enum: &ref_24
-                - for
-                - against
-                - abstain
-            token:
-              type: object
-              properties: *ref_1
-              required: *ref_2
-            count:
-              type: integer
-            reason:
-              type: string
-          required: &ref_26
-            - action
-            - token
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - allOf: &ref_28
-            - type: object
-              properties: *ref_0
-            - type: object
-              properties:
-                action:
-                  type: string
-                  enum: &ref_27
-                    - buy
-                    - list
-                    - sell
-                cost:
-                  type: object
-                  properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: &ref_29
-            title:
-              type: string
-            description:
-              type: string
-            pub_date:
-              type: string
-              format: date-time
-            authors:
-              type: array
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-        - type: object
-          properties: &ref_3
-            handle:
-              type: string
-            title:
-              type: string
-            summary:
-              type: string
-            body:
-              type: string
-            media:
-              type: array
-              items:
-                type: object
-                properties: &ref_30
-                  address:
-                    type: string
-                  mime_type:
-                    type: string
-            profile_id:
-              type: string
-            publication_id:
-              type: string
-            content_uri:
-              type: string
-            tags:
-              type: array
-              items:
-                type: string
-            author_url:
-              type: string
-            reward:
-              type: object
-              properties: *ref_0
-            timestamp:
-              type: integer
-              format: int64
-            target:
-              type: object
-            target_url:
-              type: string
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: &ref_5
-            action:
-              type: string
-              enum: &ref_4
-                - create
-                - renew
-                - unwrap
-                - update
-                - wrap
-            profile_id:
-              type: string
-            address:
-              type: string
-            handle:
-              type: string
-            image_uri:
-              type: string
-            bio:
-              type: string
-            name:
-              type: string
-            expiry:
-              type: string
-              format: date-time
-            key:
-              type: string
-            value:
-              type: string
-        - type: string
-          enum: *ref_4
-        - type: object
-          properties: &ref_32
-            action:
-              type: string
-              enum: &ref_31
-                - appoint
-                - remove
-            proxy_address:
-              type: string
-            profile:
-              type: object
-              properties: *ref_5
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: *ref_3
-        - type: object
-          properties: &ref_34
-            action:
-              type: string
-              enum: &ref_33
-                - approve
-                - revoke
-            source_network:
-              type: string
-              enum: &ref_6
-                - unknown
-                - arbitrum
-                - arweave
-                - avax
-                - base
-                - binance-smart-chain
-                - bitcoin
-                - crossbell
-                - ethereum
-                - farcaster
-                - gnosis
-                - linea
-                - mastodon
-                - near
-                - optimism
-                - polygon
-                - rsshub
-                - savm
-                - vsl
-                - x-layer
-              x-go-type: network.Network
-              x-go-type-import: &ref_7
-                path: github.com/rss3-network/protocol-go/schema/network
-            target_network:
-              type: string
-              enum: *ref_6
-              x-go-type: network.Network
-              x-go-type-import: *ref_7
-            token:
-              type: object
-              properties: *ref_0
-        - type: object
-          properties: &ref_36
-            action:
-              type: string
-              enum: &ref_35
-                - deposit
-                - withdraw
-            source_network:
-              type: string
-              enum: *ref_6
-              x-go-type: network.Network
-              x-go-type-import: *ref_7
-            target_network:
-              type: string
-              enum: *ref_6
-              x-go-type: network.Network
-              x-go-type-import: *ref_7
-            token:
-              type: object
-              properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: *ref_0
-        - type: object
-          properties: *ref_0
+        - $ref: '#/components/schemas/CollectibleApproval'
+        - $ref: '#/components/schemas/CollectibleAuction'
+        - $ref: '#/components/schemas/CollectibleBurn'
+        - $ref: '#/components/schemas/CollectibleMint'
+        - $ref: '#/components/schemas/CollectibleTradeAction'
+        - $ref: '#/components/schemas/CollectibleTransfer'
+        - $ref: '#/components/schemas/ExchangeLiquidity'
+        - $ref: '#/components/schemas/ExchangeLoan'
+        - $ref: '#/components/schemas/ExchangeStaking'
+        - $ref: '#/components/schemas/ExchangeSwap'
+        - $ref: '#/components/schemas/GovernanceProposal'
+        - $ref: '#/components/schemas/GovernanceVote'
+        - $ref: '#/components/schemas/MetaverseBurn'
+        - $ref: '#/components/schemas/MetaverseMint'
+        - $ref: '#/components/schemas/MetaverseTrade'
+        - $ref: '#/components/schemas/MetaverseTransfer'
+        - $ref: '#/components/schemas/RSS'
+        - $ref: '#/components/schemas/SocialComment'
+        - $ref: '#/components/schemas/SocialDelete'
+        - $ref: '#/components/schemas/SocialMint'
+        - $ref: '#/components/schemas/SocialPost'
+        - $ref: '#/components/schemas/SocialProfile'
+        - $ref: '#/components/schemas/SocialProfileAction'
+        - $ref: '#/components/schemas/SocialProxy'
+        - $ref: '#/components/schemas/SocialRevise'
+        - $ref: '#/components/schemas/SocialReward'
+        - $ref: '#/components/schemas/SocialShare'
+        - $ref: '#/components/schemas/TransactionApproval'
+        - $ref: '#/components/schemas/TransactionBridge'
+        - $ref: '#/components/schemas/TransactionBurn'
+        - $ref: '#/components/schemas/TransactionMint'
+        - $ref: '#/components/schemas/TransactionTransfer'
     Type:
       type: string
       oneOf:
-        - type: string
-          enum: &ref_37
-            - liquidity
-            - staking
-            - swap
-            - loan
-        - type: string
-          enum: &ref_38
-            - approval
-            - bridge
-            - burn
-            - mint
-            - transfer
-        - type: string
-          enum: &ref_39
-            - comment
-            - delete
-            - mint
-            - post
-            - profile
-            - proxy
-            - revise
-            - reward
-            - share
-        - type: string
-          enum: &ref_40
-            - feed
-        - type: string
-          enum: &ref_41
-            - approval
-            - burn
-            - mint
-            - trade
-            - transfer
-            - auction
-        - type: string
-          enum: &ref_42
-            - unknown
-        - type: string
-          enum: &ref_43
-            - burn
-            - mint
-            - trade
-            - transfer
-        - type: string
-          enum: &ref_44
-            - proposal
-            - vote
+        - $ref: '#/components/schemas/Exchange'
+        - $ref: '#/components/schemas/Transaction'
+        - $ref: '#/components/schemas/Social'
+        - $ref: '#/components/schemas/RSS-2'
+        - $ref: '#/components/schemas/Collectible'
+        - $ref: '#/components/schemas/Unknown'
+        - $ref: '#/components/schemas/Metaverse'
+        - $ref: '#/components/schemas/Governance'
     Direction:
       type: string
       enum:
@@ -486,122 +98,486 @@ components:
         path: github.com/rss3-network/protocol-go/schema/network
     Standard:
       type: string
-      enum: *ref_8
+      enum:
+        - Unknown
+        - ERC-20
+        - ERC-165
+        - ERC-721
+        - ERC-1155
+        - ERC-1967
+        - NEP-141
     Token:
       type: object
-      properties: *ref_0
+      properties:
+        address:
+          type: string
+        id:
+          type: integer
+          format: int64
+        value:
+          type: integer
+          format: int64
+        name:
+          type: string
+        symbol:
+          type: string
+        uri:
+          type: string
+          format: uri
+        decimals:
+          type: integer
+        parsed_image_url:
+          type: string
+        standard:
+          $ref: '#/components/schemas/Standard'
     CollectibleApprovalAction:
       type: string
-      enum: *ref_9
+      enum:
+        - approve
+        - revoke
     CollectibleApproval:
-      allOf: *ref_10
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+          properties:
+            action:
+              $ref: '#/components/schemas/CollectibleApprovalAction'
+          required:
+            - action
     CollectibleAuctionAction:
       type: string
-      enum: *ref_11
+      enum:
+        - create
+        - bid
+        - finalize
+        - cancel
+        - update
+        - invalidate
     CollectibleAuction:
-      allOf: *ref_12
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - $ref: '#/components/schemas/CollectibleAuctionAction'
+        - type: object
+          properties:
+            cost:
+              $ref: '#/components/schemas/Token'
+    CollectibleBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    CollectibleMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
     CollectibleTradeAction:
       type: string
-      enum: *ref_13
+      enum:
+        - buy
+        - sell
+        - offer
+        - set
+        - create
+        - finalize
+    CollectibleTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
     ExchangeLiquidityAction:
       type: string
-      enum: *ref_14
+      enum:
+        - add
+        - borrow
+        - collect
+        - remove
+        - repay
+        - supply
+        - withdraw
     ExchangeLiquidity:
       type: object
-      properties: *ref_15
-      required: *ref_16
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeLiquidityAction'
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Token'
+      required:
+        - action
+        - tokens
     ExchangeLoanAction:
       type: string
-      enum: *ref_17
+      enum:
+        - create
+        - repay
+        - refinance
+        - liquidate
+        - seize
     ExchangeLoan:
       type: object
-      properties: *ref_18
-      required: *ref_19
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeLoanAction'
+        collateral:
+          $ref: '#/components/schemas/Token'
+        amount:
+          $ref: '#/components/schemas/Token'
+      required:
+        - action
+        - collateral
     ExchangeStakingAction:
       type: string
-      enum: *ref_20
+      enum:
+        - stake
+        - unstake
+        - claim
     ExchangeStaking:
       type: object
-      properties: *ref_21
-      required: *ref_22
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeStakingAction'
+        token:
+          $ref: '#/components/schemas/Token'
+        period:
+          type: object
+          properties:
+            start:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+          required:
+            - start
+            - end
+      required:
+        - action
+        - token
     ExchangeSwap:
-      properties: *ref_23
+      properties:
+        from:
+          $ref: '#/components/schemas/Token'
+        to:
+          $ref: '#/components/schemas/Token'
       type: object
     GovernanceProposal:
       type: object
-      properties: *ref_1
-      required: *ref_2
+      properties:
+        id:
+          type: string
+        body:
+          type: string
+        start_block:
+          type: string
+        end_block:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        link:
+          type: string
+      required:
+        - id
     GovernanceVoteAction:
       type: string
-      enum: *ref_24
+      enum:
+        - for
+        - against
+        - abstain
     GovernanceVote:
       type: object
-      properties: *ref_25
-      required: *ref_26
+      properties:
+        action:
+          $ref: '#/components/schemas/GovernanceVoteAction'
+        token:
+          $ref: '#/components/schemas/GovernanceProposal'
+        count:
+          type: integer
+        reason:
+          type: string
+      required:
+        - action
+        - token
+    MetaverseBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    MetaverseMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
     MetaverseTradeAction:
       type: string
-      enum: *ref_27
+      enum:
+        - buy
+        - list
+        - sell
     MetaverseTrade:
-      allOf: *ref_28
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+          properties:
+            action:
+              $ref: '#/components/schemas/MetaverseTradeAction'
+            cost:
+              $ref: '#/components/schemas/Token'
+    MetaverseTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
     RSS:
       type: object
-      properties: *ref_29
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        pub_date:
+          type: string
+          format: date-time
+        authors:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
     Media:
       type: object
-      properties: *ref_30
+      properties:
+        address:
+          type: string
+        mime_type:
+          type: string
     SocialPost:
       type: object
-      properties: *ref_3
+      properties:
+        handle:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+        profile_id:
+          type: string
+        publication_id:
+          type: string
+        content_uri:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        author_url:
+          type: string
+        reward:
+          $ref: '#/components/schemas/Token'
+        timestamp:
+          type: integer
+          format: int64
+        target:
+          type: object
+        target_url:
+          type: string
+    SocialComment:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialDelete:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialMint:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
     SocialProfileAction:
       type: string
-      enum: *ref_4
+      enum:
+        - create
+        - renew
+        - unwrap
+        - update
+        - wrap
     SocialProfile:
       type: object
-      properties: *ref_5
+      properties:
+        action:
+          $ref: '#/components/schemas/SocialProfileAction'
+        profile_id:
+          type: string
+        address:
+          type: string
+        handle:
+          type: string
+        image_uri:
+          type: string
+        bio:
+          type: string
+        name:
+          type: string
+        expiry:
+          type: string
+          format: date-time
+        key:
+          type: string
+        value:
+          type: string
     SocialProxyAction:
       type: string
-      enum: *ref_31
+      enum:
+        - appoint
+        - remove
     SocialProxy:
       type: object
-      properties: *ref_32
+      properties:
+        action:
+          $ref: '#/components/schemas/SocialProxyAction'
+        proxy_address:
+          type: string
+        profile:
+          $ref: '#/components/schemas/SocialProfile'
+    SocialRevise:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialReward:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialShare:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
     TransactionApprovalAction:
       type: string
-      enum: *ref_33
+      enum:
+        - approve
+        - revoke
     Network:
       type: string
-      enum: *ref_6
+      enum:
+        - unknown
+        - arbitrum
+        - arweave
+        - avax
+        - base
+        - binance-smart-chain
+        - bitcoin
+        - crossbell
+        - ethereum
+        - farcaster
+        - gnosis
+        - linea
+        - mastodon
+        - near
+        - optimism
+        - polygon
+        - rsshub
+        - savm
+        - vsl
+        - x-layer
       x-go-type: network.Network
-      x-go-type-import: *ref_7
+      x-go-type-import:
+        path: github.com/rss3-network/protocol-go/schema/network
     TransactionApproval:
       type: object
-      properties: *ref_34
+      properties:
+        action:
+          $ref: '#/components/schemas/TransactionApprovalAction'
+        source_network:
+          $ref: '#/components/schemas/Network'
+        target_network:
+          $ref: '#/components/schemas/Network'
+        token:
+          $ref: '#/components/schemas/Token'
     TransactionBridgeAction:
       type: string
-      enum: *ref_35
+      enum:
+        - deposit
+        - withdraw
     TransactionBridge:
       type: object
-      properties: *ref_36
+      properties:
+        action:
+          $ref: '#/components/schemas/TransactionBridgeAction'
+        source_network:
+          $ref: '#/components/schemas/Network'
+        target_network:
+          $ref: '#/components/schemas/Network'
+        token:
+          $ref: '#/components/schemas/Token'
+    TransactionBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    TransactionMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    TransactionTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
     Exchange:
       type: string
-      enum: *ref_37
+      enum:
+        - liquidity
+        - staking
+        - swap
+        - loan
     Transaction:
       type: string
-      enum: *ref_38
+      enum:
+        - approval
+        - bridge
+        - burn
+        - mint
+        - transfer
     Social:
       type: string
-      enum: *ref_39
+      enum:
+        - comment
+        - delete
+        - mint
+        - post
+        - profile
+        - proxy
+        - revise
+        - reward
+        - share
     RSS-2:
       type: string
-      enum: *ref_40
+      enum:
+        - feed
     Collectible:
       type: string
-      enum: *ref_41
+      enum:
+        - approval
+        - burn
+        - mint
+        - trade
+        - transfer
+        - auction
     Unknown:
       type: string
-      enum: *ref_42
+      enum:
+        - unknown
     Metaverse:
       type: string
-      enum: *ref_43
+      enum:
+        - burn
+        - mint
+        - trade
+        - transfer
     Governance:
       type: string
-      enum: *ref_44
+      enum:
+        - proposal
+        - vote
