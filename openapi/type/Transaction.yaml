@@ -1,0 +1,7 @@
+type: string
+enum:
+  - approval
+  - bridge
+  - burn
+  - mint
+  - transfer

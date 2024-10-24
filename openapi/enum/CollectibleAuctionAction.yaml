@@ -1,0 +1,8 @@
+type: string
+enum:
+  - create
+  - bid
+  - finalize
+  - cancel
+  - update
+  - invalidate

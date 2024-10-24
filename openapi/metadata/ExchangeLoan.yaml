@@ -1,0 +1,11 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/ExchangeLoanAction.yaml"
+  collateral:
+    $ref: "../Token.yaml"
+  amount:
+    $ref: "../Token.yaml"
+required:
+  - action
+  - collateral

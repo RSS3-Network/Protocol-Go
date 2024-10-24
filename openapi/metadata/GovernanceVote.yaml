@@ -1,0 +1,13 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/GovernanceVoteAction.yaml"
+  token:
+    $ref: "./GovernanceProposal.yaml"
+  count:
+    type: integer
+  reason:
+    type: string
+required:
+  - action
+  - token

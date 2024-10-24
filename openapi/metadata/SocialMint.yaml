@@ -1,0 +1,3 @@
+allOf:
+  - $ref: "./SocialPost.yaml"
+  - type: object

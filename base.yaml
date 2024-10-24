@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: RSS3 Protocol
+  version: 0.1.0
+  description: RSS3 Protocol is an implementation of the RSS3 Protocol.
+components:
+  schemas:
+    Metadata:
+      $ref: "./openapi/Metadata.yaml"
+    Type:
+      $ref: "./openapi/Type.yaml"
+    Direction:
+      $ref: "./openapi/enum/Direction.yaml"
+    Tag:
+      $ref: "./openapi/enum/Tag.yaml"
+    EthereumChain:
+      $ref: "./openapi/enum/EthereumChain.yaml"

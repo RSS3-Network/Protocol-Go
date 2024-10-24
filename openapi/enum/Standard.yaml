@@ -1,0 +1,9 @@
+type: string
+enum:
+  - Unknown
+  - ERC-20
+  - ERC-165
+  - ERC-721
+  - ERC-1155
+  - ERC-1967
+  - NEP-141

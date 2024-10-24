@@ -1,0 +1,8 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/SocialProxyAction.yaml"
+  proxy_address:
+    type: string
+  profile:
+    $ref: "./SocialProfile.yaml"

@@ -1,0 +1,6 @@
+properties:
+  from:
+    $ref: "../Token.yaml"
+  to:
+    $ref: "../Token.yaml"
+type: object

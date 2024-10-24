@@ -1,0 +1,7 @@
+type: string
+enum:
+  - create
+  - repay
+  - refinance
+  - liquidate
+  - seize

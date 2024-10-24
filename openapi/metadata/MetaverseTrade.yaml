@@ -1,0 +1,8 @@
+allOf:
+  - $ref: "../Token.yaml"
+  - type: object
+    properties:
+      action:
+        $ref: "../enum/MetaverseTradeAction.yaml"
+      cost:
+        $ref: "../Token.yaml"

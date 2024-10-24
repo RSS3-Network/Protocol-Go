@@ -1,0 +1,23 @@
+type: object
+properties:
+  address:
+    type: string
+  id:
+    type: integer
+    format: int64
+  value:
+    type: integer
+    format: int64
+  name:
+    type: string
+  symbol:
+    type: string
+  uri:
+    type: string
+    format: uri
+  decimals:
+    type: integer
+  parsed_image_url:
+    type: string
+  standard:
+    $ref: "./enum/Standard.yaml"

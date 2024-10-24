@@ -1,0 +1,9 @@
+type: string
+enum:
+  - add
+  - borrow
+  - collect
+  - remove
+  - repay
+  - supply
+  - withdraw

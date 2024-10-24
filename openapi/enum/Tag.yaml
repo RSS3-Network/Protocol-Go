@@ -1,0 +1,15 @@
+type: string
+enum:
+  - unknown
+  - collectible
+  - exchange
+  - governance
+  - metaverse
+  - rss
+  - social
+  - transaction
+example: exchange
+x-go-type: tag.Tag
+x-go-type-skip-optional-pointer: true
+x-go-type-import:
+  path: github.com/rss3-network/protocol-go/schema/tag
