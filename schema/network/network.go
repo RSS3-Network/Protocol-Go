@@ -31,6 +31,7 @@ const (
 	SatoshiVM                        // savm
 	VSL                              // vsl
 	XLayer                           // x-layer
+	Bluesky                          // bluesky
 )
 
 var _ echo.BindUnmarshaler = (*Network)(nil)
@@ -56,6 +57,7 @@ const (
 	FarcasterProtocol   Protocol = "farcaster"
 	NearProtocol        Protocol = "near"
 	RSSProtocol         Protocol = "rss"
+	ATProtocol          Protocol = "atproto"
 )
 
 func (n Network) Protocol() Protocol {
@@ -72,6 +74,8 @@ func (n Network) Protocol() Protocol {
 		return NearProtocol
 	case RSSHub:
 		return RSSProtocol
+	case Bluesky:
+		return ATProtocol
 	default:
 		return ""
 	}
@@ -105,6 +109,8 @@ func (s Protocol) Networks() []Network {
 		return []Network{Near}
 	case RSSProtocol:
 		return []Network{RSSHub}
+	case ATProtocol:
+		return []Network{Bluesky}
 	default:
 		return []Network{}
 	}
