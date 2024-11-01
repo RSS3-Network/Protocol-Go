@@ -1,0 +1,592 @@
+openapi: 3.0.3
+info:
+  title: RSS3 Protocol
+  version: 0.1.0
+  description: RSS3 Protocol is an implementation of the RSS3 Protocol.
+paths: {}
+components:
+  schemas:
+    Metadata:
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/CollectibleApproval'
+        - $ref: '#/components/schemas/CollectibleAuction'
+        - $ref: '#/components/schemas/CollectibleBurn'
+        - $ref: '#/components/schemas/CollectibleMint'
+        - $ref: '#/components/schemas/CollectibleTrade'
+        - $ref: '#/components/schemas/CollectibleTransfer'
+        - $ref: '#/components/schemas/ExchangeLiquidity'
+        - $ref: '#/components/schemas/ExchangeLoan'
+        - $ref: '#/components/schemas/ExchangeStaking'
+        - $ref: '#/components/schemas/ExchangeSwap'
+        - $ref: '#/components/schemas/GovernanceProposal'
+        - $ref: '#/components/schemas/GovernanceVote'
+        - $ref: '#/components/schemas/MetaverseBurn'
+        - $ref: '#/components/schemas/MetaverseMint'
+        - $ref: '#/components/schemas/MetaverseTrade'
+        - $ref: '#/components/schemas/MetaverseTransfer'
+        - $ref: '#/components/schemas/RSS'
+        - $ref: '#/components/schemas/SocialComment'
+        - $ref: '#/components/schemas/SocialDelete'
+        - $ref: '#/components/schemas/SocialMint'
+        - $ref: '#/components/schemas/SocialPost'
+        - $ref: '#/components/schemas/SocialProfile'
+        - $ref: '#/components/schemas/SocialProxy'
+        - $ref: '#/components/schemas/SocialRevise'
+        - $ref: '#/components/schemas/SocialReward'
+        - $ref: '#/components/schemas/SocialShare'
+        - $ref: '#/components/schemas/TransactionApproval'
+        - $ref: '#/components/schemas/TransactionBridge'
+        - $ref: '#/components/schemas/TransactionBurn'
+        - $ref: '#/components/schemas/TransactionMint'
+        - $ref: '#/components/schemas/TransactionTransfer'
+    Type:
+      type: string
+      oneOf:
+        - $ref: '#/components/schemas/Exchange'
+        - $ref: '#/components/schemas/Transaction'
+        - $ref: '#/components/schemas/Social'
+        - $ref: '#/components/schemas/Collectible'
+        - $ref: '#/components/schemas/Unknown'
+        - $ref: '#/components/schemas/Metaverse'
+        - $ref: '#/components/schemas/RSSType'
+        - $ref: '#/components/schemas/Governance'
+    Direction:
+      type: string
+      enum:
+        - in
+        - out
+        - self
+      x-go-type: activityx.Direction
+      x-go-type-import:
+        name: activityx
+        path: github.com/rss3-network/protocol-go/schema/activity
+    Tag:
+      type: string
+      enum:
+        - unknown
+        - collectible
+        - exchange
+        - governance
+        - metaverse
+        - rss
+        - social
+        - transaction
+      example: exchange
+      x-go-type: tag.Tag
+      x-go-type-skip-optional-pointer: true
+      x-go-type-import:
+        path: github.com/rss3-network/protocol-go/schema/tag
+    EthereumChain:
+      type: string
+      enum:
+        - arbitrum
+        - avax
+        - base
+        - binance-smart-chain
+        - crossbell
+        - gnosis
+        - linea
+        - ethereum
+        - optimism
+        - polygon
+        - savm
+        - vsl
+        - x-layer
+      x-go-type: network.EthereumChainID
+      x-go-type-import:
+        path: github.com/rss3-network/protocol-go/schema/network
+    Standard:
+      type: string
+      enum:
+        - Unknown
+        - ERC-20
+        - ERC-165
+        - ERC-721
+        - ERC-1155
+        - ERC-1967
+        - NEP-141
+    Token:
+      type: object
+      properties:
+        address:
+          type: string
+        id:
+          type: integer
+          format: int64
+        value:
+          type: integer
+          format: int64
+        name:
+          type: string
+        symbol:
+          type: string
+        uri:
+          type: string
+          format: uri
+        decimals:
+          type: integer
+        parsed_image_url:
+          type: string
+        standard:
+          $ref: '#/components/schemas/Standard'
+    CollectibleApprovalAction:
+      type: string
+      enum:
+        - approve
+        - revoke
+    CollectibleApproval:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+          properties:
+            action:
+              $ref: '#/components/schemas/CollectibleApprovalAction'
+          required:
+            - action
+    CollectibleAuctionAction:
+      type: string
+      enum:
+        - create
+        - bid
+        - finalize
+        - cancel
+        - update
+        - invalidate
+    CollectibleAuction:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - $ref: '#/components/schemas/CollectibleAuctionAction'
+        - type: object
+          properties:
+            cost:
+              $ref: '#/components/schemas/Token'
+    CollectibleBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    CollectibleMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    CollectibleTradeAction:
+      type: string
+      enum:
+        - buy
+        - sell
+        - offer
+        - set
+        - create
+        - finalize
+    CollectibleTrade:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - $ref: '#/components/schemas/CollectibleTradeAction'
+        - type: object
+          properties:
+            cost:
+              $ref: '#/components/schemas/Token'
+    CollectibleTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    ExchangeLiquidityAction:
+      type: string
+      enum:
+        - add
+        - borrow
+        - collect
+        - remove
+        - repay
+        - supply
+        - withdraw
+    ExchangeLiquidity:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeLiquidityAction'
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Token'
+      required:
+        - action
+        - tokens
+    ExchangeLoanAction:
+      type: string
+      enum:
+        - create
+        - repay
+        - refinance
+        - liquidate
+        - seize
+    ExchangeLoan:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeLoanAction'
+        collateral:
+          $ref: '#/components/schemas/Token'
+        amount:
+          $ref: '#/components/schemas/Token'
+      required:
+        - action
+        - collateral
+    ExchangeStakingAction:
+      type: string
+      enum:
+        - stake
+        - unstake
+        - claim
+    ExchangeStaking:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ExchangeStakingAction'
+        token:
+          $ref: '#/components/schemas/Token'
+        period:
+          type: object
+          properties:
+            start:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+          required:
+            - start
+            - end
+      required:
+        - action
+        - token
+    ExchangeSwap:
+      properties:
+        from:
+          $ref: '#/components/schemas/Token'
+        to:
+          $ref: '#/components/schemas/Token'
+      type: object
+    GovernanceProposal:
+      type: object
+      properties:
+        id:
+          type: string
+        body:
+          type: string
+        start_block:
+          type: string
+        end_block:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        link:
+          type: string
+      required:
+        - id
+    GovernanceVoteAction:
+      type: string
+      enum:
+        - for
+        - against
+        - abstain
+    GovernanceVote:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/GovernanceVoteAction'
+        token:
+          $ref: '#/components/schemas/GovernanceProposal'
+        count:
+          type: integer
+        reason:
+          type: string
+      required:
+        - action
+        - token
+    MetaverseBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    MetaverseMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    MetaverseTradeAction:
+      type: string
+      enum:
+        - buy
+        - list
+        - sell
+    MetaverseTrade:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+          properties:
+            action:
+              $ref: '#/components/schemas/MetaverseTradeAction'
+            cost:
+              $ref: '#/components/schemas/Token'
+    MetaverseTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    RSS:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        pub_date:
+          type: string
+          format: date-time
+        authors:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+    Media:
+      type: object
+      properties:
+        address:
+          type: string
+        mime_type:
+          type: string
+    SocialPost:
+      type: object
+      properties:
+        handle:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+        profile_id:
+          type: string
+        publication_id:
+          type: string
+        content_uri:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        author_url:
+          type: string
+        reward:
+          $ref: '#/components/schemas/Token'
+        timestamp:
+          type: integer
+          format: int64
+        target:
+          $ref: '#/components/schemas/SocialPost'
+        target_url:
+          type: string
+    SocialComment:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialDelete:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialMint:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialProfileAction:
+      type: string
+      enum:
+        - create
+        - renew
+        - unwrap
+        - update
+        - wrap
+    SocialProfile:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/SocialProfileAction'
+        profile_id:
+          type: string
+        address:
+          type: string
+        handle:
+          type: string
+        image_uri:
+          type: string
+        bio:
+          type: string
+        name:
+          type: string
+        expiry:
+          type: string
+          format: date-time
+        key:
+          type: string
+        value:
+          type: string
+    SocialProxyAction:
+      type: string
+      enum:
+        - appoint
+        - remove
+    SocialProxy:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/SocialProxyAction'
+        proxy_address:
+          type: string
+        profile:
+          $ref: '#/components/schemas/SocialProfile'
+    SocialRevise:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialReward:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialShare:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    TransactionApprovalAction:
+      type: string
+      enum:
+        - approve
+        - revoke
+    Network:
+      type: string
+      enum:
+        - unknown
+        - arbitrum
+        - arweave
+        - avax
+        - base
+        - binance-smart-chain
+        - bitcoin
+        - crossbell
+        - ethereum
+        - farcaster
+        - gnosis
+        - linea
+        - mastodon
+        - near
+        - optimism
+        - polygon
+        - rsshub
+        - savm
+        - vsl
+        - x-layer
+        - bluesky
+      x-go-type: network.Network
+      x-go-type-import:
+        path: github.com/rss3-network/protocol-go/schema/network
+    TransactionApproval:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/TransactionApprovalAction'
+        source_network:
+          $ref: '#/components/schemas/Network'
+        target_network:
+          $ref: '#/components/schemas/Network'
+        token:
+          $ref: '#/components/schemas/Token'
+    TransactionBridgeAction:
+      type: string
+      enum:
+        - deposit
+        - withdraw
+    TransactionBridge:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/TransactionBridgeAction'
+        source_network:
+          $ref: '#/components/schemas/Network'
+        target_network:
+          $ref: '#/components/schemas/Network'
+        token:
+          $ref: '#/components/schemas/Token'
+    TransactionBurn:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    TransactionMint:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    TransactionTransfer:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - type: object
+    Exchange:
+      type: string
+      enum:
+        - liquidity
+        - staking
+        - swap
+        - loan
+    Transaction:
+      type: string
+      enum:
+        - approval
+        - bridge
+        - burn
+        - mint
+        - transfer
+    Social:
+      type: string
+      enum:
+        - comment
+        - delete
+        - mint
+        - post
+        - profile
+        - proxy
+        - revise
+        - reward
+        - share
+    Collectible:
+      type: string
+      enum:
+        - approval
+        - burn
+        - mint
+        - trade
+        - transfer
+        - auction
+    Unknown:
+      type: string
+      enum:
+        - unknown
+    Metaverse:
+      type: string
+      enum:
+        - burn
+        - mint
+        - trade
+        - transfer
+    RSSType:
+      type: string
+      enum:
+        - feed
+    Governance:
+      type: string
+      enum:
+        - proposal
+        - vote

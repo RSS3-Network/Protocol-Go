@@ -1,0 +1,10 @@
+type: object
+properties:
+  action:
+    $ref: "../enum/TransactionApprovalAction.yaml"
+  source_network:
+    $ref: "../enum/Network.yaml"
+  target_network:
+    $ref: "../enum/Network.yaml"
+  token:
+    $ref: "../Token.yaml"

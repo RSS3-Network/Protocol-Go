@@ -85,7 +85,8 @@ func (s SocialMint) Type() schema.Type {
 	return typex.SocialMint
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output social_profile.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output social_profile.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output ../../openapi/enum/SocialProfileAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type SocialProfileAction uint64
 
 const (
@@ -95,6 +96,8 @@ const (
 	ActionSocialProfileUpdate
 	ActionSocialProfileWrap
 )
+
+var _ Metadata = (*SocialProfile)(nil)
 
 type SocialProfile struct {
 	Action    SocialProfileAction `json:"action,omitempty"`
@@ -113,13 +116,16 @@ func (f SocialProfile) Type() schema.Type {
 	return typex.SocialProfile
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=SocialProxyAction --transform=snake --trimprefix=ActionSocialProxy --output social_proxy.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=SocialProxyAction --transform=snake --trimprefix=ActionSocialProxy --output social_proxy.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=SocialProxyAction --transform=snake --trimprefix=ActionSocialProxy --output ../../openapi/enum/SocialProxyAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type SocialProxyAction uint64
 
 const (
 	ActionSocialProxyAppoint SocialProxyAction = iota + 1
 	ActionSocialProxyRemove
 )
+
+var _ Metadata = (*SocialProxy)(nil)
 
 type SocialProxy struct {
 	Action       SocialProxyAction `json:"action,omitempty"`
