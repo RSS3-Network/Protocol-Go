@@ -1,0 +1,7 @@
+allOf:
+  - $ref: "../Token.yaml"
+  - $ref: "../enum/CollectibleTradeAction.yaml"
+  - type: object
+    properties:
+      cost:
+        $ref: "../Token.yaml"

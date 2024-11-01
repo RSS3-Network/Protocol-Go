@@ -3,6 +3,7 @@ info:
   title: RSS3 Protocol
   version: 0.1.0
   description: RSS3 Protocol is an implementation of the RSS3 Protocol.
+paths: {}
 components:
   schemas:
     Metadata:
@@ -12,7 +13,7 @@ components:
         - $ref: '#/components/schemas/CollectibleAuction'
         - $ref: '#/components/schemas/CollectibleBurn'
         - $ref: '#/components/schemas/CollectibleMint'
-        - $ref: '#/components/schemas/CollectibleTradeAction'
+        - $ref: '#/components/schemas/CollectibleTrade'
         - $ref: '#/components/schemas/CollectibleTransfer'
         - $ref: '#/components/schemas/ExchangeLiquidity'
         - $ref: '#/components/schemas/ExchangeLoan'
@@ -30,7 +31,6 @@ components:
         - $ref: '#/components/schemas/SocialMint'
         - $ref: '#/components/schemas/SocialPost'
         - $ref: '#/components/schemas/SocialProfile'
-        - $ref: '#/components/schemas/SocialProfileAction'
         - $ref: '#/components/schemas/SocialProxy'
         - $ref: '#/components/schemas/SocialRevise'
         - $ref: '#/components/schemas/SocialReward'
@@ -46,10 +46,10 @@ components:
         - $ref: '#/components/schemas/Exchange'
         - $ref: '#/components/schemas/Transaction'
         - $ref: '#/components/schemas/Social'
-        - $ref: '#/components/schemas/RSSType'
         - $ref: '#/components/schemas/Collectible'
         - $ref: '#/components/schemas/Unknown'
         - $ref: '#/components/schemas/Metaverse'
+        - $ref: '#/components/schemas/RSSType'
         - $ref: '#/components/schemas/Governance'
     Direction:
       type: string
@@ -178,6 +178,14 @@ components:
         - set
         - create
         - finalize
+    CollectibleTrade:
+      allOf:
+        - $ref: '#/components/schemas/Token'
+        - $ref: '#/components/schemas/CollectibleTradeAction'
+        - type: object
+          properties:
+            cost:
+              $ref: '#/components/schemas/Token'
     CollectibleTransfer:
       allOf:
         - $ref: '#/components/schemas/Token'
@@ -382,7 +390,7 @@ components:
           type: integer
           format: int64
         target:
-          type: object
+          $ref: '#/components/schemas/SocialPost'
         target_url:
           type: string
     SocialComment:
@@ -483,6 +491,7 @@ components:
         - savm
         - vsl
         - x-layer
+        - bluesky
       x-go-type: network.Network
       x-go-type-import:
         path: github.com/rss3-network/protocol-go/schema/network
@@ -552,10 +561,6 @@ components:
         - revise
         - reward
         - share
-    RSSType:
-      type: string
-      enum:
-        - feed
     Collectible:
       type: string
       enum:
@@ -576,6 +581,10 @@ components:
         - mint
         - trade
         - transfer
+    RSSType:
+      type: string
+      enum:
+        - feed
     Governance:
       type: string
       enum:

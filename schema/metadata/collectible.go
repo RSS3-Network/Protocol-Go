@@ -63,6 +63,8 @@ const (
 	ActionCollectibleTradeFinalize
 )
 
+var _ Metadata = (*CollectibleTrade)(nil)
+
 type CollectibleTrade struct {
 	Action CollectibleTradeAction `json:"action"`
 	Token

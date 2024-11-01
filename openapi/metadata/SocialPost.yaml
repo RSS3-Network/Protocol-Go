@@ -30,7 +30,6 @@ properties:
     type: integer
     format: int64
   target:
-    type: object
-#    $ref: "./SocialPost.yaml"
+    $ref: "./SocialPost.yaml"
   target_url:
     type: string

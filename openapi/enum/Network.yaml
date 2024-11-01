@@ -20,6 +20,7 @@ enum:
   - savm
   - vsl
   - x-layer
+  - bluesky
 x-go-type: network.Network
 x-go-type-import:
   path: github.com/rss3-network/protocol-go/schema/network

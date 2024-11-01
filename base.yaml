@@ -3,6 +3,7 @@ info:
   title: RSS3 Protocol
   version: 0.1.0
   description: RSS3 Protocol is an implementation of the RSS3 Protocol.
+paths: {}
 components:
   schemas:
     Metadata:
