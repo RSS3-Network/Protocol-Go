@@ -33,11 +33,6 @@ func (e ExchangeLiquidity) Type() schema.Type {
 //go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output ../../openapi/enum/ExchangeLiquidityAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type ExchangeLiquidityAction uint64
 
-//goland:noinspection GoMixedReceiverTypes
-func (t ExchangeLiquidityAction) Type() schema.Type {
-	return typex.ExchangeLiquidity
-}
-
 const (
 	ActionExchangeLiquidityAdd ExchangeLiquidityAction = iota + 1
 	ActionExchangeLiquidityBorrow
@@ -69,11 +64,6 @@ type ExchangeStakingPeriod struct {
 //go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=ExchangeStakingAction --transform=snake --trimprefix=ActionExchangeStaking --output ../../openapi/enum/ExchangeStakingAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type ExchangeStakingAction uint64
 
-//goland:noinspection GoMixedReceiverTypes
-func (t ExchangeStakingAction) Type() schema.Type {
-	return typex.ExchangeStaking
-}
-
 const (
 	ActionExchangeStakingStake ExchangeStakingAction = iota + 1
 	ActionExchangeStakingUnstake
@@ -93,11 +83,6 @@ type ExchangeLoan struct {
 }
 
 func (e ExchangeLoan) Type() schema.Type {
-	return typex.ExchangeLoan
-}
-
-//goland:noinspection GoMixedReceiverTypes
-func (e ExchangeLoanAction) Type() schema.Type {
 	return typex.ExchangeLoan
 }
 
