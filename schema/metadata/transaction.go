@@ -66,11 +66,6 @@ func (t TransactionBridge) Type() schema.Type {
 //go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output transaction_bridge.go --json --sql
 type TransactionBridgeAction uint64
 
-//goland:noinspection GoMixedReceiverTypes
-func (t TransactionBridgeAction) Type() schema.Type {
-	return typex.TransactionBridge
-}
-
 const (
 	ActionTransactionBridgeDeposit TransactionBridgeAction = iota + 1
 	ActionTransactionBridgeWithdraw
