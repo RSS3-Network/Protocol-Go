@@ -16,8 +16,13 @@ gen-type:
 gen-metadata:
 	scripts/gen-metadata.sh
 
-gen-api:
+gen-yaml:
 	docker run --rm -v ${PWD}:/local \
 		redocly/cli@latest \
-		bundle -d /local/base.yaml -o /local/api.yaml
-# or just use npx @redocly/cli bundle -d  base.yaml -o api.yaml
+		bundle /local/base.yaml -o /local/api.yaml
+# or just use npx @redocly/cli bundle base.yaml -o api.yaml
+
+gen-json:
+	docker run --rm -v ${PWD}:/local \
+		redocly/cli@latest \
+		bundle /local/base.yaml -o /local/api.json
