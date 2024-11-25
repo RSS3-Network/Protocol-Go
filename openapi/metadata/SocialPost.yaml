@@ -1,0 +1,35 @@
+type: object
+properties:
+  handle:
+    type: string
+  title:
+    type: string
+  summary:
+    type: string
+  body:
+    type: string
+  media:
+    type: array
+    items:
+      $ref: "../Media.yaml"
+  profile_id:
+    type: string
+  publication_id:
+    type: string
+  content_uri:
+    type: string
+  tags:
+    type: array
+    items:
+      type: string
+  author_url:
+    type: string
+  reward:
+    $ref: "../Token.yaml"
+  timestamp:
+    type: integer
+    format: int64
+  target:
+    $ref: "./SocialPost.yaml"
+  target_url:
+    type: string

@@ -1,0 +1,11 @@
+type: string
+enum:
+  - comment
+  - delete
+  - mint
+  - post
+  - profile
+  - proxy
+  - revise
+  - reward
+  - share

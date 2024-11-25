@@ -8,6 +8,7 @@ import (
 )
 
 //go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Network --linecomment --output network_string.go --json --yaml --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=Network --linecomment --output ../../openapi/enum/Network.yaml -t ../../openapi/tmpl/Network.yaml.tmpl
 type Network uint64
 
 const (

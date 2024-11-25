@@ -1,0 +1,10 @@
+type: string
+allOf:
+  - $ref: "./type/Exchange.yaml"
+  - $ref: "./type/Transaction.yaml"
+  - $ref: "./type/Social.yaml"
+  - $ref: "./type/Collectible.yaml"
+  - $ref: "./type/Unknown.yaml"
+  - $ref: "./type/Metaverse.yaml"
+  - $ref: "./type/RSSType.yaml"
+  - $ref: "./type/Governance.yaml"

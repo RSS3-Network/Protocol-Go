@@ -30,7 +30,8 @@ func (t TransactionBurn) Type() schema.Type {
 	return typex.TransactionBurn
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output transaction_approval.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output transaction_approval.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=TransactionApprovalAction --transform=snake --trimprefix=ActionTransaction --output ../../openapi/enum/TransactionApprovalAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type TransactionApprovalAction uint64
 
 const (
@@ -63,13 +64,9 @@ func (t TransactionBridge) Type() schema.Type {
 	return typex.TransactionBridge
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output transaction_bridge.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output transaction_bridge.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=TransactionBridgeAction --transform=snake --trimprefix=ActionTransactionBridge --output ../../openapi/enum/TransactionBridgeAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type TransactionBridgeAction uint64
-
-//goland:noinspection GoMixedReceiverTypes
-func (t TransactionBridgeAction) Type() schema.Type {
-	return typex.TransactionBridge
-}
 
 const (
 	ActionTransactionBridgeDeposit TransactionBridgeAction = iota + 1

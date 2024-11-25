@@ -1,6 +1,7 @@
 package metadata
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Standard --output token_standard_string.go --linecomment --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=Standard --linecomment --output token_standard_string.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=Standard --linecomment --output ../../openapi/enum/Standard.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type Standard int
 
 const (

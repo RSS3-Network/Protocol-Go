@@ -29,13 +29,9 @@ func (e ExchangeLiquidity) Type() schema.Type {
 	return typex.ExchangeSwap
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output exchange_liquidity.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output exchange_liquidity.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=ExchangeLiquidityAction --transform=snake --trimprefix=ActionExchangeLiquidity --output ../../openapi/enum/ExchangeLiquidityAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type ExchangeLiquidityAction uint64
-
-//goland:noinspection GoMixedReceiverTypes
-func (t ExchangeLiquidityAction) Type() schema.Type {
-	return typex.ExchangeLiquidity
-}
 
 const (
 	ActionExchangeLiquidityAdd ExchangeLiquidityAction = iota + 1
@@ -64,13 +60,9 @@ type ExchangeStakingPeriod struct {
 	End   time.Time `json:"end"`
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeStakingAction --transform=snake --trimprefix=ActionExchangeStaking --output exchange_staking.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=ExchangeStakingAction --transform=snake --trimprefix=ActionExchangeStaking --output exchange_staking.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=ExchangeStakingAction --transform=snake --trimprefix=ActionExchangeStaking --output ../../openapi/enum/ExchangeStakingAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type ExchangeStakingAction uint64
-
-//goland:noinspection GoMixedReceiverTypes
-func (t ExchangeStakingAction) Type() schema.Type {
-	return typex.ExchangeStaking
-}
 
 const (
 	ActionExchangeStakingStake ExchangeStakingAction = iota + 1
@@ -78,7 +70,8 @@ const (
 	ActionExchangeStakingClaim
 )
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=ExchangeLoanAction --transform=snake --trimprefix=ActionExchangeLoan --output exchange_loan.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=ExchangeLoanAction --transform=snake --trimprefix=ActionExchangeLoan --output exchange_loan.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=ExchangeLoanAction --transform=snake --trimprefix=ActionExchangeLoan --output ../../openapi/enum/ExchangeLoanAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type ExchangeLoanAction uint64
 
 var _ Metadata = (*ExchangeLoan)(nil)
@@ -90,11 +83,6 @@ type ExchangeLoan struct {
 }
 
 func (e ExchangeLoan) Type() schema.Type {
-	return typex.ExchangeLoan
-}
-
-//goland:noinspection GoMixedReceiverTypes
-func (e ExchangeLoanAction) Type() schema.Type {
 	return typex.ExchangeLoan
 }
 

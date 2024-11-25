@@ -29,13 +29,9 @@ func (c CollectibleBurn) Type() schema.Type {
 	return typex.CollectibleBurn
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output collectible_approval.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output collectible_approval.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=CollectibleApprovalAction --transform=snake --trimprefix=ActionCollectibleApproval --output ../../openapi/enum/CollectibleApprovalAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type CollectibleApprovalAction uint64
-
-//goland:noinspection GoMixedReceiverTypes
-func (t CollectibleApprovalAction) Type() schema.Type {
-	return typex.CollectibleApproval
-}
 
 const (
 	ActionCollectibleApprovalApprove CollectibleApprovalAction = iota + 1
@@ -54,13 +50,9 @@ func (c CollectibleApproval) Type() schema.Type {
 	return typex.CollectibleApproval
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleTradeAction --transform=snake --trimprefix=ActionCollectibleTrade --output collectible_trade.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=CollectibleTradeAction --transform=snake --trimprefix=ActionCollectibleTrade --output collectible_trade.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=CollectibleTradeAction --transform=snake --trimprefix=ActionCollectibleTrade --output ../../openapi/enum/CollectibleTradeAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type CollectibleTradeAction uint64
-
-//goland:noinspection GoMixedReceiverTypes
-func (r CollectibleTradeAction) Type() schema.Type {
-	return typex.CollectibleTrade
-}
 
 const (
 	ActionCollectibleTradeBuy CollectibleTradeAction = iota + 1
@@ -71,7 +63,7 @@ const (
 	ActionCollectibleTradeFinalize
 )
 
-var _ Metadata = (*CollectibleTradeAction)(nil)
+var _ Metadata = (*CollectibleTrade)(nil)
 
 type CollectibleTrade struct {
 	Action CollectibleTradeAction `json:"action"`
@@ -83,7 +75,8 @@ func (r CollectibleTrade) Type() schema.Type {
 	return typex.CollectibleTrade
 }
 
-//go:generate go run --mod=mod github.com/dmarkham/enumer --values --type=CollectibleAuctionAction --transform=snake --trimprefix=ActionCollectibleAuction --output collectible_auction.go --json --sql
+//go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=CollectibleAuctionAction --transform=snake --trimprefix=ActionCollectibleAuction --output collectible_auction.go --json --sql
+//go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=CollectibleAuctionAction --transform=snake --trimprefix=ActionCollectibleAuction --output ../../openapi/enum/CollectibleAuctionAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type CollectibleAuctionAction uint64
 
 var _ Metadata = (*CollectibleAuction)(nil)
@@ -95,11 +88,6 @@ type CollectibleAuction struct {
 }
 
 func (r CollectibleAuction) Type() schema.Type {
-	return typex.CollectibleAuction
-}
-
-//goland:noinspection GoMixedReceiverTypes
-func (r CollectibleAuctionAction) Type() schema.Type {
 	return typex.CollectibleAuction
 }
 
