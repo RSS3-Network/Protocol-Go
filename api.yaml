@@ -35,6 +35,7 @@ components:
         - $ref: '#/components/schemas/SocialRevise'
         - $ref: '#/components/schemas/SocialReward'
         - $ref: '#/components/schemas/SocialShare'
+        - $ref: '#/components/schemas/SocialLike'
         - $ref: '#/components/schemas/TransactionApproval'
         - $ref: '#/components/schemas/TransactionBridge'
         - $ref: '#/components/schemas/TransactionBurn'
@@ -460,6 +461,10 @@ components:
         - $ref: '#/components/schemas/SocialPost'
         - type: object
     SocialShare:
+      allOf:
+        - $ref: '#/components/schemas/SocialPost'
+        - type: object
+    SocialLike:
       allOf:
         - $ref: '#/components/schemas/SocialPost'
         - type: object

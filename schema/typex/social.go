@@ -26,4 +26,5 @@ const (
 	SocialRevise
 	SocialReward
 	SocialShare
+	SocialLike
 )

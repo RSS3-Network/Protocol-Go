@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-const _SocialTypeName = "commentdeletemintpostprofileproxyreviserewardshare"
+const _SocialTypeName = "commentdeletemintpostprofileproxyreviserewardsharelike"
 
-var _SocialTypeIndex = [...]uint8{0, 7, 13, 17, 21, 28, 33, 39, 45, 50}
+var _SocialTypeIndex = [...]uint8{0, 7, 13, 17, 21, 28, 33, 39, 45, 50, 54}
 
-const _SocialTypeLowerName = "commentdeletemintpostprofileproxyreviserewardshare"
+const _SocialTypeLowerName = "commentdeletemintpostprofileproxyreviserewardsharelike"
 
 func (i SocialType) String() string {
 	i -= 1
@@ -40,9 +40,10 @@ func _SocialTypeNoOp() {
 	_ = x[SocialRevise-(7)]
 	_ = x[SocialReward-(8)]
 	_ = x[SocialShare-(9)]
+	_ = x[SocialLike-(10)]
 }
 
-var _SocialTypeValues = []SocialType{SocialComment, SocialDelete, SocialMint, SocialPost, SocialProfile, SocialProxy, SocialRevise, SocialReward, SocialShare}
+var _SocialTypeValues = []SocialType{SocialComment, SocialDelete, SocialMint, SocialPost, SocialProfile, SocialProxy, SocialRevise, SocialReward, SocialShare, SocialLike}
 
 var _SocialTypeNameToValueMap = map[string]SocialType{
 	_SocialTypeName[0:7]:        SocialComment,
@@ -63,6 +64,8 @@ var _SocialTypeNameToValueMap = map[string]SocialType{
 	_SocialTypeLowerName[39:45]: SocialReward,
 	_SocialTypeName[45:50]:      SocialShare,
 	_SocialTypeLowerName[45:50]: SocialShare,
+	_SocialTypeName[50:54]:      SocialLike,
+	_SocialTypeLowerName[50:54]: SocialLike,
 }
 
 var _SocialTypeNames = []string{
@@ -75,6 +78,7 @@ var _SocialTypeNames = []string{
 	_SocialTypeName[33:39],
 	_SocialTypeName[39:45],
 	_SocialTypeName[45:50],
+	_SocialTypeName[50:54],
 }
 
 // SocialTypeString retrieves an enum value from the enum constants string name.
