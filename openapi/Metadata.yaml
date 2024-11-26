@@ -19,6 +19,7 @@ oneOf:
   - $ref: "./metadata/RSS.yaml"
   - $ref: "./metadata/SocialComment.yaml"
   - $ref: "./metadata/SocialDelete.yaml"
+  - $ref: "./metadata/SocialLike.yaml"
   - $ref: "./metadata/SocialMint.yaml"
   - $ref: "./metadata/SocialPost.yaml"
   - $ref: "./metadata/SocialProfile.yaml"
