@@ -85,6 +85,14 @@ func (s SocialMint) Type() schema.Type {
 	return typex.SocialMint
 }
 
+var _ Metadata = (*SocialLike)(nil)
+
+type SocialLike SocialPost
+
+func (s SocialLike) Type() schema.Type {
+	return typex.SocialMint
+}
+
 //go:generate go run --mod=mod github.com/dmarkham/enumer@v1.5.9 --values --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output social_profile.go --json --sql
 //go:generate go run --mod=mod github.com/rss3-network/enum-schema@v0.1.5 --type=SocialProfileAction --transform=snake --trimprefix=ActionSocialProfile --output ../../openapi/enum/SocialProfileAction.yaml -t ../../openapi/tmpl/Action.yaml.tmpl
 type SocialProfileAction uint64

@@ -101,7 +101,7 @@ func unmarshalSocialMetadata(metadataType schema.Type, data json.RawMessage) (Me
 	var result Metadata
 
 	switch metadataType {
-	case typex.SocialComment, typex.SocialDelete, typex.SocialMint, typex.SocialPost, typex.SocialRevise, typex.SocialReward, typex.SocialShare:
+	case typex.SocialComment, typex.SocialDelete, typex.SocialMint, typex.SocialPost, typex.SocialRevise, typex.SocialReward, typex.SocialShare, typex.SocialLike:
 		result = new(SocialPost)
 	case typex.SocialProfile:
 		result = new(SocialProfile)
